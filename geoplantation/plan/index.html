@@ -7,227 +7,144 @@
   <meta name="description" content="GeoPlantation plan proposal. Lite is a six-month trial on one GeoPDF. Premium is the individual plan. Enterprise is the company contract.">
   <style>
     :root {
-      --bg: #f3efe6;
-      --ink: #1c1915;
-      --muted: #5e574e;
-      --faint: #8a8176;
-      --line: #e3d9cc;
-      --paper: #fffdf8;
-      --navy: #172033;
-      --navy-2: #24344c;
-      --brass: #9a7433;
-      --brass-bright: #e4c78a;
-      --brass-soft: #f6edd9;
-      --green: #1a6b43;
-      --blue: #1d4e89;
-      --purple: #5a3d82;
-      --orange: #9a5420;
+      --bg: #f5f7f6;
+      --ink: #1a2420;
+      --muted: #5c6b64;
+      --faint: #8b9892;
+      --line: #e3eae6;
+      --paper: #ffffff;
+      --green: #12875a;
+      --green-dark: #0c6b46;
+      --green-soft: #e7f6ef;
+      --blue: #1d4f91;
+      --purple: #6941a5;
+      --orange: #c26a12;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background:
-        radial-gradient(900px 420px at 100% -10%, rgba(228, 199, 138, 0.18), transparent 60%),
-        var(--bg);
+      background: var(--bg);
       color: var(--ink);
-      font-family: "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 16px;
       line-height: 1.5;
     }
     a { color: inherit; }
-    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
-    .top {
-      background:
-        linear-gradient(160deg, rgba(228, 199, 138, 0.16), transparent 42%),
-        var(--navy);
-      color: #f7f1e6;
-      padding: 28px 0 72px;
-    }
-    .crumb { margin: 0 0 22px; font-size: 13px; color: #c9bfb0; }
-    .crumb a { color: #fff; text-decoration: none; }
+    .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+    .top { padding: 28px 0 8px; }
+    .crumb { margin: 0 0 18px; color: var(--faint); font-size: 14px; }
+    .crumb a { color: var(--green-dark); text-decoration: none; }
     .crumb a:hover { text-decoration: underline; }
-    .eyebrow {
-      margin: 0 0 10px;
-      color: var(--brass-bright);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
     h1 {
-      margin: 0 0 12px;
-      max-width: 16ch;
-      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif;
-      font-size: clamp(40px, 6vw, 64px);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 0.98;
+      margin: 0 0 8px;
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 720;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
     }
-    .lede { margin: 0; max-width: 38rem; color: #ddd4c6; font-size: 1.08rem; }
-    main { padding: 28px 0 64px; }
-    .beats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: -40px 0 22px;
-    }
-    .beat, .card {
+    .lede { margin: 0; max-width: 40rem; color: var(--muted); font-size: 1.05rem; }
+    main { padding: 22px 0 64px; }
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 14px; }
+    .card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(23, 32, 51, 0.05);
-    }
-    .beat { padding: 16px 18px 14px; }
-    .beat b {
-      display: block;
-      margin-bottom: 4px;
-      font-family: Palatino, "Palatino Linotype", Georgia, serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-    .beat span { color: var(--muted); font-size: 0.92rem; }
-    .plans, .scenes { display: grid; gap: 14px; }
-    .plans { grid-template-columns: repeat(3, 1fr); margin-bottom: 14px; }
-    .scenes { grid-template-columns: 1.05fr 1fr; margin-bottom: 34px; }
-    .card { padding: 20px 20px 18px; }
-    .plan { position: relative; overflow: hidden; }
-    .plan::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      background: var(--line);
+      padding: 18px 18px 8px;
     }
     .plan.featured {
-      background: var(--navy);
-      color: #f7f1e6;
-      border-color: var(--navy);
-      transform: translateY(-6px);
+      background: var(--green-soft);
+      border-color: #b7e4cd;
     }
-    .plan.featured::before { background: var(--brass-bright); }
     .badge {
       display: inline-block;
       margin: 0 0 10px;
       padding: 3px 8px;
       border-radius: 999px;
-      background: var(--brass-soft);
-      color: var(--brass);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .plan.featured .badge { background: rgba(228, 199, 138, 0.16); color: var(--brass-bright); }
-    .plan h2, .scene h2 {
-      margin: 0 0 8px;
-      font-family: Palatino, "Palatino Linotype", Georgia, serif;
-      font-size: 1.7rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-    .plan p, .scene li { margin: 0; color: var(--muted); }
-    .plan.featured p { color: #d9d0c3; }
-    .kicker {
-      margin: 0 0 8px;
+      background: #eef2f0;
+      color: var(--muted);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--brass);
     }
-    .scene ul { margin: 14px 0 0; padding: 0; list-style: none; }
-    .scene li {
-      margin: 0 0 12px;
-      padding-left: 14px;
-      border-left: 2px solid var(--line);
+    .plan.featured .badge { background: var(--green); color: #fff; }
+    h2 { margin: 0 0 12px; font-size: 1.45rem; letter-spacing: -0.03em; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    .plan li {
+      margin: 0;
+      padding: 9px 0;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
     }
-    .scene.pay { background: #1c283d; color: #f7f1e6; border-color: #1c283d; }
-    .scene.pay .kicker { color: var(--brass-bright); }
-    .scene.pay li { color: #d9d0c3; border-left-color: var(--brass); }
-    h3 {
-      margin: 0 0 12px;
-      font-family: Palatino, "Palatino Linotype", Georgia, serif;
-      font-size: 1.45rem;
-      font-weight: 600;
+    .plan.featured li { border-top-color: #d3eadf; }
+    .plan li span { color: var(--faint); }
+    .pay {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      align-items: center;
+      margin-bottom: 28px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--muted);
     }
+    .pay strong { color: var(--ink); font-weight: 680; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 680;
+    }
+    h3 { margin: 0 0 12px; font-size: 1.15rem; letter-spacing: -0.02em; }
     .table-scroll {
       overflow-x: auto;
       border: 1px solid var(--line);
       border-radius: 16px;
       background: var(--paper);
-      box-shadow: 0 10px 30px rgba(23, 32, 51, 0.04);
     }
-    table { width: 100%; min-width: 760px; border-collapse: collapse; }
-    th, td { padding: 13px 16px; text-align: left; vertical-align: top; font-size: 0.95rem; }
+    table { width: 100%; min-width: 720px; border-collapse: collapse; }
+    th, td { padding: 12px 16px; text-align: left; vertical-align: middle; }
     thead th {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
       color: var(--muted);
-      background: #faf6ef;
+      background: #fbfcfb;
       border-bottom: 1px solid var(--line);
     }
-    tbody tr + tr td { border-top: 1px solid #efe7db; }
-    td.recommended, th.recommended { background: #fbf6ea; }
-    thead th.recommended { color: var(--brass); }
+    tbody tr + tr td { border-top: 1px solid #eef2f0; }
+    th.recommended, td.recommended { background: #f4fbf7; }
     .module td {
-      border-top: 0;
-      padding-top: 16px;
+      padding-top: 14px;
       padding-bottom: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      border-top: 0;
+      font-size: 13px;
+      font-weight: 750;
     }
-    .module .name { border-left: 4px solid currentColor; }
-    .module .status {
-      text-align: right;
-      text-transform: none;
-      letter-spacing: 0;
-      color: var(--muted);
-      font-weight: 600;
-    }
-    .geopdf { color: var(--green); background: #f3f8f5; }
-    .dashboard { color: var(--blue); background: #f3f6fb; }
-    .scouting { color: var(--purple); background: #f7f4fb; }
-    .reference { color: var(--orange); background: #fbf6f1; }
+    .module .name { border-left: 3px solid currentColor; }
+    .module .status { text-align: right; color: var(--muted); font-weight: 600; }
+    .geopdf { color: var(--green-dark); background: #f3faf6; }
+    .dashboard { color: var(--blue); background: #f4f7fc; }
+    .scouting { color: var(--purple); background: #f7f4fc; }
+    .reference { color: var(--orange); background: #fdf6ef; }
     td.feature { font-weight: 650; }
-    .off { color: var(--faint); }
+    .yes { color: var(--green-dark); font-weight: 650; }
+    .no { color: var(--faint); }
     .note, .decisions {
-      margin-top: 16px;
-      padding: 20px 22px;
+      margin-top: 14px;
+      padding: 16px 18px;
       border-radius: 16px;
       background: var(--paper);
       border: 1px solid var(--line);
     }
-    .note { border-left: 4px solid var(--orange); }
-    .note p, .decisions li { color: var(--muted); }
-    .decisions ol { margin: 10px 0 0; padding: 0; list-style: none; }
-    .decisions li {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 10px;
-      margin: 0 0 10px;
-    }
-    .decisions li::before {
-      content: counter(item);
-      counter-increment: item;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--brass-bright);
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 28px;
-      text-align: center;
-    }
-    .decisions ol { counter-reset: item; }
-    footer { padding: 22px 0 8px; color: var(--faint); font-size: 13px; }
+    .note p, .decisions li { margin: 0; color: var(--muted); }
+    .decisions ol { margin: 8px 0 0; padding-left: 1.2rem; }
+    .decisions li + li { margin-top: 6px; }
+    footer { padding: 18px 0 0; color: var(--faint); font-size: 13px; }
     @media (max-width: 800px) {
-      .beats, .plans, .scenes { grid-template-columns: 1fr; }
-      .plan.featured { transform: none; }
-      .beats { margin-top: 18px; }
+      .plans { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -235,71 +152,61 @@
   <header class="top">
     <div class="wrap">
       <p class="crumb"><a href="../../index.html">Public</a> / GeoPlantation / Plan</p>
-      <p class="eyebrow">Plan proposal</p>
-      <h1>One map for six months</h1>
-      <p class="lede">Lite is a real morning on one GeoPDF, including a saved offline map. The paid plan starts when the work outgrows that one file.</p>
+      <h1>GeoPlantation plans</h1>
+      <p class="lede">Lite is six months and one GeoPDF. You pay for a second file, the dashboard, or sharing.</p>
     </div>
   </header>
 
   <main>
     <div class="wrap">
-      <section class="beats" aria-label="The commercial line">
-        <article class="beat">
-          <b>One file</b>
-          <span>Lite holds a single GeoPDF. A second file is Premium.</span>
-        </article>
-        <article class="beat">
-          <b>Offline stays</b>
-          <span>A saved satellite map is included on Lite, Premium, and Enterprise.</span>
-        </article>
-        <article class="beat">
-          <b>Six months</b>
-          <span>The trial ends. After that, Premium or Enterprise.</span>
-        </article>
-      </section>
-
       <section class="plans" aria-label="Plan names">
         <article class="card plan">
           <p class="badge">6-month trial</p>
           <h2>Lite</h2>
-          <p>Try one farm. One GeoPDF, map tools, an offline map, and up to 30 scouting reports.</p>
+          <ul>
+            <li>1 GeoPDF</li>
+            <li>Map tools on that file</li>
+            <li>Save an offline map</li>
+            <li>Up to 30 scouting reports</li>
+            <li><span>No dashboard</span></li>
+            <li><span>No sharing</span></li>
+          </ul>
         </article>
         <article class="card plan featured">
           <p class="badge">Recommended</p>
           <h2>Premium</h2>
-          <p>The plan to sell. More GeoPDFs, the estate dashboard, and sharing a map file.</p>
+          <ul>
+            <li>Multiple GeoPDFs</li>
+            <li>Estate dashboard</li>
+            <li>Share the map file</li>
+            <li>Save an offline map</li>
+            <li>Scouting, no app cap</li>
+          </ul>
         </article>
         <article class="card plan">
           <p class="badge">Contract</p>
           <h2>Enterprise</h2>
-          <p>The company plan. Custom limits, more plantations, and team scouting when that is built.</p>
-        </article>
-      </section>
-
-      <section class="scenes" aria-label="How the plans feel in the field">
-        <article class="card scene">
-          <p class="kicker">On Lite</p>
-          <h2>The visit still works</h2>
           <ul>
-            <li>The signal drops. Yesterday’s satellite area is already on the phone.</li>
-            <li>They open their one GeoPDF, draw the block, drop a pin, and add a photo.</li>
-            <li>They write a scouting note. Up to 30 reports stay on the phone.</li>
-            <li>After six months, this trial ends.</li>
-          </ul>
-        </article>
-        <article class="card scene pay">
-          <p class="kicker">Why they pay</p>
-          <h2>The work gets bigger</h2>
-          <ul>
-            <li>A second block arrives as another GeoPDF. Lite stops at one file.</li>
-            <li>A manager asks for the estate dashboard. That is Premium.</li>
-            <li>The office needs the map file sent across. Sharing is Premium.</li>
-            <li>A company with many estates is Enterprise, on a contract.</li>
+            <li>Unlimited GeoPDFs, or a contract limit</li>
+            <li>Dashboards across the company</li>
+            <li>Share the map file</li>
+            <li>Higher offline-map limit</li>
+            <li>Team reports when that is built</li>
           </ul>
         </article>
       </section>
 
-      <h3>What each plan includes</h3>
+      <p class="pay">
+        <strong>You pay for</strong>
+        <span class="chips">
+          <span class="chip">Second GeoPDF</span>
+          <span class="chip">Dashboard</span>
+          <span class="chip">Sharing</span>
+        </span>
+        Offline maps stay on Lite.
+      </p>
+
+      <h3>Full comparison</h3>
       <div class="table-scroll">
         <table>
           <thead>
@@ -313,43 +220,43 @@
           <tbody>
             <tr class="module geopdf"><td class="name" colspan="3">GeoPDF</td><td class="status">Available</td></tr>
             <tr><td class="feature">Upload a GeoPDF</td><td>1 file</td><td class="recommended">Multiple files</td><td>Unlimited, or a contract limit</td></tr>
-            <tr><td class="feature">View the file on the map</td><td>Included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Draw, measure, pins, photos, paths, and Go To</td><td>Included on that file</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Save an offline map</td><td>Included</td><td class="recommended">Included</td><td>Included, with a higher or custom limit</td></tr>
-            <tr><td class="feature">Share the map file</td><td class="off">Not included</td><td class="recommended">Included</td><td>Included</td></tr>
+            <tr><td class="feature">View the file on the map</td><td class="yes">Included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Draw, measure, pins, photos, paths, and Go To</td><td>On that file</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Save an offline map</td><td class="yes">Included</td><td class="recommended yes">Included</td><td>Higher or custom limit</td></tr>
+            <tr><td class="feature">Share the map file</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
 
             <tr class="module dashboard"><td class="name" colspan="3">Dashboard</td><td class="status">Available</td></tr>
-            <tr><td class="feature">Estate dashboard</td><td class="off">Not included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Inventory, multispectral, and design and planning</td><td class="off">Not included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Multiple plantations and custom dashboards</td><td class="off">Not included</td><td class="recommended">Plantations assigned to the account</td><td>Across the organization</td></tr>
+            <tr><td class="feature">Estate dashboard</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Inventory, multispectral, and design and planning</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Multiple plantations and custom dashboards</td><td class="no">Not included</td><td class="recommended">Plantations on the account</td><td>Across the organization</td></tr>
 
             <tr class="module scouting"><td class="name" colspan="3">Scouting</td><td class="status">Available</td></tr>
-            <tr><td class="feature">Create and edit reports</td><td>Up to 30 reports</td><td class="recommended">No application cap</td><td>No application cap, or a contract cap</td></tr>
-            <tr><td class="feature">Photos and notes on a report</td><td>Included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Open a report on the map</td><td>Included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Reports shared across a team</td><td class="off">Not included</td><td class="recommended off">Not included</td><td>Included when team sharing is available</td></tr>
+            <tr><td class="feature">Create and edit reports</td><td>Up to 30</td><td class="recommended">No app cap</td><td>No app cap, or a contract cap</td></tr>
+            <tr><td class="feature">Photos and notes on a report</td><td class="yes">Included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Open a report on the map</td><td class="yes">Included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Reports shared across a team</td><td class="no">Not included</td><td class="recommended no">Not included</td><td>When team sharing is built</td></tr>
 
             <tr class="module reference"><td class="name" colspan="3">Reference</td><td class="status">Sample or fixed data</td></tr>
-            <tr><td class="feature">Drone and satellite</td><td class="off">Not included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Sensor</td><td class="off">Not included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Crops</td><td class="off">Not included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Pest</td><td class="off">Not included</td><td class="recommended">Included</td><td>Included</td></tr>
-            <tr><td class="feature">Shop</td><td class="off">Not included</td><td class="recommended">Included</td><td>Included</td></tr>
+            <tr><td class="feature">Drone and satellite</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Sensor</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Crops</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Pest</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Shop</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
           </tbody>
         </table>
       </div>
 
       <section class="note">
-        <h3>If someone asks about drone, sensor, crops, or pest</h3>
-        <p>Those screens are in the app, and they sit on Premium and Enterprise as reference. The data is still sample or fixed, so they are not part of the Lite trial and they are not the reason to buy. Shop is also excluded from Lite. Team sharing for scouting is not built yet.</p>
+        <h3>Reference screens</h3>
+        <p>Drone, sensor, crops, pest, and shop use sample or fixed data. They are on Premium and Enterprise only. They are not the reason to buy. Team scouting is not built yet.</p>
       </section>
 
       <section class="decisions">
-        <h3>Decisions to confirm</h3>
+        <h3>Decisions</h3>
         <ol>
-          <li>Lite lasts six months, then the user needs Premium or Enterprise.</li>
+          <li>Lite ends after six months. Then Premium or Enterprise.</li>
           <li>The paid step up is a second GeoPDF, the dashboard, and sharing. Offline maps stay on Lite.</li>
-          <li>Enterprise is a contract, not a longer feature list that is still unbuilt.</li>
+          <li>Enterprise is a contract, not a list of features that are still unbuilt.</li>
         </ol>
       </section>
 

@@ -7,97 +7,70 @@
   <meta name="description" content="Public pages for sharing. GeoPlantation plan proposal and later notes live here.">
   <style>
     :root {
-      --bg: #f3efe6;
-      --ink: #1c1915;
-      --muted: #5e574e;
-      --line: #e3d9cc;
-      --paper: #fffdf8;
-      --navy: #172033;
-      --brass: #9a7433;
-      --brass-bright: #e4c78a;
-      --brass-soft: #f6edd9;
+      --bg: #f5f7f6;
+      --ink: #1a2420;
+      --muted: #5c6b64;
+      --line: #e3eae6;
+      --paper: #ffffff;
+      --green: #12875a;
+      --green-dark: #0c6b46;
+      --green-soft: #e7f6ef;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background:
-        radial-gradient(800px 360px at 100% -10%, rgba(228, 199, 138, 0.2), transparent 55%),
-        var(--bg);
+      background: var(--bg);
       color: var(--ink);
-      font-family: "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
     }
-    .top {
-      background:
-        linear-gradient(160deg, rgba(228, 199, 138, 0.16), transparent 42%),
-        var(--navy);
-      color: #f7f1e6;
-      padding: 36px 0 42px;
-    }
-    .wrap { width: min(880px, calc(100% - 40px)); margin: 0 auto; }
+    .wrap { width: min(720px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
     .eyebrow {
-      margin: 0 0 10px;
-      font-size: 12px;
+      margin: 0 0 8px;
+      color: var(--green-dark);
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--brass-bright);
     }
     h1 {
-      margin: 0 0 10px;
-      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif;
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 600;
-      letter-spacing: -0.03em;
+      margin: 0 0 8px;
+      font-size: clamp(32px, 5vw, 40px);
+      font-weight: 720;
+      letter-spacing: -0.035em;
     }
-    .lede { margin: 0; max-width: 36rem; color: #ddd4c6; line-height: 1.5; }
-    main { padding: 28px 0 72px; }
+    .lede { margin: 0 0 28px; color: var(--muted); }
     a.card {
       display: grid;
-      gap: 8px;
-      padding: 22px 24px;
+      gap: 6px;
+      padding: 18px 20px;
       border: 1px solid var(--line);
       border-radius: 16px;
       background: var(--paper);
       color: inherit;
       text-decoration: none;
-      box-shadow: 0 10px 30px rgba(23, 32, 51, 0.05);
     }
-    a.card:hover { border-color: var(--brass); }
-    a.card strong {
-      font-family: Palatino, "Palatino Linotype", Georgia, serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
-    a.card span { color: var(--muted); line-height: 1.45; }
+    a.card:hover { border-color: #b7e4cd; }
+    a.card strong { font-size: 1.25rem; letter-spacing: -0.02em; }
+    a.card span { color: var(--muted); }
     .tag {
       justify-self: start;
-      padding: 4px 8px;
+      padding: 3px 8px;
       border-radius: 999px;
-      background: var(--brass-soft);
-      color: var(--brass);
+      background: var(--green-soft);
+      color: var(--green-dark);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <p class="eyebrow">Public</p>
-      <h1>Shared pages</h1>
-      <p class="lede">Notes meant to be opened by anyone. Each topic gets its own folder.</p>
-    </div>
-  </header>
-  <main>
-    <div class="wrap">
-      <a class="card" href="geoplantation/plan/index.html">
-        <span class="tag">GeoPlantation</span>
-        <strong>Plan</strong>
-        <span>Lite, Premium, and Enterprise. One GeoPDF for six months, then the paid plan.</span>
-      </a>
-    </div>
-  </main>
+  <div class="wrap">
+    <p class="eyebrow">Public</p>
+    <h1>Shared pages</h1>
+    <p class="lede">Notes meant to be opened by anyone. Each topic gets its own folder.</p>
+    <a class="card" href="geoplantation/plan/index.html">
+      <span class="tag">GeoPlantation</span>
+      <strong>Plan</strong>
+      <span>Lite, Premium, and Enterprise. One GeoPDF for six months, then the paid plan.</span>
+    </a>
+  </div>
 </body>
 </html>
