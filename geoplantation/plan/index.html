@@ -13,15 +13,15 @@
       --faint: #8b9892;
       --line: #e3eae6;
       --paper: #ffffff;
-      --green: #12875a;
-      --green-dark: #0c6b46;
-      --green-soft: #e7f6ef;
-      --blue: #1d4f91;
-      --purple: #6941a5;
-      --orange: #c26a12;
-      --lite: #2f6fed;
-      --premium: #0f9a62;
-      --enterprise: #6a4de0;
+      --green: #1f5c45;
+      --green-dark: #1a4d3a;
+      --green-soft: #eef4f1;
+      --blue: #3d5270;
+      --purple: #5c4d68;
+      --orange: #8a5a32;
+      --lite: #3f5568;
+      --premium: #1f5c45;
+      --enterprise: #5c4636;
     }
     * { box-sizing: border-box; }
     body {
@@ -54,24 +54,25 @@
       overflow: hidden;
       padding: 0;
       border: 0;
-      border-radius: 20px;
+      border: 1px solid #e4e2de;
+      border-radius: 12px;
       background: var(--paper);
-      box-shadow: 0 12px 32px rgba(24, 36, 64, 0.08);
+      box-shadow: 0 1px 2px rgba(28, 32, 30, 0.04);
     }
     .plan-head {
-      padding: 18px 18px 16px;
-      color: #fff;
+      padding: 16px 18px 14px;
+      color: #f7f6f3;
     }
-    .plan.lite .plan-head { background: linear-gradient(145deg, #5b93f5, var(--lite)); }
-    .plan.premium { transform: translateY(-8px); }
-    .plan.premium .plan-head { background: linear-gradient(145deg, #2ec98a, var(--premium)); }
-    .plan.enterprise .plan-head { background: linear-gradient(145deg, #8b74f2, var(--enterprise)); }
+    .plan.lite .plan-head { background: var(--lite); }
+    .plan.premium { border-color: #c9d7d0; }
+    .plan.premium .plan-head { background: var(--premium); }
+    .plan.enterprise .plan-head { background: var(--enterprise); }
     .badge {
       display: inline-block;
       margin: 0 0 8px;
       padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.14);
       color: #fff;
       font-size: 12px;
       font-weight: 700;
@@ -138,13 +139,13 @@
       background: #fbfcfb;
       border-bottom: 1px solid var(--line);
     }
-    thead .col-lite { color: var(--lite); background: #f3f7ff; }
-    thead .col-premium { color: var(--premium); background: #eefaf4; }
-    thead .col-enterprise { color: var(--enterprise); background: #f6f3ff; }
+    thead .col-lite { color: var(--lite); background: #f4f6f7; }
+    thead .col-premium { color: var(--premium); background: #f3f7f5; }
+    thead .col-enterprise { color: var(--enterprise); background: #f7f5f3; }
     tbody tr + tr td { border-top: 1px solid #eef2f0; }
-    tbody tr:not(.module) td:nth-child(2) { background: #f8fbff; }
-    tbody tr:not(.module) td:nth-child(3) { background: #f4fbf7; }
-    tbody tr:not(.module) td:nth-child(4) { background: #f8f6ff; }
+    tbody tr:not(.module) td:nth-child(2) { background: #f8f9fa; }
+    tbody tr:not(.module) td:nth-child(3) { background: #f6f8f7; }
+    tbody tr:not(.module) td:nth-child(4) { background: #f8f7f6; }
     th.recommended, td.recommended { background: #f4fbf7; }
     .module td {
       padding-top: 14px;
@@ -155,10 +156,10 @@
     }
     .module .name { border-left: 3px solid currentColor; }
     .module .status { text-align: right; color: var(--muted); font-weight: 600; }
-    .geopdf { color: var(--green-dark); background: #f3faf6; }
-    .dashboard { color: var(--blue); background: #f4f7fc; }
-    .scouting { color: var(--purple); background: #f7f4fc; }
-    .reference { color: var(--orange); background: #fdf6ef; }
+    .geopdf { color: var(--green-dark); background: #f4f7f5; }
+    .dashboard { color: var(--blue); background: #f4f6f8; }
+    .scouting { color: var(--purple); background: #f6f5f7; }
+    .reference { color: var(--orange); background: #f8f6f3; }
     td.feature { font-weight: 650; }
     .yes { color: var(--green-dark); font-weight: 650; }
     .no { color: var(--faint); }
@@ -175,7 +176,6 @@
     footer { padding: 18px 0 0; color: var(--faint); font-size: 13px; }
     @media (max-width: 800px) {
       .plans { grid-template-columns: 1fr; }
-      .plan.premium { transform: none; }
     }
   </style>
 </head>
