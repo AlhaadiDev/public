@@ -19,6 +19,9 @@
       --blue: #1d4f91;
       --purple: #6941a5;
       --orange: #c26a12;
+      --lite: #2f6fed;
+      --premium: #0f9a62;
+      --enterprise: #6a4de0;
     }
     * { box-sizing: border-box; }
     body {
@@ -44,38 +47,59 @@
     }
     .lede { margin: 0; max-width: 40rem; color: var(--muted); font-size: 1.05rem; }
     main { padding: 22px 0 64px; }
-    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 14px; }
-    .card {
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; align-items: stretch; }
+    .plan {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 0;
+      border: 0;
+      border-radius: 20px;
       background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px 18px 8px;
+      box-shadow: 0 12px 32px rgba(24, 36, 64, 0.08);
     }
-    .plan.featured {
-      background: var(--green-soft);
-      border-color: #b7e4cd;
+    .plan-head {
+      padding: 18px 18px 16px;
+      color: #fff;
     }
+    .plan.lite .plan-head { background: linear-gradient(145deg, #5b93f5, var(--lite)); }
+    .plan.premium { transform: translateY(-8px); }
+    .plan.premium .plan-head { background: linear-gradient(145deg, #2ec98a, var(--premium)); }
+    .plan.enterprise .plan-head { background: linear-gradient(145deg, #8b74f2, var(--enterprise)); }
     .badge {
       display: inline-block;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       padding: 3px 8px;
       border-radius: 999px;
-      background: #eef2f0;
-      color: var(--muted);
+      background: rgba(255, 255, 255, 0.22);
+      color: #fff;
       font-size: 12px;
       font-weight: 700;
     }
-    .plan.featured .badge { background: var(--green); color: #fff; }
-    h2 { margin: 0 0 12px; font-size: 1.45rem; letter-spacing: -0.03em; }
-    ul { margin: 0; padding: 0; list-style: none; }
+    .plan h2 { margin: 0; color: #fff; font-size: 1.55rem; letter-spacing: -0.03em; }
+    .plan ul { margin: 0; padding: 8px 18px 14px; list-style: none; }
     .plan li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
       margin: 0;
-      padding: 9px 0;
-      border-top: 1px solid var(--line);
+      padding: 10px 0;
+      border-top: 1px solid #eef2f0;
       color: var(--ink);
     }
-    .plan.featured li { border-top-color: #d3eadf; }
+    .plan li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 7px;
+      border-radius: 50%;
+      flex: none;
+    }
+    .plan.lite li::before { background: var(--lite); }
+    .plan.premium li::before { background: var(--premium); }
+    .plan.enterprise li::before { background: var(--enterprise); }
     .plan li span { color: var(--faint); }
+    .plan li.off::before { background: #d5ddd9; }
     .pay {
       display: flex;
       flex-wrap: wrap;
@@ -114,7 +138,13 @@
       background: #fbfcfb;
       border-bottom: 1px solid var(--line);
     }
+    thead .col-lite { color: var(--lite); background: #f3f7ff; }
+    thead .col-premium { color: var(--premium); background: #eefaf4; }
+    thead .col-enterprise { color: var(--enterprise); background: #f6f3ff; }
     tbody tr + tr td { border-top: 1px solid #eef2f0; }
+    tbody tr:not(.module) td:nth-child(2) { background: #f8fbff; }
+    tbody tr:not(.module) td:nth-child(3) { background: #f4fbf7; }
+    tbody tr:not(.module) td:nth-child(4) { background: #f8f6ff; }
     th.recommended, td.recommended { background: #f4fbf7; }
     .module td {
       padding-top: 14px;
@@ -145,6 +175,7 @@
     footer { padding: 18px 0 0; color: var(--faint); font-size: 13px; }
     @media (max-width: 800px) {
       .plans { grid-template-columns: 1fr; }
+      .plan.premium { transform: none; }
     }
   </style>
 </head>
@@ -160,21 +191,25 @@
   <main>
     <div class="wrap">
       <section class="plans" aria-label="Plan names">
-        <article class="card plan">
-          <p class="badge">6-month trial</p>
-          <h2>Lite</h2>
+        <article class="plan lite">
+          <div class="plan-head">
+            <p class="badge">6-month trial</p>
+            <h2>Lite</h2>
+          </div>
           <ul>
             <li>1 GeoPDF</li>
             <li>Map tools on that file</li>
             <li>Save an offline map</li>
             <li>Up to 30 scouting reports</li>
-            <li><span>No dashboard</span></li>
-            <li><span>No sharing</span></li>
+            <li class="off"><span>No dashboard</span></li>
+            <li class="off"><span>No sharing</span></li>
           </ul>
         </article>
-        <article class="card plan featured">
-          <p class="badge">Recommended</p>
-          <h2>Premium</h2>
+        <article class="plan premium">
+          <div class="plan-head">
+            <p class="badge">Recommended</p>
+            <h2>Premium</h2>
+          </div>
           <ul>
             <li>Multiple GeoPDFs</li>
             <li>Estate dashboard</li>
@@ -183,9 +218,11 @@
             <li>Scouting, no app cap</li>
           </ul>
         </article>
-        <article class="card plan">
-          <p class="badge">Contract</p>
-          <h2>Enterprise</h2>
+        <article class="plan enterprise">
+          <div class="plan-head">
+            <p class="badge">Contract</p>
+            <h2>Enterprise</h2>
+          </div>
           <ul>
             <li>Unlimited GeoPDFs, or a contract limit</li>
             <li>Dashboards across the company</li>
@@ -212,9 +249,9 @@
           <thead>
             <tr>
               <th>Capability</th>
-              <th>Lite</th>
-              <th class="recommended">Premium</th>
-              <th>Enterprise</th>
+              <th class="col-lite">Lite</th>
+              <th class="col-premium recommended">Premium</th>
+              <th class="col-enterprise">Enterprise</th>
             </tr>
           </thead>
           <tbody>
