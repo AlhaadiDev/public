@@ -7,132 +7,227 @@
   <meta name="description" content="GeoPlantation plan proposal. Lite is a six-month trial on one GeoPDF. Premium is the individual plan. Enterprise is the company contract.">
   <style>
     :root {
-      --bg: #f3f5f4;
-      --ink: #14201b;
-      --muted: #5c6a63;
-      --faint: #8b9690;
-      --line: #dce3df;
-      --paper: #ffffff;
-      --green: #0f6b45;
-      --green-dark: #0c3d2c;
-      --green-soft: #e7f5ee;
-      --blue: #1d4f86;
-      --purple: #5c3d86;
-      --orange: #9a5416;
+      --bg: #f3efe6;
+      --ink: #1c1915;
+      --muted: #5e574e;
+      --faint: #8a8176;
+      --line: #e3d9cc;
+      --paper: #fffdf8;
+      --navy: #172033;
+      --navy-2: #24344c;
+      --brass: #9a7433;
+      --brass-bright: #e4c78a;
+      --brass-soft: #f6edd9;
+      --green: #1a6b43;
+      --blue: #1d4e89;
+      --purple: #5a3d82;
+      --orange: #9a5420;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(900px 420px at 100% -10%, rgba(228, 199, 138, 0.18), transparent 60%),
+        var(--bg);
       color: var(--ink);
       font-family: "Segoe UI", ui-sans-serif, system-ui, sans-serif;
       line-height: 1.5;
     }
     a { color: inherit; }
-    .wrap { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
-    .top { background: var(--green-dark); color: #fff; padding: 22px 0 36px; }
-    .crumb { margin: 0 0 18px; font-size: 13px; color: #b7d7c8; }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+    .top {
+      background:
+        linear-gradient(160deg, rgba(228, 199, 138, 0.16), transparent 42%),
+        var(--navy);
+      color: #f7f1e6;
+      padding: 28px 0 72px;
+    }
+    .crumb { margin: 0 0 22px; font-size: 13px; color: #c9bfb0; }
     .crumb a { color: #fff; text-decoration: none; }
     .crumb a:hover { text-decoration: underline; }
-    h1 {
+    .eyebrow {
       margin: 0 0 10px;
-      font-size: clamp(34px, 5vw, 52px);
-      letter-spacing: -0.035em;
-      line-height: 1.05;
-    }
-    .lede { margin: 0; max-width: 40rem; color: #d7e8df; font-size: 1.05rem; }
-    main { padding: 28px 0 56px; }
-    .plans, .scenes { display: grid; gap: 14px; }
-    .plans { grid-template-columns: repeat(3, 1fr); margin-bottom: 18px; }
-    .scenes { grid-template-columns: 1fr 1fr; margin-bottom: 28px; }
-    .card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 18px 16px;
-    }
-    .plan.featured {
-      background: var(--green-dark);
-      color: #fff;
-      border-color: var(--green-dark);
-    }
-    .badge {
-      display: inline-block;
-      margin: 0 0 8px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: var(--green-soft);
-      color: var(--green);
-      font-size: 11px;
+      color: var(--brass-bright);
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
-    .plan.featured .badge { background: rgba(255,255,255,0.14); color: #fff; }
-    .plan h2, .scene h2 { margin: 0 0 6px; font-size: 1.25rem; letter-spacing: -0.02em; }
-    .plan p, .scene li { margin: 0; color: var(--muted); }
-    .plan.featured p { color: #d5e6dc; }
-    .kicker {
-      margin: 0 0 6px;
-      font-size: 12px;
+    h1 {
+      margin: 0 0 12px;
+      max-width: 16ch;
+      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 0.98;
+    }
+    .lede { margin: 0; max-width: 38rem; color: #ddd4c6; font-size: 1.08rem; }
+    main { padding: 28px 0 64px; }
+    .beats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: -40px 0 22px;
+    }
+    .beat, .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(23, 32, 51, 0.05);
+    }
+    .beat { padding: 16px 18px 14px; }
+    .beat b {
+      display: block;
+      margin-bottom: 4px;
+      font-family: Palatino, "Palatino Linotype", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .beat span { color: var(--muted); font-size: 0.92rem; }
+    .plans, .scenes { display: grid; gap: 14px; }
+    .plans { grid-template-columns: repeat(3, 1fr); margin-bottom: 14px; }
+    .scenes { grid-template-columns: 1.05fr 1fr; margin-bottom: 34px; }
+    .card { padding: 20px 20px 18px; }
+    .plan { position: relative; overflow: hidden; }
+    .plan::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--line);
+    }
+    .plan.featured {
+      background: var(--navy);
+      color: #f7f1e6;
+      border-color: var(--navy);
+      transform: translateY(-6px);
+    }
+    .plan.featured::before { background: var(--brass-bright); }
+    .badge {
+      display: inline-block;
+      margin: 0 0 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--brass-soft);
+      color: var(--brass);
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--green);
     }
-    .scene ul { margin: 10px 0 0; padding: 0; list-style: none; }
+    .plan.featured .badge { background: rgba(228, 199, 138, 0.16); color: var(--brass-bright); }
+    .plan h2, .scene h2 {
+      margin: 0 0 8px;
+      font-family: Palatino, "Palatino Linotype", Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .plan p, .scene li { margin: 0; color: var(--muted); }
+    .plan.featured p { color: #d9d0c3; }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+    .scene ul { margin: 14px 0 0; padding: 0; list-style: none; }
     .scene li {
-      margin: 0 0 10px;
-      padding-left: 12px;
+      margin: 0 0 12px;
+      padding-left: 14px;
       border-left: 2px solid var(--line);
     }
-    .scene.pay li { border-left-color: var(--green); }
-    h3 { margin: 0 0 12px; font-size: 1.15rem; }
+    .scene.pay { background: #1c283d; color: #f7f1e6; border-color: #1c283d; }
+    .scene.pay .kicker { color: var(--brass-bright); }
+    .scene.pay li { color: #d9d0c3; border-left-color: var(--brass); }
+    h3 {
+      margin: 0 0 12px;
+      font-family: Palatino, "Palatino Linotype", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+    }
     .table-scroll {
       overflow-x: auto;
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 16px;
       background: var(--paper);
+      box-shadow: 0 10px 30px rgba(23, 32, 51, 0.04);
     }
     table { width: 100%; min-width: 760px; border-collapse: collapse; }
     th, td { padding: 13px 16px; text-align: left; vertical-align: top; font-size: 0.95rem; }
     thead th {
       font-size: 12px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
-      background: #f7faf8;
+      background: #faf6ef;
       border-bottom: 1px solid var(--line);
     }
-    tbody tr + tr td { border-top: 1px solid var(--line); }
-    td.recommended, th.recommended { background: #f3faf6; }
+    tbody tr + tr td { border-top: 1px solid #efe7db; }
+    td.recommended, th.recommended { background: #fbf6ea; }
+    thead th.recommended { color: var(--brass); }
     .module td {
       border-top: 0;
-      font-size: 13px;
+      padding-top: 16px;
+      padding-bottom: 8px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
     .module .name { border-left: 4px solid currentColor; }
-    .module .status { text-align: right; text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 600; }
-    .geopdf { color: var(--green); background: #f3faf6; }
-    .dashboard { color: var(--blue); background: #f4f7fb; }
+    .module .status {
+      text-align: right;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .geopdf { color: var(--green); background: #f3f8f5; }
+    .dashboard { color: var(--blue); background: #f3f6fb; }
     .scouting { color: var(--purple); background: #f7f4fb; }
     .reference { color: var(--orange); background: #fbf6f1; }
     td.feature { font-weight: 650; }
     .off { color: var(--faint); }
     .note, .decisions {
       margin-top: 16px;
-      padding: 18px 20px;
-      border-radius: 18px;
+      padding: 20px 22px;
+      border-radius: 16px;
       background: var(--paper);
       border: 1px solid var(--line);
     }
+    .note { border-left: 4px solid var(--orange); }
     .note p, .decisions li { color: var(--muted); }
-    .decisions ol { margin: 8px 0 0; padding-left: 1.2rem; }
-    footer { padding: 8px 0 40px; color: var(--faint); font-size: 13px; }
+    .decisions ol { margin: 10px 0 0; padding: 0; list-style: none; }
+    .decisions li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      margin: 0 0 10px;
+    }
+    .decisions li::before {
+      content: counter(item);
+      counter-increment: item;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--brass-bright);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 28px;
+      text-align: center;
+    }
+    .decisions ol { counter-reset: item; }
+    footer { padding: 22px 0 8px; color: var(--faint); font-size: 13px; }
     @media (max-width: 800px) {
-      .plans, .scenes { grid-template-columns: 1fr; }
+      .beats, .plans, .scenes { grid-template-columns: 1fr; }
+      .plan.featured { transform: none; }
+      .beats { margin-top: 18px; }
     }
   </style>
 </head>
@@ -140,6 +235,7 @@
   <header class="top">
     <div class="wrap">
       <p class="crumb"><a href="../../index.html">Public</a> / GeoPlantation / Plan</p>
+      <p class="eyebrow">Plan proposal</p>
       <h1>One map for six months</h1>
       <p class="lede">Lite is a real morning on one GeoPDF, including a saved offline map. The paid plan starts when the work outgrows that one file.</p>
     </div>
@@ -147,6 +243,21 @@
 
   <main>
     <div class="wrap">
+      <section class="beats" aria-label="The commercial line">
+        <article class="beat">
+          <b>One file</b>
+          <span>Lite holds a single GeoPDF. A second file is Premium.</span>
+        </article>
+        <article class="beat">
+          <b>Offline stays</b>
+          <span>A saved satellite map is included on Lite, Premium, and Enterprise.</span>
+        </article>
+        <article class="beat">
+          <b>Six months</b>
+          <span>The trial ends. After that, Premium or Enterprise.</span>
+        </article>
+      </section>
+
       <section class="plans" aria-label="Plan names">
         <article class="card plan">
           <p class="badge">6-month trial</p>
