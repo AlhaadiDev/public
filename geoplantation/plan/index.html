@@ -13,15 +13,16 @@
       --faint: #8b9892;
       --line: #e3eae6;
       --paper: #ffffff;
-      --green: #1f5c45;
-      --green-dark: #1a4d3a;
-      --green-soft: #eef4f1;
-      --blue: #3d5270;
-      --purple: #5c4d68;
-      --orange: #8a5a32;
-      --lite: #3f5568;
-      --premium: #1f5c45;
-      --enterprise: #5c4636;
+      --green: #0e7a49;
+      --green-dark: #0c6840;
+      --green-soft: #e7f6ee;
+      --blue: #1d4e89;
+      --purple: #5a3d82;
+      --orange: #9a5416;
+      --lite: #1f5fae;
+      --premium: #0e7a49;
+      --enterprise: #e0aa1e;
+      --enterprise-ink: #3d2c08;
     }
     * { box-sizing: border-box; }
     body {
@@ -47,37 +48,60 @@
     }
     .lede { margin: 0; max-width: 40rem; color: var(--muted); font-size: 1.05rem; }
     main { padding: 22px 0 64px; }
-    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; align-items: stretch; }
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; padding-top: 22px; align-items: stretch; }
     .plan {
+      position: relative;
       display: flex;
       flex-direction: column;
       overflow: hidden;
       padding: 0;
-      border: 0;
-      border: 1px solid #e4e2de;
-      border-radius: 12px;
+      border: 1px solid #e3e6e4;
+      border-radius: 18px;
       background: var(--paper);
-      box-shadow: 0 1px 2px rgba(28, 32, 30, 0.04);
+      box-shadow: 0 10px 28px rgba(24, 36, 32, 0.08);
     }
-    .plan-head {
-      padding: 16px 18px 14px;
-      color: #f7f6f3;
-    }
+    .plan-head { padding: 18px 18px 16px; color: #fff; }
     .plan.lite .plan-head { background: var(--lite); }
-    .plan.premium { border-color: #c9d7d0; }
     .plan.premium .plan-head { background: var(--premium); }
-    .plan.enterprise .plan-head { background: var(--enterprise); }
+    .plan.enterprise {
+      overflow: visible;
+      border-color: #efd27a;
+      box-shadow: 0 14px 32px rgba(176, 132, 18, 0.18);
+    }
+    .plan.enterprise .plan-head {
+      border-radius: 17px 17px 0 0;
+      background: linear-gradient(180deg, #f6d56a, var(--enterprise));
+      color: var(--enterprise-ink);
+    }
+    .crown {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: #f6d56a;
+      color: var(--enterprise-ink);
+      box-shadow: 0 6px 14px rgba(176, 132, 18, 0.28);
+    }
+    .crown svg { width: 28px; height: 20px; display: block; }
     .badge {
       display: inline-block;
       margin: 0 0 8px;
       padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.18);
       color: #fff;
       font-size: 12px;
       font-weight: 700;
     }
-    .plan h2 { margin: 0; color: #fff; font-size: 1.55rem; letter-spacing: -0.03em; }
+    .plan.enterprise .badge { background: rgba(61, 44, 8, 0.12); color: var(--enterprise-ink); }
+    .plan h2 { margin: 0; color: #fff; font-size: 1.6rem; font-weight: 750; letter-spacing: -0.03em; }
+    .plan.enterprise h2 { color: var(--enterprise-ink); }
     .plan ul { margin: 0; padding: 8px 18px 14px; list-style: none; }
     .plan li {
       display: flex;
@@ -123,46 +147,60 @@
       font-size: 14px;
       font-weight: 680;
     }
-    h3 { margin: 0 0 12px; font-size: 1.15rem; letter-spacing: -0.02em; }
+    h3 { margin: 0 0 12px; font-size: 1.2rem; letter-spacing: -0.02em; }
     .table-scroll {
       overflow-x: auto;
-      border: 1px solid var(--line);
+      border: 1px solid #e1e6e3;
       border-radius: 16px;
       background: var(--paper);
+      box-shadow: 0 8px 24px rgba(24, 36, 32, 0.05);
     }
-    table { width: 100%; min-width: 720px; border-collapse: collapse; }
-    th, td { padding: 12px 16px; text-align: left; vertical-align: middle; }
+    table { width: 100%; min-width: 760px; border-collapse: separate; border-spacing: 0; }
+    th, td { padding: 13px 14px; text-align: center; vertical-align: middle; }
     thead th {
+      position: sticky;
+      top: 0;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 750;
       color: var(--muted);
       background: #fbfcfb;
       border-bottom: 1px solid var(--line);
     }
-    thead .col-lite { color: var(--lite); background: #f4f6f7; }
-    thead .col-premium { color: var(--premium); background: #f3f7f5; }
-    thead .col-enterprise { color: var(--enterprise); background: #f7f5f3; }
+    thead th:first-child, td.feature, .module .name { text-align: left; }
+    thead .col-lite { color: var(--lite); background: #e7f0fb; }
+    thead .col-premium { color: var(--premium); background: #e3f5eb; }
+    thead .col-enterprise { color: var(--enterprise-ink); background: #f8e7b0; }
     tbody tr + tr td { border-top: 1px solid #eef2f0; }
-    tbody tr:not(.module) td:nth-child(2) { background: #f8f9fa; }
-    tbody tr:not(.module) td:nth-child(3) { background: #f6f8f7; }
-    tbody tr:not(.module) td:nth-child(4) { background: #f8f7f6; }
-    th.recommended, td.recommended { background: #f4fbf7; }
+    tbody tr:not(.module) td:nth-child(2) { background: #f5f9fd; }
+    tbody tr:not(.module) td:nth-child(3) { background: #f3faf6; }
+    tbody tr:not(.module) td:nth-child(4) { background: #fdf8ea; }
     .module td {
-      padding-top: 14px;
+      padding-top: 16px;
       padding-bottom: 8px;
       border-top: 0;
       font-size: 13px;
       font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: left;
     }
-    .module .name { border-left: 3px solid currentColor; }
-    .module .status { text-align: right; color: var(--muted); font-weight: 600; }
-    .geopdf { color: var(--green-dark); background: #f4f7f5; }
-    .dashboard { color: var(--blue); background: #f4f6f8; }
-    .scouting { color: var(--purple); background: #f6f5f7; }
-    .reference { color: var(--orange); background: #f8f6f3; }
-    td.feature { font-weight: 650; }
-    .yes { color: var(--green-dark); font-weight: 650; }
-    .no { color: var(--faint); }
+    .module .name { border-left: 4px solid currentColor; }
+    .module .status { text-align: right; text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 650; }
+    .geopdf { color: var(--green-dark); background: #e7f6ee; }
+    .dashboard { color: var(--blue); background: #e8f1fb; }
+    .scouting { color: var(--purple); background: #f3eef8; }
+    .reference { color: var(--orange); background: #fbf3e8; }
+    td.feature { font-weight: 680; }
+    .yes, .no {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .yes { background: #dff3e7; color: #0c6840; }
+    .no { background: #eef1f0; color: #8b9690; }
     .note, .decisions {
       margin-top: 14px;
       padding: 16px 18px;
@@ -219,6 +257,12 @@
           </ul>
         </article>
         <article class="plan enterprise">
+          <div class="crown" aria-hidden="true">
+            <svg viewBox="0 0 24 18">
+              <path fill="currentColor" d="M2 15.2 4.2 6.2 8.4 10.2 12 3.2 15.6 10.2 19.8 6.2 22 15.2z"/>
+              <path fill="currentColor" d="M2.4 16.2h19.2v1.8H2.4z"/>
+            </svg>
+          </div>
           <div class="plan-head">
             <p class="badge">Contract</p>
             <h2>Enterprise</h2>
@@ -256,29 +300,29 @@
           </thead>
           <tbody>
             <tr class="module geopdf"><td class="name" colspan="3">GeoPDF</td><td class="status">Available</td></tr>
-            <tr><td class="feature">Upload a GeoPDF</td><td>1 file</td><td class="recommended">Multiple files</td><td>Unlimited, or a contract limit</td></tr>
-            <tr><td class="feature">View the file on the map</td><td class="yes">Included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Draw, measure, pins, photos, paths, and Go To</td><td>On that file</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Save an offline map</td><td class="yes">Included</td><td class="recommended yes">Included</td><td>Higher or custom limit</td></tr>
-            <tr><td class="feature">Share the map file</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Upload a GeoPDF</td><td>1 file</td><td>Multiple files</td><td>Unlimited, or a contract limit</td></tr>
+            <tr><td class="feature">View the file on the map</td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Draw, measure, pins, photos, paths, and Go To</td><td>On that file</td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Save an offline map</td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td><td>Higher or custom limit</td></tr>
+            <tr><td class="feature">Share the map file</td><td><span class="no">Not included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
 
             <tr class="module dashboard"><td class="name" colspan="3">Dashboard</td><td class="status">Available</td></tr>
-            <tr><td class="feature">Estate dashboard</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Inventory, multispectral, and design and planning</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Multiple plantations and custom dashboards</td><td class="no">Not included</td><td class="recommended">Plantations on the account</td><td>Across the organization</td></tr>
+            <tr><td class="feature">Estate dashboard</td><td><span class="no">Not included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Inventory, multispectral, and design and planning</td><td><span class="no">Not included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Multiple plantations and custom dashboards</td><td><span class="no">Not included</span></td><td>Plantations on the account</td><td>Across the organization</td></tr>
 
             <tr class="module scouting"><td class="name" colspan="3">Scouting</td><td class="status">Available</td></tr>
-            <tr><td class="feature">Create and edit reports</td><td>Up to 30</td><td class="recommended">No app cap</td><td>No app cap, or a contract cap</td></tr>
-            <tr><td class="feature">Photos and notes on a report</td><td class="yes">Included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Open a report on the map</td><td class="yes">Included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Reports shared across a team</td><td class="no">Not included</td><td class="recommended no">Not included</td><td>When team sharing is built</td></tr>
+            <tr><td class="feature">Create and edit reports</td><td>Up to 30</td><td>No app cap</td><td>No app cap, or a contract cap</td></tr>
+            <tr><td class="feature">Photos and notes on a report</td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Open a report on the map</td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Reports shared across a team</td><td><span class="no">Not included</span></td><td><span class="no">Not included</span></td><td>When team sharing is built</td></tr>
 
             <tr class="module reference"><td class="name" colspan="3">Reference</td><td class="status">Sample or fixed data</td></tr>
-            <tr><td class="feature">Drone and satellite</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Sensor</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Crops</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Pest</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
-            <tr><td class="feature">Shop</td><td class="no">Not included</td><td class="recommended yes">Included</td><td class="yes">Included</td></tr>
+            <tr><td class="feature">Drone and satellite</td><td><span class="no">Not included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Sensor</td><td><span class="no">Not included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Crops</td><td><span class="no">Not included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Pest</td><td><span class="no">Not included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
+            <tr><td class="feature">Shop</td><td><span class="no">Not included</span></td><td><span class="yes">Included</span></td><td><span class="yes">Included</span></td></tr>
           </tbody>
         </table>
       </div>
