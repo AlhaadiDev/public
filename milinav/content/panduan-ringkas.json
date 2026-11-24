@@ -1,0 +1,123 @@
+{
+  "slug": "panduan-ringkas",
+  "title": "Panduan Ringkas",
+  "summary": "Bahasa Melayu quick guide with screenshots.",
+  "group": "Application Manuals",
+  "mode": "manual",
+  "downloads": [
+    {
+      "label": "Download DOCX",
+      "url": "https://drive.google.com/uc?export=download&id=18w71TXDCcBwsNQcAiZBXzctGZY-osgpa"
+    }
+  ],
+  "pages": [
+    {
+      "id": "full",
+      "title": "Panduan Ringkas",
+      "blocks": [
+        {
+          "id": "body",
+          "title": "Panduan Ringkas",
+          "body": "# Panduan Ringkas Aplikasi Milinav\n\n![](/media/panduan-ringkas/img-01-9177fc17e9.png)\n\n![](/media/panduan-ringkas/img-02-de683e64a4.png)\n\n![](/media/panduan-ringkas/img-03-9177fc17e9.png)\n\n![](/media/panduan-ringkas/img-04-de683e64a4.png)\n\nKonfigurasi Aplikasi & Dokumentasi – Navigasi Taktikal Aplikasi Android Tablet MILINAV Panduan Pengguna dan Persediaan\n\nPanduan komprehensif untuk pemasangan, konfigurasi, dan penggunaan semua fungsi.\n\nInformasi Dokumen:\n\n| Tajuk Dokumen | Panduan Pengguna untuk Applikasi Milinav Android Tablet |\n| --- | --- |\n| Versi | 1.0 |\n| Versi Applikasi | 1.1.3 |\n| Kemaskini | Januari 2026 |\n| Disediakan Oleh | Abdul Alhaadi Bin Ibrahim |\n\n### Document notes\n\n| Versi App | > 1.1.2 |\n| --- | --- |\n| ContohTimestamp | 22:03–22:05, Saturday, 31 May 2025 |\n| Contoh Serial Number | efbd4377698d24b8f |\n| Number Pin | 8808 |\n| Versi Andorid OS | Android 10+ |\n\n## Keperluan Peranti\n\nPastikan peranti Android anda memenuhi spesifikasi berikut untuk prestasi optimum.\n\n### Keperluan Minimum:\n\n| Komponen | Spesifikasi |\n| --- | --- |\n| Sistem Operasi | Android 10 atau lebih tinggi |\n| RAM | Minimum 4 GB |\n| Storan Dalaman | Minimum 64 GB |\n| Storan Luaran | Kad SD dengan ruang kosong sekurang-kurangnya 25 GB |\n| Sensor | Accelerometer, Gyroscope |\n\n### Pemasangan & Konfigurasi Awal\n\nKebenaran Aplikasi (Permissions)\n\nUntuk kefungsian penuh, aplikasi memerlukan beberapa kebenaran. Berikan kebenaran ini melalui tetapan peranti:\n\nBuka Settings > Apps > MiliNav > Permissions.\n\nLocation: Tetapkan kepada 'Allow all the time' untuk penjejakan masa nyata.\n\nFiles and Media: Berikan akses penuh ('Allow management of all files') untuk memuatkan peta dari kad SD.\n\nNotifications: Benarkan untuk menerima notifikasi penting berkaitan proses latar belakan\n\nAntara muka tetapan kebenaran untuk aplikasi MiliNav\n\n![](/media/panduan-ringkas/img-05-4a77e899a8.png)\n\nPilihan ini adalah wajib semasa pelancaran pertama dan tidak boleh diubah kemudian.\n\nPilih Lokasi: Pilih antara 'Peninsula (MRSO)' atau 'East Malaysia (BRSO)'.\n\nPilih Sumber Peta:\n\nDownload from Server (Disyorkan): Hidupkan suis untuk memuat turun peta secara\n\nautomatik dan selamat.\n\nLocal Storage (SD Card): Matikan suis jika anda akan menggunakan peta yang disimpan secara manual pada kad SD.\n\nTekan SUBMIT untuk mengesahkan.\n\n![](/media/panduan-ringkas/img-06-bb383de20d.png)\n\nPilihan konfigurasi lokasi dan sumber peta\n\n## Pengaktifan Lesen (Untuk Versi > 1.1.2)\n\nJika aplikasi memaparkan mesej \"License Key Not Found\", ikuti langkah-langkah ini:\n\n## Salin Serial Number yang tertera pada skrin.\n\nBerikan nombor siri tersebut kepada pentadbir/vendor untuk mendapatkan kunci lesen.\n\nMasukkan kunci lesen yang diterima ke dalam 5 kotak yang disediakan.\n\nTekan SUBMIT.\n\n![](/media/panduan-ringkas/img-07-fe40c653d7.png)\n\nContoh skrin pengaktifan lesen\n\n## Fungsi Utama Aplikasi\n\nSkrin utama menyediakan akses pantas kepada semua ciri melalui bar navigasi bawah:\n\n![](/media/panduan-ringkas/img-08-631cfb7bfe.jpg)\n\nPaparan skrin utama dengan ikon navigasi: Compass, Data Log, Navigasi, Gyro, Settings\n\n## Utiliti Kompas (Compass)\n\n![](/media/panduan-ringkas/img-09-e277169a31.jpg)\n\nPaparan utiliti kompas masa nyata\n\nAkses melalui ikon Compass. Ia memaparkan kompas digital skrin penuh dengan maklumat masa nyata:\n\nArah (Heading): Contoh: 265.5° W\n\nLokasi: Contoh: Cyberjaya, Selangor, Malaysia\n\nKecondongan: Merujuk kepada sudut kecondongan peranti.\n\n## Log Data (Data Logging)\n\nAkses melalui ikon Data Log untuk merekod data GPS.\n\nStart Service: Mula merekod data lokasi setiap 15 saat.\n\nStop Service: Hentikan sesi rakaman.\n\nReset Log: Padam data sesi semasa.\n\nCreate Log File: Eksport data yang direkod ke fail log dalam storan peranti. Jadual akan memaparkan data seperti Lat/Long, GDM 2000, dan alamat jalan.\n\n![](/media/panduan-ringkas/img-10-960268b6a8.png)\n\nAntara muka ciri log di aplikasi\n\n## Paparan Giroskop (Gyroscope)\n\nAkses melalui ikon Gyro untuk memantau kecondongan kenderaan (roll and pitch), penting untuk navigasi rupa bumi.\n\nKalibrasi Awal: Letakkan kenderaan di permukaan rata, pasang peranti dengan stabil, dan tekan 'Set Vehicle Position' untuk menetapkan sudut ke 0°.\n\nPemantauan Langsung: Skrin akan memaparkan dua tolok: satu untuk kecondongan sisi-ke- sisi (Roll) dan satu lagi untuk kecondongan depan-ke-belakang (Pitch).\n\n![](/media/panduan-ringkas/img-11-b1b74e4d6e.png)\n\nPaparan untuk pemantauan kecondongan kenderaan\n\n7.0 Navigasi dan Fungsi Peta\n\n### Memuatkan Peta Luar Talian (Manual Decryption)\n\nGunakan mod ini jika tiada akses internet. Pastikan anda telah memilih 'Local Storage' semasa konfigurasi awal.\n\nDapatkan fail peta yang disulitkan (contoh: mrso.zip ).\n\nLetakkan fail ZIP tersebut ke dalam direktori kad SD: /storage/<external_sd>/DCIM/encrypted/ . Buka aplikasi dan tekan ikon Navigation.\n\nAntara muka akan muncul. Tekan butang Decrypt di sebelah fail peta yang berkaitan.\n\nMasukkan PIN yang diberikan dan tekan 'PROCEED'. Peta akan dinyahsulit dan dimuatkan.\n\n![](/media/panduan-ringkas/img-12-fa7617bd3f.png)\n\nAntara muka untuk penyahsulitan peta manual dari kad SD\n\n### Carian Lokasi Menggunakan Koordinat\n\nAnda boleh mencari lokasi yang tepat menggunakan format Latitud/Longitud (WGS 84) atau Grid Reference (GDM 2000).\n\nBuka skrin Navigation dan buka panel sisi.\n\nUntuk carian Latitud/Longitud (lalai): Masukkan nilai dalam medan 'Latitude' dan 'Longitude'.\n\nUntuk carian Grid Reference (GDM 2000): Tekan ikon 'X' untuk menukar mod input kepada GDM 2000. Masukkan nilai 'Easting' dan 'Northing' 6-digit penuh.\n\nUntuk search sesuatu koordinat, pengguna perlu tambah nilai permulaan easthing & northing berdasarkan bacaan grid 12 angka pada peta topografi bercetak.\n\nContoh:\n\nKoordinat yg ingin dicari adalah GR 248, 295 (Taman Anggerik Perdana, Kajang)\n\nLihat pada sheet Peta Topografi (petak ke 24 Easthing dan petak ke 29 northing)\n\nPengguna perlu tambah satu angka paling hadapan bacaan grid 12 angka yang tertera pada sheet peta.\n\nTambah angka 4 pada bacaan easthing (424) dan tambah angka 3 pada bacaan northing (329)\n\nMasukkan 424,800 (Easthing) dan 329,500 (Northing) untuk mencari Taman Anggerik Perdana, Kajang.\n\nTekan ikon kanta pembesar untuk memulakan carian. Penanda akan muncul di lokasi pada peta.\n\n![](/media/panduan-ringkas/img-13-3c63e2cb78.png)\n\nMod carian lalai menggunakan Latitud dan Longitud\n\n![](/media/panduan-ringkas/img-14-bf21e99243.jpg)\n\nContoh bacaan grid 12 angka (6 digit Easting dan Northing)\n\n### Format Koordinat dan Paparan Grid\n\nAktifkan pelbagai format paparan koordinat melalui panel tetapan peta untuk mendapatkan maklumat terperinci apabila anda menekan lama pada peta.\n\nDecimal Degree (DD)\n\nDegrees, Minutes, Seconds (DMS)\n\nDegrees and Decimal Minutes (DMM)\n\nUTM (Universal Transverse Mercator)\n\nGrid Reference\n\nGDM 2000.\n\n![](/media/panduan-ringkas/img-15-bc0edf5eda.png)\n\nContoh skrin pop-up dengan pelbagai format koordinat\n\n### Navigasi ke Lokasi\n\nSelepas mencari lokasi, anda boleh memulakan navigasi selekoh demi selekoh.\n\nTekan pada penanda lokasi yang muncul hasil daripada carian.\n\nSatu tetingkap maklumat akan muncul. Tekan butang NAVIGATE.\n\nAplikasi Here WeGo akan dilancarkan secara automatik untuk memulakan navigasi.\n\nPenting: Pastikan aplikasi Here WeGo telah dipasang pada peranti anda. Muat turun peta luar talian dalam Here WeGo jika anda akan berada di kawasan tanpa internet.\n\n## Penyelesaian Masalah Lazim\n\n### Aplikasi Tidak Boleh Dibuka atau Hilang\n\nPergi ke Settings > Apps > MiliNav dan tekan Force Stop. Kemudian, lancarkan semula aplikasi.\n\n### Peta Manual Tidak Dimuatkan\n\nPastikan fail ZIP peta berada di lokasi yang betul pada kad SD ( DCIM/encrypted/ ). Sahkan\n\njuga tetapan sumber peta ditetapkan kepada 'Local Storage' dan mulakan semula aplikasi.\n\n### Aplikasi Tidak Responsif\n\nCuba kosongkan cache aplikasi:\n\nPergi ke Settings > Apps > MiliNav > Storage.\n\nTekan Clear Cache.\n\nJika masalah berterusan, tekan Clear Data.\n\nAmaran: Ini akan menetapkan semula aplikasi dan anda mungkin perlu mengaktifkan semula lesen.\n\n### Isu Kunci Lesen\n\nPastikan versi aplikasi adalah > 1.1.2, kunci dimasukkan dengan betul, dan nombor siri sepadan.\n"
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 3,
+      "title": "Document notes",
+      "anchor": "document-notes"
+    },
+    {
+      "level": 2,
+      "title": "Keperluan Peranti",
+      "anchor": "keperluan-peranti"
+    },
+    {
+      "level": 3,
+      "title": "Keperluan Minimum:",
+      "anchor": "keperluan-minimum"
+    },
+    {
+      "level": 3,
+      "title": "Pemasangan & Konfigurasi Awal",
+      "anchor": "pemasangan--konfigurasi-awal"
+    },
+    {
+      "level": 2,
+      "title": "Pengaktifan Lesen (Untuk Versi > 1.1.2)",
+      "anchor": "pengaktifan-lesen-untuk-versi--1.1.2"
+    },
+    {
+      "level": 2,
+      "title": "Salin Serial Number yang tertera pada skrin.",
+      "anchor": "salin-serial-number-yang-tertera-pada-skrin."
+    },
+    {
+      "level": 2,
+      "title": "Fungsi Utama Aplikasi",
+      "anchor": "fungsi-utama-aplikasi"
+    },
+    {
+      "level": 2,
+      "title": "Utiliti Kompas (Compass)",
+      "anchor": "utiliti-kompas-compass"
+    },
+    {
+      "level": 2,
+      "title": "Log Data (Data Logging)",
+      "anchor": "log-data-data-logging"
+    },
+    {
+      "level": 2,
+      "title": "Paparan Giroskop (Gyroscope)",
+      "anchor": "paparan-giroskop-gyroscope"
+    },
+    {
+      "level": 3,
+      "title": "Memuatkan Peta Luar Talian (Manual Decryption)",
+      "anchor": "memuatkan-peta-luar-talian-manual-decryption"
+    },
+    {
+      "level": 3,
+      "title": "Carian Lokasi Menggunakan Koordinat",
+      "anchor": "carian-lokasi-menggunakan-koordinat"
+    },
+    {
+      "level": 3,
+      "title": "Format Koordinat dan Paparan Grid",
+      "anchor": "format-koordinat-dan-paparan-grid"
+    },
+    {
+      "level": 3,
+      "title": "Navigasi ke Lokasi",
+      "anchor": "navigasi-ke-lokasi"
+    },
+    {
+      "level": 2,
+      "title": "Penyelesaian Masalah Lazim",
+      "anchor": "penyelesaian-masalah-lazim"
+    },
+    {
+      "level": 3,
+      "title": "Aplikasi Tidak Boleh Dibuka atau Hilang",
+      "anchor": "aplikasi-tidak-boleh-dibuka-atau-hilang"
+    },
+    {
+      "level": 3,
+      "title": "Peta Manual Tidak Dimuatkan",
+      "anchor": "peta-manual-tidak-dimuatkan"
+    },
+    {
+      "level": 3,
+      "title": "Aplikasi Tidak Responsif",
+      "anchor": "aplikasi-tidak-responsif"
+    },
+    {
+      "level": 3,
+      "title": "Isu Kunci Lesen",
+      "anchor": "isu-kunci-lesen"
+    }
+  ]
+}

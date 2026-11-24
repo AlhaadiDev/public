@@ -1,0 +1,63 @@
+{
+  "slug": "tiff-to-mmpk",
+  "title": "TIFF to MMPK (ArcGIS Pro)",
+  "summary": "Convert BGSP/TIFF rasters to Mobile Map Package for MiliNav.",
+  "group": "Application Manuals",
+  "mode": "manual",
+  "downloads": [
+    {
+      "label": "Download PDF",
+      "url": "https://drive.google.com/uc?export=download&id=1TnbA2X4AfQMowxM7sHweu35CvXBzO0O6"
+    }
+  ],
+  "pages": [
+    {
+      "id": "full",
+      "title": "TIFF to MMPK (ArcGIS Pro)",
+      "blocks": [
+        {
+          "id": "body",
+          "title": "TIFF to MMPK (ArcGIS Pro)",
+          "body": "# Procedure: Convert TIFF to MMPK (ArcGIS Pro)\n\nPrepare BGSP / raster data in ArcGIS Pro and package it as a Mobile Map Package (MMPK) for offline use in MiliNav.\n\n## Overview\n\n| Requirement | Detail |\n| --- | --- |\n| Tool | ArcGIS Pro |\n| Input | BGSP / TIFF raster data |\n| Output | Mobile Map Package (`.mmpk`) |\n| Coordinate system | **WGS84 only** (ArcGIS SDK reads WGS84; MiliNav converts in-app) |\n\n## Workflow\n\n```text\nBGSP / TIFF  →  Add to map (WGS84)\n             →  Mosaic to New Raster\n             →  Copy Raster (remove black area)\n             →  Share → Mobile Map → Package (.mmpk)\n```\n\n## 1. Add BGSP data to the map\n\n1. Add your BGSP / TIFF data to the ArcGIS Pro map.\n2. Confirm the data is in the **WGS84** coordinate system.\n\n![Add data and verify WGS84](/media/tiff-to-mmpk/page-02.jpg)\n\n## 2. Mosaic the raster\n\n1. Open **Toolboxes → Raster → Raster Dataset → Mosaic to New Raster**.\n2. Fill the **Geoprocessing** parameters to match the expected mosaic settings.\n3. Click **Run**.\n\n## 3. Remove black areas (Copy Raster)\n\n1. Open **Toolboxes → Raster → Raster Dataset → Copy Raster**.\n2. Fill the Geoprocessing parameters as shown in the procedure.\n3. Click **Run** to produce a cleaned raster without black borders.\n\n![Copy Raster / remove black area](/media/tiff-to-mmpk/page-03.jpg)\n\n## 4. Package as Mobile Map (MMPK)\n\n1. On the taskbar, click **Share → Mobile Map**.\n2. Fill the **Package Mobile Map** settings.\n3. Click **Package** to generate the `.mmpk` file for MiliNav.\n\n![Share Mobile Map packaging](/media/tiff-to-mmpk/page-04.jpg)\n\n## Tips\n\n- Keep only WGS84 rasters in the package to avoid load failures on device.\n- After packaging, copy the MMPK into the device map storage path used by MiliNav (see Storage Paths & Decryption).\n- For encrypted offline maps, follow the Technical Guide encryption / SD card deployment steps after packaging.\n"
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Overview",
+      "anchor": "overview"
+    },
+    {
+      "level": 2,
+      "title": "Workflow",
+      "anchor": "workflow"
+    },
+    {
+      "level": 2,
+      "title": "1. Add BGSP data to the map",
+      "anchor": "1.-add-bgsp-data-to-the-map"
+    },
+    {
+      "level": 2,
+      "title": "2. Mosaic the raster",
+      "anchor": "2.-mosaic-the-raster"
+    },
+    {
+      "level": 2,
+      "title": "3. Remove black areas (Copy Raster)",
+      "anchor": "3.-remove-black-areas-copy-raster"
+    },
+    {
+      "level": 2,
+      "title": "4. Package as Mobile Map (MMPK)",
+      "anchor": "4.-package-as-mobile-map-mmpk"
+    },
+    {
+      "level": 2,
+      "title": "Tips",
+      "anchor": "tips"
+    }
+  ]
+}

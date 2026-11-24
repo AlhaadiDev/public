@@ -1,0 +1,58 @@
+{
+  "slug": "usb-charging-adb",
+  "title": "USB Charging Only (ADB)",
+  "summary": "Force USB charging-only mode with ADB.",
+  "group": "Device Ops",
+  "mode": "full",
+  "pages": [
+    {
+      "id": "full",
+      "title": "USB Charging Only (ADB)",
+      "blocks": [
+        {
+          "id": "full",
+          "title": "USB Charging Only (ADB)",
+          "body": "# Set USB Mode to Charging Only (ADB)\n\n## Quick visual\n\n![USB port modes](/media/diagrams/usb-modes.svg)\n\nCharging-only mode reduces data exposure on kiosk tablets. Use ADB while debugging is still available, then lock the policy.\n\nRestrict the USB port to charging only and disable data transfer.\n\n## Steps\n1. Enable Developer Options and USB Debugging.\n2. Connect the device with USB.\n\n### Set charging only\n```\nadb shell settings put global usb_default_function none\n```\n\n### Verify\n```\nadb shell settings get global usb_default_function\n```\nExpected result: `none`\n\n### Restore other modes\n- MTP: `adb shell settings put global usb_default_function mtp`\n- PTP: `adb shell settings put global usb_default_function ptp`\n- ADB: `adb shell settings put global usb_default_function adb`\n\n## Notes\nBehavior may vary by OEM and Android version. After charging-only mode, ADB over USB is disabled until USB mode is restored."
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Quick visual",
+      "anchor": "quick-visual"
+    },
+    {
+      "level": 2,
+      "title": "Steps",
+      "anchor": "steps"
+    },
+    {
+      "level": 3,
+      "title": "Set charging only",
+      "anchor": "set-charging-only"
+    },
+    {
+      "level": 3,
+      "title": "Verify",
+      "anchor": "verify"
+    },
+    {
+      "level": 3,
+      "title": "Restore other modes",
+      "anchor": "restore-other-modes"
+    },
+    {
+      "level": 2,
+      "title": "Notes",
+      "anchor": "notes"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Download DOCX",
+      "url": "https://drive.google.com/uc?export=download&id=1NMLvFRAcq7KZJcGZKfYudcZ2hBP3TMeP"
+    }
+  ]
+}

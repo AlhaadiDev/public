@@ -1,0 +1,190 @@
+[
+  {
+    "slug": "drive-sources",
+    "title": "Drive Sources",
+    "summary": "Map of Drive originals — which files to keep vs remove.",
+    "group": "Application Manuals",
+    "pageCount": 1,
+    "downloads": [
+      {
+        "label": "Open Drive folder",
+        "url": "https://drive.google.com/drive/folders/1fVt7Zf1XkKXcgnX1Ts-Bj9pSUhujavHP"
+      }
+    ]
+  },
+  {
+    "slug": "user-guide",
+    "title": "User Guide",
+    "summary": "Latest end-user manual (PDF). Setup, maps, licensing, navigation.",
+    "group": "Application Manuals",
+    "pageCount": 19,
+    "downloads": [
+      {
+        "label": "Download PDF",
+        "url": "https://drive.google.com/uc?export=download&id=1i9dkoPBzyJguW2ccSaBCJRf5dxbOlISD"
+      },
+      {
+        "label": "Download DOCX",
+        "url": "https://drive.google.com/uc?export=download&id=1cm75B5ulHKN1izxbcYW3WAzDq7BZYhqh"
+      }
+    ]
+  },
+  {
+    "slug": "technical-guide",
+    "title": "Technical Guide",
+    "summary": "Latest technical manual (PDF). Includes encryption and deployment.",
+    "group": "Application Manuals",
+    "pageCount": 22,
+    "downloads": [
+      {
+        "label": "Download PDF",
+        "url": "https://drive.google.com/uc?export=download&id=1wCWI3n0tf5ZbpMVndfPgbzwA_QMAQIue"
+      },
+      {
+        "label": "Download DOCX",
+        "url": "https://drive.google.com/uc?export=download&id=1hwqJmLSnh6M63TrLbj32SgF-EAZy3zXz"
+      }
+    ]
+  },
+  {
+    "slug": "panduan-ringkas",
+    "title": "Panduan Ringkas",
+    "summary": "Bahasa Melayu quick guide with screenshots.",
+    "group": "Application Manuals",
+    "pageCount": 8,
+    "downloads": [
+      {
+        "label": "Download DOCX",
+        "url": "https://drive.google.com/uc?export=download&id=18w71TXDCcBwsNQcAiZBXzctGZY-osgpa"
+      }
+    ]
+  },
+  {
+    "slug": "tiff-to-mmpk",
+    "title": "TIFF to MMPK (ArcGIS Pro)",
+    "summary": "Convert BGSP/TIFF rasters to Mobile Map Package for MiliNav.",
+    "group": "Application Manuals",
+    "pageCount": 7,
+    "downloads": [
+      {
+        "label": "Download PDF",
+        "url": "https://drive.google.com/uc?export=download&id=1TnbA2X4AfQMowxM7sHweu35CvXBzO0O6"
+      }
+    ]
+  },
+  {
+    "slug": "adb-setup",
+    "title": "ADB Setup",
+    "summary": "Install and configure Android Debug Bridge.",
+    "group": "Device Ops",
+    "pageCount": 7,
+    "downloads": [
+      {
+        "label": "Download DOCX",
+        "url": "https://drive.google.com/uc?export=download&id=17XIptABzJWdUsTPeszEQF5y79yOraZNk"
+      }
+    ]
+  },
+  {
+    "slug": "adb-device-admin",
+    "title": "ADB Device Admin / Kiosk",
+    "summary": "Set and remove MiliNav device owner via ADB.",
+    "group": "Device Ops",
+    "pageCount": 8,
+    "downloads": [
+      {
+        "label": "Download DOCX",
+        "url": "https://drive.google.com/uc?export=download&id=1nhcPe0K8Q_sgt435IvkWmNys9U_sLfD2"
+      }
+    ]
+  },
+  {
+    "slug": "usb-charging-adb",
+    "title": "USB Charging Only (ADB)",
+    "summary": "Force USB charging-only mode with ADB.",
+    "group": "Device Ops",
+    "pageCount": 5,
+    "downloads": [
+      {
+        "label": "Download DOCX",
+        "url": "https://drive.google.com/uc?export=download&id=1NMLvFRAcq7KZJcGZKfYudcZ2hBP3TMeP"
+      }
+    ]
+  },
+  {
+    "slug": "usb-restriction",
+    "title": "USB Restriction Methods",
+    "summary": "Manual, MDM, root, and hardware charge-only options.",
+    "group": "Device Ops",
+    "pageCount": 6,
+    "downloads": [
+      {
+        "label": "Download DOCX",
+        "url": "https://drive.google.com/uc?export=download&id=1ummj1sS-r1oOyBMZxAg9ZUfCLFkUQa9g"
+      }
+    ]
+  },
+  {
+    "slug": "kiosk-device-owner",
+    "title": "Kiosk Device Owner",
+    "summary": "Kiosk / device-owner notes from the repo.",
+    "group": "Device Ops",
+    "pageCount": 4
+  },
+  {
+    "slug": "tactical-map-feature-listing",
+    "title": "TacMap Feature Listing",
+    "summary": "User-facing TacMap Tools and Navigation features.",
+    "group": "TacMap Reference",
+    "pageCount": 15
+  },
+  {
+    "slug": "path-clearance",
+    "title": "Path Clearance",
+    "summary": "Terrain sampling, clearance formula, projectile animation.",
+    "group": "TacMap Reference",
+    "pageCount": 16
+  },
+  {
+    "slug": "compass-bearing-navigation",
+    "title": "Compass Bearing Navigation",
+    "summary": "Destination bearing, back bearing, and course behaviour.",
+    "group": "TacMap Reference",
+    "pageCount": 32
+  },
+  {
+    "slug": "navigation-and-arcgis-billing",
+    "title": "Navigation & ArcGIS Billing",
+    "summary": "Which navigation paths can consume ArcGIS routing credits.",
+    "group": "TacMap Reference",
+    "pageCount": 15
+  },
+  {
+    "slug": "storage-paths-and-decryption",
+    "title": "Storage Paths & Decryption",
+    "summary": "Encrypted map paths and decryption flow.",
+    "group": "TacMap Reference",
+    "pageCount": 13
+  },
+  {
+    "slug": "control-measures",
+    "title": "Control Measures",
+    "summary": "Control-measure colors and short codes.",
+    "group": "TacMap Reference",
+    "pageCount": 42
+  },
+  {
+    "slug": "battle-graphics-share",
+    "title": "Battle Graphics Share",
+    "summary": "Shared battle graphics import/export notes.",
+    "group": "TacMap Reference",
+    "pageCount": 21
+  },
+  {
+    "slug": "gyro-testing-guide",
+    "title": "Gyro Testing Guide",
+    "summary": "Gyroscope / inclinometer testing guidance.",
+    "group": "TacMap Reference",
+    "pageCount": 23
+  }
+]

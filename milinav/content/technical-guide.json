@@ -1,0 +1,432 @@
+{
+  "slug": "technical-guide",
+  "title": "Technical Guide",
+  "summary": "Technical configuration, encryption, deployment, and troubleshooting.",
+  "group": "Application Manuals",
+  "mode": "full",
+  "pages": [
+    {
+      "id": "full",
+      "title": "Technical Guide",
+      "blocks": [
+        {
+          "id": "full",
+          "title": "Technical Guide",
+          "body": "# Technical Guide\n\n## Cover\n\n![Cover](/media/technical-guide/p01_001.jpg)\n\n## 1.0 Overview\nThis document provides a detailed, step-by-step guide for installing, configuring, and operating the Tactical Vehicle Navigation System. It includes image references, system settings, permissions, and how to use key app features such as the compass and logging tools.\n### 1.1 Purpose\nThis document serves as a comprehensive resource for understanding the architecture, features, and usage of the Milinav Tablet Application. It ensures standardized deployment practices, reduces training overhead, and facilitates long-term maintenance by providing accurate and up-to-date technical references.\n### 1.2 Scope\nThis guide includes complete documentation for:\n- Application setup and configuration\n- Feature overviews and usage scenarios\n- System requirements\n- Troubleshooting known issues and maintenance guidelines\n### 1.3 Intended Audience\nThis guide is intended for:\n- Application users and field operators\n- System administrators and IT personnel\n- Technical support engineers\n- Quality assurance testers\n\n## 2.0 Device Specification Requirements\nTo ensure optimal performance and full compatibility, the Milinav Tablet Application must be installed on devices that meet the following minimum hardware and software requirements:\n### 2.1 Minimum Requirements:\nOperating System Android 10 or higher RAM Minimum 4 GB Internal Storage Minimum 64 GB of internal storage External Storage SD card with at least 25 GB of free space Processor Quad-core 2.0 GHz or better Display Minimum 8-inch screen with 1280×800 resolution Network Wi-Fi and/or 4G LTE connectivity required (For first time Installation purpose) GPS Integrated GPS module for location-based services Sensors Accelerometer, Gyroscope\n### 2.2 Recommended Specifications (for best performance):\nOperating System Android 11 or above RAM 8 GB or higher Internal Storage Minimum 64 GB of internal storage External Storage High-speed SD card with at least 32 GB free space Display 10-inch or larger screen with Full HD resolution Battery 5000 mAh or higher for extended field use Note: The Milinav Tablet Application is designed exclusively for Android devices. iOS and other operating systems are not supported.\n\n## 3.0 Launch Screen & Interface\nUpon launching the app, users will see:\n\n- Background image of a tactical vehicle\n- Current version at the bottom-left (e.g., V 1.1.1 or V 1.1.2).\n  - Bottom menu icons:\n  - Compass – Opens compass utility.\n  - Data Log – Opens GPS logger.\n  - Navigation – Loads the map.\n  - Gyro – For gyroscope display.\n  - Settings – Application settings page.\nEnsure the app version is correct as this may affect certain features (e.g., license key activation).\n\n![Figure from original manual — page 10](/media/technical-guide/p10_002.jpg)\n\n## 4.0 App Permissions and OS Behavior\nThe app requires access to certain permissions to function correctly. This includes:\n- Location Access (fine location)\n- File/Media Access (for local storage and ZIP access)\n- Foreground and Background Location (for real-time tracking)\n- Notification app permission to display notification related to location tracking\nand background processes.\n### 4.1 Android Permissions Overview\n- Android 6–9:\n  - Permissions are granted during installation or at first launch prompt.\n  - File access is broad (entire storage). Ensure permission is set to 'Allow All\nFiles'.\n- Android 10 (Q):\n  - Scoped Storage begins enforcement.\n  - File access limited to app folder unless using MediaStore or requesting\n'legacy' access via manifest.\n  - Grant 'Allow access to media only'.\n  - Background location must be explicitly accepted by user.\n- Android 11 and above:\n  - Scoped storage is mandatory.\n  - Cannot access arbitrary external folders.\n  - App must use MediaStore API or store to its own private directory (e.g.,\nAndroid/data).\n  - Request 'All files access' (MANAGE_EXTERNAL_STORAGE) for SD card\ndecryption and ZIP access.\n  - Background location must be enabled via Android Settings > Location >\nApp Permissions > 'Allow all the time'.\n- Android 13 and above:\n  - Notification permission (POST_NOTIFICATIONS) must be requested at\nruntime.\n  - Users must grant permission before the app can post notifications, even\nfor background services.\n\n### 4.2 How to Grant Permissions Manually\nTo ensure full functionality:\n1. Open Android Settings > Apps > Tactical Navigation App (MilliNav)\n2. Tap 'Permissions'\n3. Enable:\n  - Location > Allow All The Time > Make sure to set it ON\n  - Files and Media > Allow management access (especially on Android 11+)\n  - Optional: Camera or Contacts if enabled for extended features\nIf permissions are denied, the app will fail to detect location or load files. Users will see blank screens or error toasts such as 'Location permission denied' or 'Cannot read map archive'.\n\n![Figure from original manual — page 12](/media/technical-guide/p12_003.jpg)\n\n![Figure from original manual — page 13](/media/technical-guide/p13_004.jpg)\n\n![Figure from original manual — page 13](/media/technical-guide/p13_005.jpg)\n\n## 5.0 Location Setup (First-Time Mandatory Step)\n\nYou will be prompted: \"Location selection is MANDATORY to configure the map for this device. Once you confirm your choice, it cannot be changed later.\"\n\nAvailable Options:\n- Peninsula (MRSO)\n- East Malaysia (BRSO)\n\n## 6.0 Map Source Selection\nAfter selecting the location, choose where the maps will load from:\n\nOption A Option A: Download from Server\n- Turn ON the toggle.\n- Maps are fetched securely and stored within the app.\n\n//The remainder of this page is intentionally left blank//\n\n![Figure from original manual — page 15](/media/technical-guide/p15_006.jpg)\n\nOption B Option B: Local Storage (SD Card)\n- Turn OFF the toggle.\n- Place the map files manually on the SD card (Refer 15.2).\nOnce the compressed file is copied, if the files folder remains hidden from the Android file structure due to compression limitations. (Refer 16.0.)\n## 7.0 Submitting Initial Configuration\nOnce the location and map source are selected:\n- Tap Submit to lock the configuration.\n- Tap Cancel to abort. If submitted, you cannot change these settings later.\nProceed only when sure of your selection.\n\n![Figure from original manual — page 16](/media/technical-guide/p16_007.jpg)\n\n## 8.0 License Activation (For Version > 1.1.2)\nIf the app shows: \"License Key Not Found - License validation failed...\"\n\n![Figure from original manual — page 17](/media/technical-guide/p17_008.jpg)\n\n![Figure from original manual — page 17](/media/technical-guide/p17_009.jpg)\n\nSteps:\n1. Copy the device Serial Number shown (e.g., efbd4377698d24b8).\n2. Provide the Serial Number to administrator/vendor.\n3. Copy the output key (e.g., OVRYG-5OZFK-GGZHA-TPGB7-6NT3O).\n4. Enter it into the license fields and tap Submit.\n\n### 8.1 Android ID Change Notice\nOur app uses Android ID or Serial Number to recognize your device. Sometimes this ID can change. If it changes, the app may treat your device like a new installation, and this may cause the licensing key to require renewal. The Android ID can change if you:\n- Uninstall and reinstall the app\n- Reset your phone to factory settings\n- Use a different user profile on the same device\n- Install the app in a Work Profile\n- Install a version of the app that is signed with a different developer key.\nThe Android ID does not change if you:\n- Restart your phone\n- Update the app\n- Update Android\n- Clear the app data\n- Change your SIM card or mobile network.\n\n//The remainder of this page is intentionally left blank//\n\n## 9.0 Compass Utility Page (Separate from Home)\nAccess via Compass icon on home screen (not part of version label).\n\nDisplay Features:\n- Central compass graphic with accurate headings.\n- Top-right information panel:\n  - Heading (e.g., 265.5° W)\n  - Location (e.g., Cyberjaya, Selangor, Malaysia)\n  - Elevation (e.g., 45.6 m)\nCompass is full-screen and updates in real-time based on device orientation.\n\n//The remainder of this page is intentionally left blank//\n\n![Figure from original manual — page 19](/media/technical-guide/p19_010.jpg)\n\n## 10.0 Data Logging Feature\nEnter via Data Log icon from home screen.\n\n![Figure from original manual — page 20](/media/technical-guide/p20_011.jpg)\n\n![Figure from original manual — page 20](/media/technical-guide/p20_012.jpg)\n\nLive GPS Capture:\n- Toggle GPS ON (top left corner turns green), or make it Off to use Network. ( For\nVersion 1.1.2 )\n- The Network Toggle will automatically turn ON when the device detects that a\nnetwork connection is available. ( For version 1.1.3 )\n- The GPS Toggle will automatically turn ON when the device is in Offline Mode, as\nlong as Airplane Mode is not turned on. This helps the device adjust its settings based on whether the user is online or offline. ( For version 1.1.3 )\n- Then press:\n  - Start Service → begins recording in intervals of 15 seconds\n  - Stop Service → ends recording.\n  - Reset Log → clears session.\n  - Create Log File → exports data, this will create a file in user file storage.\n\nTable Displays:\n  - Lat/Long: e.g., 2.926, 101.638\n  - GDM 2000: e.g., 323771.131,404567.459\n  - Road: Location string (e.g., The Arc Cyberjaya)\n  - Country: Malaysia\nFiles are saved to: /storage/emulated/0/Android/data/com.milinav/files/logs\n## 11.0 Example Data Logs\nNo Latitude / Longitude GDM2000 (Easting, Northing) Road Country\n\n2.926, 101.638 323755.529, 404486.672 The Arc Cyberjaya, Cyberjaya Malaysia\n\n2.926, 101.638 323771.131, 404567.459 The Arc Cyberjaya, Cyberjaya Malaysia\n\n2.926, 101.638 323787.627, 404550.210 The Arc Cyberjaya, Cyberjaya Malaysia\n\nConfirmation message will display upon export success.\n\n### 11.1 Location Provider Comparison Table\nFeature GPS Provider Network Provider How it works Uses satellites to determine location Uses Wi-Fi, cell towers, and IP addresses Accuracy High (±3–10 meters outdoors) Moderate (±50–1000 meters) Speed to get location Slower (can take 5–30 seconds to fix) Faster (usually 1–3 seconds) Works indoors? Often unreliable Usually works well Battery usage High (drains more battery) Low (efficient) Required permission ACCESS_FINE_LOCATION ACCESS_COARSE_LOCATION (or FINE for accuracy) Best use cases Navigation, running apps, outdoor tracking Quick fixes, indoor apps, general location Accuracy depends on Clear sky view, GPS hardware Wi-Fi signal, mobile network strength Availability Might not work in buildings or tunnels Works almost everywhere with connectivity Location update frequency Can be slower or delayed Typically quicker, less precise When to Use Which?\n- Use GPS when:\nYou need high accuracy, like for maps, navigation, or tracking.\n\n- Use Network when:\nYou need faster results with lower battery use, and indoor use is expected.\n\n## 12.0 Gyroscope Display (Vehicle Tilt Monitoring)\nThis feature provides real-time feedback on the vehicle’s roll and pitch using a dual gauge display. This is crucial for terrain navigation and safety monitoring in tactical deployments.\n\n![Figure from original manual — page 23](/media/technical-guide/p23_013.jpg)\n\n![Figure from original manual — page 23](/media/technical-guide/p23_014.jpg)\n\n### 12.1 Accessing the Gyro Display\nFrom the main home screen:\n1. Tap the Gyro icon at the bottom navigation bar (right of Navigation).\n2. Make sure your device is mounted and calibrated properly for accurate readings.\n### 12.2 Initial Calibration\nUpon first launch or if re-calibration is needed:\n1. Park the vehicle on a flat and level surface.\n2. Mount the Android device firmly and stably inside the vehicle.\n3. On the calibration screen, tap 'Set Vehicle Position' to align the tilt to 0°.\n4. If you're re-entering this screen later, you may:\n  - Tap SET VEHICLE POSITION to re-calibrate. This will set the current vehicle\nposition as 0°, make sure to park vehicle at the flat surface.\n  - Or choose SKIP to use the previous calibration.\n### 12.3 Live Tilt Monitoring\nOnce active, the Gyro screen shows two dials:\n- Left Dial (Roll): Side-to-side tilt (e.g., turning slopes).\n- Right Dial (Pitch): Front-to-back tilt (e.g., ascending or descending hills).\nEach dial will update in degrees (°) to show real-time orientation of the vehicle.\n### 12.4 Best Practices\n- Always calibrate while stationary and on level ground.\n- Ensure no device movement post-calibration.\n- Recalibrate periodically if readings appear inaccurate.\nUse Case: This system helps prevent vehicle rollover by warning when angles exceed safe limits — especially useful in military terrain operations or convoy movement.\n\n## 13.0 Side Menu Features Explained\nThis menu provides various map layer options and navigation tools to enhance field situational awareness and map usability:\n\n### 13.1 Satellite Map\nFunction: Displays the Online ArcGIS satellite imagery map layer. ⚠ Note:\n- In online mode, the app will fetch and display high-resolution satellite imagery\nfrom the internet via ArcGIS.\n- In offline mode, the display may differ or be limited depending on the availability\nof offline satellite data on the device.\n### 13.2 Open Street Map (OSM)\nFunction: Loads the OpenStreetMap-based map, typically from a local or decrypted .mmpk file (Mobile Map Package).\n\n![Figure from original manual — page 25](/media/technical-guide/p25_015.jpg)\n\nUse Case: Designed for offline usage where pre-downloaded OSM .mmpk files are rendered. Suitable for navigation or situational mapping in the field without internet connectivity.\n### 13.3 Topographic Map\nFunction: Loads the topographic base map, also from a locally stored or decrypted .mmpk file. Use Case: Used when detailed terrain features such as elevation lines, land contours, and natural landmarks are required. Works entirely offline once the .mmpk is available on the device.\n### 13.4 Navigation via Here WeGo App\nFunction: Launches the Here WeGo navigation app via Android’s intent launcher. Important:\n- The Here WeGo app must be installed on the device.\n- Make sure the app is not pinned or restricted (e.g., from multi-window mode) to\nallow it to launch properly. Use Case: Provides turn-by-turn navigation using external navigation tools for military or field movement.\n### 13.5 Geodetic Distance (KM)\nFunction: Calculates the geodetic distance — the shortest path between two points on Earth’s curved surface in Kilometer (KM) unit. Explanation: Unlike straight-line (Euclidean) distance, geodetic distance is calculated over the Earth’s ellipsoidal model, offering more accurate distance measurements, especially over large distances.\n\nThis is critical for precision planning and movement tracking in geographic or tactical operations.\n### 13.6 Zoom Level\nFunction: Adjusts the map's zoom scale.\n- Higher scale = Zoom out\n- Lower scale = Zoom in\nUse Case: Enables users to control the level of map detail they want to view, which is especially useful in planning or analysis scenarios. ⚠ Note: You must reopen the page or reload the view for zoom level changes to take full effect.\n## 14.0 File Encryption Web Application\n### 14.1 Navigation & UI Structure\ni. Login Page\n\nFields:\n- User Id\n- Password (masked)\n\n![Figure from original manual — page 27](/media/technical-guide/p27_016.jpg)\n\n- Remember Me checkbox\n- Forgot Password link\nAction: Clicking “Sign in” authenticates the user and opens the main dashboard. ii. Dashboard / Main Access\n\nHeader: 'Main Access' Modules Displayed: MRSO, BRSO, OSM MRSO and OSM BRSO Each section shows:\n- Encrypt Status\n- Update File button\n\n//The remainder of this page is intentionally left blank//\n\n![Figure from original manual — page 28](/media/technical-guide/p28_017.jpg)\n\n### 14.2 File Upload Workflow\n\nSteps:\n1. Click “Update File”\n2. File Picker Dialog opens\n3. Select File\n4. Supported File: .mmpk\n5. Confirmation with progress bar and 'Complete' status\n\n//The remainder of this page is intentionally left blank//\n\n![Figure from original manual — page 29](/media/technical-guide/p29_018.jpg)\n\n### 14.3 Encryption Status Monitoring\nLive UI Feedback and status updates from 'In Progress' to 'Encrypted'. File uploads disable button during processing.\n\n### 14.4 File Output Confirmation\n\n- Output Path: Documents > milinav-svelte > encryption > encrypted\n- File Types:\n  - Encrypted Files (.zip)\n  - Metadata Files (.json)\n  - Example Files: mrso1.zip, brso2.zip, mrso_info.json\n\n![Figure from original manual — page 30](/media/technical-guide/p30_019.jpg)\n\n![Figure from original manual — page 30](/media/technical-guide/p30_020.jpg)\n\n\n\n## Packaging tip (7-Zip)\n\nWhen creating the ZIP for encrypted map transfer, use settings similar to:\n\n![7-Zip window configuration](/media/attachments/7zip_window_configuration.png)\n\n![Offline map packaging flow](/media/diagrams/map-package-flow.svg)\n\n## 15.0 Manual Map Deployment (For SD Card Users)\n### 15.1 Required Files\n- JSON file: mrso_info.json\n- ZIP files: e.g., mrso140.zip through mrso162.zip\n### 15.2 Zip Deployment\n1. Select all map files and JSON. (Refer 14.4 or 15.3.1)\nRight-click → Compress → Rename to MRSO.zip, or BRSO.zip, or OSM_MRSO.zip, or OSM_BRSO.zip.\n2. Copy MRSO.zip, or BRSO.zip, or OSM_MRSO.zip, or OSM_BRSO.zip to the SD card\nin the correct file path directory.\n3. Mandatory to paste the zip folder in this path, and “encrypted” folder must be\ncreated if it is not exist.\n  - -/sdcard/DCIM/encrypted/MRSO.zip\n  - -/sdcard/DCIM/encrypted/BRSO.zip\n  - -/sdcard/DCIM/encrypted/OSM_MRSO.zip\n  - -/sdcard/DCIM/encrypted/OSM_BRSO.zip\n\n4. Ensure app's map source is toggled to Local Storage.\n\nDo not unzip MRSO.zip. App will handle it automatically.\n### 15.3 Summary\nThis section provides a step-by-step example of how to create a ZIP folder required for the manual map decryption process. This step is essential and must be performed only after the File Encryption Web Application process has been successfully completed (Refer\n## 16.0 Encrypted Map Packaging & Transfer\nOnce the encrypted map files are generated by the web application, they must be packaged into a compressed ZIP folder. This ZIP folder ensures the integrity and organization of the files during the transfer process and is necessary for the manual decryption workflow to correctly recognize and process the contents.\n\nAfter the ZIP folder is created, it should be securely transferred to the SD card storage on the target device where the decryption will take place. Make sure that the ZIP archive contains all required files in the correct directory structure, and verify that the file names have not been altered during the compression process. Performing this step correctly is critical to avoid errors during decryption and to maintain the confidentiality and accessibility of the map data.\n#### 15.3.1 Example: How to Create OSM_MRSO.zip for Manual Map Decryption\nThis guide demonstrates how to create a ZIP archive named OSM_MRSO.zip, which contains the relevant encrypted map segments and metadata. This ZIP file is required for the manual decryption process, and should be generated after the encryption has been successfully completed via the File Encryption Web Application (Refer  14.0).\n\nSteps to Create the ZIP Archive:\n1. Sort Files by Name\n\nOpen the Local_unzip_map folder and sort the contents by Name to group related files together (e.g., osm_mrso1.zip through osm_mrso8.zip and osm_mrso_info.json).\n\n![Figure from original manual — page 32](/media/technical-guide/p32_021.jpg)\n\n2. Select Relevant Files\nCarefully select all files that begin with osm_mrso: osm_mrso_info.json, osm_mrso1.zip, osm_mrso2.zip, ..., osm_mrso8.zip\n\nThese files are part of the same dataset and must be bundled together.\n\n3. Compress the Selected Files\nRight-click on any of the selected files. Click Compress (on macOS) or Send to > Compressed (zipped) folder (on Windows).\n\nThis will create a ZIP file, typically named Archive.zip by default if MAC operating system.\n\n![Figure from original manual — page 33](/media/technical-guide/p33_022.jpg)\n\n![Figure from original manual — page 33](/media/technical-guide/p33_023.jpg)\n\n![Figure from original manual — page 33](/media/technical-guide/p33_024.jpg)\n\n4. Rename the Archive\nRename the generated archive to match the dataset name. In this case, rename it to: OSM_MRSO.zip\n5. Transfer to SD Card\nCopy the OSM_MRSO.zip file and paste it into the correct folder path on the SD card. Make sure it's placed in the intended directory used by the map decryption system. (Refer 15.2)\n\n### 16.2 Root Cause Analysis\nZIP compatibility issues occur when archives are created using non-standard compression methods. For example, the built-in Windows ZIP utility adds proprietary NTFS metadata and older ZIP headers, which Android’s ZIP libraries cannot interpret correctly. This leads to extraction errors or the archive being marked as encrypted.\n\nTools such as 7-Zip and macOS Finder generate clean ZIP64 archives using UTF-8 encoding and omit unnecessary metadata, ensuring full cross-platform compatibility.\n\n//The remainder of this page is intentionally left blank//\n\nCompression Tool Platform Android Compatible? Remarks 7-Zip Windows Yes Fully compatible and recommended for all professional use cases. macOS Built-in macOS Yes Produces clean ZIP64 archives with UTF-8 encoding. Windows Built-in Windows No Adds NTFS metadata and outdated ZIP headers. 7-Zip macOS Partial Occasional issues with extremely large ZIPs (>50GB). ZArchiver Android Yes Ideal fallback when desktop compression tools fail.\n\n### 16.3 Recommended Compression Method (7-Zip on Windows)\nThe most reliable and widely tested compression tool for Windows is 7-Zip. It adheres strictly to ZIP64 and UTF-8 standards, ensuring that resulting archives are fully compatible with Android and macOS. It is especially effective when handling large files exceeding 4 GB or when preserving folder structure in technical data packages.\n\n- Step 1: Install 7-Zip\n  - Visit https://www.7-zip.org and download the latest 64-bit version.\n  - Install it and open 7-Zip File Manager from the Start Menu.\n  - Verify installation by checking the version number under 'Help → About 7-\nZip'.\n\n- Step 2: Configure Compression Settings\nTo ensure maximum compatibility and predictable results, apply the configuration settings below in the 'Add to Archive' dialog when using 7-Zip.\n\nSetting Recommended Value Archive Format ZIP (not 7z) Compression Level Normal or Maximum (depending on speed) Compression Method Deflate Word Size\n\nCPU Threads All available cores Encryption AES-256 (optional for password protection) Use UTF-8 for Filenames Enabled Create SFX Archive Unchecked (for normal ZIP)\n\nOnce configured, click OK to start compression. Avoid pausing or minimizing the process to ensure full file integrity.\n\n![Figure from original manual — page 37](/media/technical-guide/p37_025.jpg)\n\n### 16.4 Using ZArchiver on Android (Alternative to 7-Zip)\nZArchiver is a powerful Android file manager and compression tool that can serve as a direct alternative when 7-Zip is not available or fails to produce compatible archives. It uses modern ZIP64 encoding and supports both compression and extraction of encrypted archives. This makes it a dependable fallback option when working solely on an Android device or when desktop ZIP utilities encounter compatibility problems.\n#### 16.4.1 When to Use ZArchiver (As Alternative)\nZArchiver should be used in cases where:\n  - 7-Zip cannot open or recompress a damaged ZIP archive.\n  - Files must be compressed directly on Android (without a PC).\n  - You need to extract password-protected files in the field.\n  - Android reports 'corrupted' or 'encrypted' errors from ZIPs made on Windows.\n\n#### 16.4.2 Step-by-Step Guide in using ZArchiver\n1. Download and install ZArchiver from Google Play Store.\n2. Launch the app and browse to your Internal or SD card storage.\n3. Locate the ZIP file you wish to extract, long-press it, and select 'Extract here'.\n4. For creating new ZIP files, long-press a folder or select multiple files → tap the\n5. archive icon → choose 'Compress'.\n6. Confirm your compression settings and tap OK to begin.\n\n#### 16.4.3 Recommended ZArchiver Configuration\n\nSetting Recommended Configuration Archive Format ZIP Compression Level Normal or Fast (recommended for speed) Compression Method Deflate (default, Android-compatible) Password Encryption ZipCrypto (standard compatibility) Use UTF-8 for Filenames Enabled (default in ZArchiver) Split Archive Disabled unless needed for size constraints Delete Source Files After Compression Optional (use with caution)\n\nZArchiver automatically applies UTF-8 encoding for all filenames, ensuring no garbled characters appear when transferring ZIPs to Windows or macOS. Always verify extraction by opening the resulting ZIP archive within ZArchiver itself.\n\n![Figure from original manual — page 39](/media/technical-guide/p39_026.jpg)\n\n### 16.5 SD Card Format Requirements\n\nWhen handling large ZIP files (greater than 4 GB), ensure the SD card or external storage is formatted as **exFAT**. Older FAT32 formats cannot handle files above this size limit. Always confirm the format before copying or creating ZIPs on mobile devices. Formatting steps:\n- On Windows: Right-click SD card → Format → File System: exFAT → Start.\n- On macOS: Use Disk Utility → Select SD card → Erase → Format: exFAT → Erase.\n### 16.6 Verification and Testing\nAfter compression, always verify that your ZIP files open successfully across devices. Testing ensures compatibility, prevents data loss, and confirms that UTF-8 encoding and ZIP64 headers function correctly.\n- The archive has a .zip extension.\n- UTF-8 encoding is enabled (filenames appear correctly on all systems).\n- SD card is formatted as exFAT.\n- ZIP opens on Android and Windows without password or corruption errors.\n- Extracted file sizes match originals exactly.\n\n![Figure from original manual — page 40](/media/technical-guide/p40_027.jpg)\n\n### 16.7 Troubleshooting Guide\nProblem Possible Cause Resolution Android shows 'Failed to view encrypted file' ZIP created using Windows built-in compression Recompress using 7-Zip or ZArchiver with UTF-8 enabled. ZIP cannot copy to SD card Card formatted as FAT32 Reformat to exFAT to support files larger than 4 GB. ZIP extraction stops halfway Corrupted or incomplete transfer Re-transfer or re-compress the original folder. Compression takes too long Using Maximum compression level unnecessarily Use Normal compression level for best performance. Unexpected password request Metadata misread from NTFS-compressed ZIP Recompress using ZArchiver with Deflate method and ZipCrypto encryption.\n### 16.8 Best Practices\nFollow these guidelines for consistent, reliable, and cross-platform ZIP handling:\n- Use 7-Zip for all compression tasks when available.\n- Use ZArchiver as an alternative when working on Android or if 7-Zip is\nunavailable.\n- Enable UTF-8 encoding to prevent filename corruption.\n- Always use exFAT for SD cards storing large ZIPs.\n- Test archives on Android before sharing.\n- Keep compression settings consistent across systems and users.\n- Avoid Windows built-in ZIP tools.\n- Avoid FAT32 for modern data storage needs.\nBy adhering to these configurations and workflows, teams can ensure flawless ZIP file handling across Windows, macOS, and Android systems, while maintaining speed, compatibility, and data integrity.\n\n## 17.0 Manual Map Decryption & Loading (SD Card Mode)\nThis section describes how to manually decrypt and load offline maps from the SD card for offline navigation use. This is necessary when using the app in environments without internet access or when enhanced security is required.\n### 17.1 Preparation Steps\n1. Obtain the encrypted map ZIP file (e.g., `mrso.zip` or `osm_mrso.zip`).\n2. Place the ZIP file inside the designated SD card directory:\n/storage/<external_sd>/DCIM/encrypted/<folder_name>. (Refer 15.2)\n3. Make sure your map source setting is toggled to Local Storage in the configuration\nscreen.\n\n//The remainder of this page is intentionally left blank//\n\n### 17.2 Launching Manual Decryption\n1. From the home screen, tap the Navigation icon to enter the map view.\n2. If your device is set to local mode, the system will automatically detect any ZIP file\nplaced on the SD card.\n3. You will be presented with an interface showing available encrypted ZIP files (e.g.,\n`MRSO.zip`, `OSM_MRSO.zip`).\n4. Tap the Decrypt button next to the relevant file.\n\n![Figure from original manual — page 43](/media/technical-guide/p43_028.jpg)\n\n![Figure from original manual — page 43](/media/technical-guide/p43_029.jpg)\n\n### 17.3 Decryption & Unzipping Process\nOnce the decryption begins:\n- You will be prompted to enter a valid PIN.\n- The system will start extracting the ZIP file. You will see progress updates such as:\n  - 'Unzipping osm_mrso5.zip'\n  - 'Decrypting... 75%'\n- Upon success, the map needs to be load onto the screen by tap on the load map\nmenu.\n- Map can then be browsed or used for navigation in real-time.\n\n//The remainder of this page is intentionally left blank//\n\n⚠ Notes:\n- Ensure only one map .zip is placed at a time for clean deployment.\n- Always verify map source is toggled to 'Local Storage'. PINs are case-sensitive and\nmust match the encryption passphrase.\n- Restart the app if map fails to load after decryption.\n\n![Figure from original manual — page 45](/media/technical-guide/p45_030.jpg)\n\n![Figure from original manual — page 45](/media/technical-guide/p45_031.jpg)\n\n## 18.0 Manual Map Decryption & Loading (SD Card Mode) — Continuation\nSection 18.0 This section elaborates on the manual decryption process for loading offline maps into the Tactical Navigation App using SD card storage. This method is typically used in isolated deployments or secured network-restricted environments.\n### 18.1 Overview of Manual Decryption Use Case\nManual map decryption allows users to load pre-downloaded encrypted map packages (ZIP format) directly from an SD card. This process bypasses the need for live server interaction and ensures full offline operation. It is useful in:\n- Field environments with no internet access\n- Military operations where data isolation is mandated\n- Secured deployments where downloading from server is disallowed\n### 18.2 Pre-Requisites & File Preparation\nBefore launching the app, the following preparations must be completed:\n1. Acquire the encrypted map files provided by system administrators. Typical file\nnames:\n  - `mrso.zip’\n  - `osm_mrso.zip`\n2. Ensure the files are not extracted. Do NOT unzip the files manually.\n3. Place the encrypted files into the SD card path:\n/storage/<external_sd>/DCIM/encrypted/<folder_name>. (Refer 15.2)\n4. Insert the SD card into the device before launching the app.\n5. Confirm the app configuration is set to use Local Storage for maps.\n\n⚠  Note: The folder `encrypted/` must be created manually if it does not exist. Only files in this path will be detected by the decryption module.\n\n### 18.3 Enabling Local Storage Map Mode\nTo activate local storage mode:\n1. When prompted for location configuration, ensure your choice is locked (e.g.,\nPeninsula - MRSO).\n2. Toggle the map source setting from 'Download from Server' to OFF.\n3. Proceed by clicking SUBMIT to finalize setup.\nThis disables online downloads and prepares the system to look for SD-based map packages.\n### 18.4 Launching Navigation & Decryption UI\nAfter configuration, return to the home screen and tap the Navigation icon. If the SD card is correctly inserted and contains supported map files, a decryption interface will appear. It will display all encrypted ZIP files detected in the SD card directory. The interface includes:\n- File name (e.g., `OSM_MRSO.zip`)\n- Green 'Decrypt' button beside each file\n- A red 'Clear All Map Files' button at the bottom (use cautiously)\n### 18.5 Decryption & PIN Entry\nTo begin decrypting a file:\n1. Tap the corresponding 'Decrypt' button.\n2. A prompt will ask for your secure PIN.\n- The PIN must match the encryption key associated with the map.\n- Incorrect PINs will fail the decryption silently or display an error.\n3. Upon PIN entry, press 'PROCEED'.\nDuring decryption, progress bars will appear:\n- Unzipping step (e.g., `Unzipping osm_mrso5.zip`)\n- Decryption step (e.g., `75% Decrypting...`)\nThe entire process may take several minutes depending on device speed and file size.\n\n### 18.6 Map Loading Confirmation\nOnce decryption completes:\n- The app will automatically load the corresponding map tiles.\n- You will see either satellite, OpenStreetMap, or topographic data loaded onto\nthe screen.\n- If the map fails to load, restart the app to trigger a reload.\nAfter loading, you may use additional tools:\n- Zoom level toggle (scale from 0 to 4)\n- Map switching panel (Satellite, OSM, Topographic, Navigation via HereWeGo)\n- Coordinate search using Latitude/Longitude fields\n### 18.7 Tips and Troubleshooting\n- Always ensure only one ZIP file is deployed to avoid conflicts.\n- If decryption freezes, force close and relaunch the app.\n- Verify SD card health and file integrity before use.\n- PINs are case-sensitive and tied to encryption profiles per version. If switching\nmap sources later, you must reconfigure and restart setup.\n\n//The remainder of this page is intentionally left blank//\n\n## 19.0 Coordinate Formats & Grid Display Options\nThe Tactical Navigation App supports multiple coordinate formats and projection systems. These can be toggled ON or OFF via the map settings panel. Enabling these options will allow the app to display corresponding coordinate values directly on the map view.\n### 19.1 Enabling Coordinate Display Formats\nNavigate to the settings panel in the navigation screen and ensure the following toggle switches are enabled to view full coordinate output:\n- Decimal Degree (DD)\n- Degrees, Minutes, Seconds (DMS)\n- Degrees and Decimal Minutes (DMM)\n- GRID\n- UTM\n- Grid Reference\n- GDM 2000 (EPSG:3375, Peninsula RSO)\n\nEach toggle corresponds to a specific coordinate system. When all are enabled, the user will see a rich data popup when tapping on any location in the map.\n\n![Figure from original manual — page 49](/media/technical-guide/p49_032.jpg)\n\n### 19.2 Explanation of Coordinate Formats\ni. Decimal Degree (DD):\n- Standard latitude/longitude format with decimal fractions.\n- Example: 3.075600°, 101.712720°\n- Common in web-based maps and GPS tools.\n\nii. Degrees, Minutes, Seconds (DMS):\n- Traditional navigation format.\n- Example: 3° 4′ 32.15″ N, 101° 42′ 45.77″ E\n- Common in maritime and military use.\n\niii. Degrees Decimal Minutes (DMM):\n- Hybrid format between DD and DMS.\n- Example: 3° 4.5359′ N, 101° 42.7629′ E\n### 19.3 Explanation of Grid Systems\ni. UTM (Universal Transverse Mercator):\n- Displays Easting, Northing, and Zone.\n- Example: Easting: 801538.164 m, Northing: 340332.475 m, Zone: 47 N\n\nii. GRID Reference:\n- Uses numeric reference for simplified position indexing.\n- Example: GRID REF: 403, 129\n\niii. GDM2000 (EPSG:3375):\n- Local Malaysian coordinate projection.\n- Example: GDM2000 MRSO: 340372.1, 412925.932\nThese values are helpful for GIS processing, reporting to command centers, or referencing in mission briefings.\n\n### 19.4 Output Display Example\nOnce all toggles are enabled, tapping on the map will display a complete coordinate block overlay, showing all available formats simultaneously. This ensures compatibility with diverse mission requirements and mapping systems.\n\n//The remainder of this page is intentionally left blank//\n\n![Figure from original manual — page 51](/media/technical-guide/p51_033.jpg)\n\n## 20.0 Location Permissions & Display Toggle Behavior\nIn order to function properly, the Tactical Navigation App requires access to the device’s location services. The app uses this access to retrieve the current GPS position and plot it on the map in real time. Permissions must be granted both at the system level and within the app settings.\n### 20.1 Location Permission Configuration\nUpon first launch, the app will request necessary permissions. To ensure uninterrupted functionality:\n1. Navigate to: Settings > Apps > MilliNav > Permissions.\n2. Enable the following:\nLocation: Set to 'Allow all the time' Files and Media: Allow full access\n3. Enable 'Use Precise Location' under the system's location services settings.\nFailure to grant permissions will result in disabled features, including live location updates and data logging. If denied, the app may show a black screen or location-related errors (e.g., 'Location services are disabled.').\n### 20.2 Enabling Android Location Services\nTo enable location services on the device:\n1. Go to Android Settings > Location.\n2. Ensure the toggle is set to 'ON'.\n3. Tap 'App Permissions' and confirm that MilliNav is listed under allowed apps.\n4. For devices in kiosk mode, exit kiosk to modify location permissions and restart\nthe app. Location indicators (blue dot or marker) will only appear if permissions are active and the service is running. This is essential for GPS-based guidance and accuracy of all map-based features.\n\n### 20.3 Coordinate Display Toggle Settings\nThe app provides several display options for coordinates and grid references. These can be toggled ON or OFF from the map's side settings menu. Available toggles include:\n- Longitude (X), Latitude (Y)\n- Decimal Degree (DD)\n- Degree, Minutes, Seconds (DMS)\n- Degrees Decimal Minutes (DMM)\n- GRID Reference\n- UTM (Universal Transverse Mercator)\n- GDM 2000 (EPSG:3375, Peninsula RSO)\n### 20.4 Behavior of Toggle Switches\ni. To trigger the coordinate popup, the user must long press on a location on the map. A single tap will not activate the info overlay. The long press captures the exact coordinate for the selected location. ii. Each switch controls whether a specific coordinate system is visible when a user taps on the map. For example:\n  - If 'DMS' is OFF, the Degrees, Minutes, Seconds format will not appear in\nthe info popup.\n  - If 'UTM' is ON, Easting/Northing values and Zone will appear as part of the\noutput. iii. Toggles are persistent and remembered between sessions unless reset by the user. iv. To view the most complete coordinate readout, users are encouraged to toggle all available formats ON. This can assist with multi-format mapping, coordinate verification, and reporting compatibility.\n\n### 20.5 Disabling Coordinate Display\nIf you wish to reduce clutter or restrict certain formats, simply toggle OFF the corresponding switches:\n- Example: Turning off 'GRID Reference' will hide GRID REF entries in future\ncoordinate popups.\n  - All updates take effect immediately without requiring app restart.\n  - Users may also enable 'Fullscreen Mode' to declutter the interface.\n⚠  Important: If none of the coordinate toggles are enabled, no coordinate popup will appear when the map is tapped.\n### 20.6 Summary\nProper permission management and toggle configuration are crucial to the Tactical Navigation App’s functionality. Ensure all location permissions are active and review your toggle settings for accurate and usable data output.\n\n//The remainder of this page is intentionally left blank//\n\n## 21.0 Tactical Navigation - Coordinate & Grid Reference Search\nThe Tactical Navigation App provides a powerful coordinate and grid reference search utility, supporting both WGS 84 (Latitude/Longitude) and GDM 2000 (Malaysian grid system) formats. This feature allows users to input precise coordinates and instantly locate the point on the integrated map interface. Users can tap on the searched result to view the location or initiate navigation to that point.\n### 21.1 Coordinate Input Guidelines\nTo ensure accuracy when entering coordinates: WGS 84 (Latitude/Longitude):\n- Enter coordinates using 4 decimal places (e.g., 2.9263, 101.6384)\n- This level of precision is accurate to within approximately 10–15 meters.\nGDM 2000 (Easting/Northing):\n- Enter 6-digit values for both easting and northing (e.g., 323755, 404486)\n- This ensures accurate referencing within 1–5 meters, suitable for tactical field\nnavigation. Incorrect or incomplete coordinate values may result in inaccurate positioning or navigation failure.\n\n- Ensure it is installed and up to date on the device.\n  - You can download it from the Google Play Store. You may download using\nurl https://play.google.com/store/apps/details?id=com.here.app.maps&pca mpaignid=web_share\n\nSource: https://play.google.com/store/apps/details?id=com.here.app.maps&hl=en\n\niii. Download Maps for Offline Use in HERE WeGo App\n  - If operating in areas with limited or no internet, make sure to pre-\ndownload the relevant region's maps in the HERE WeGo app.\n  - This ensures offline navigation works reliably without requiring live data.\niv. Navigation Workflow\n  - Tap \"Navigate\" after selecting a coordinate search result.\n  - The Tactical Navigation App will launch HERE WeGo, passing the location\nto begin turn-by-turn routing.\n  - HERE WeGo will take over the navigation experience from there.\n\n### 21.2 Search Inputs Available\nThe search input fields appear at the top of the right-side map settings panel and accept the following values:\n- Latitude (Y): Decimal value representing north/south position\n- Longitude (X): Decimal value representing east/west position\nBoth fields must be filled before tapping the search icon (magnifying glass) to execute the location lookup.\n### 21.3 Step-by-Step Guide to Search Location by Coordinates\n1. Open the navigation screen. 2. Ensure map source is set and map is fully loaded. 3. Tap into the latitude and longitude input fields on the right panel. 4. Use the numeric keypad to enter the values.\n- Example: Latitude = 6.012243, Longitude = 101.982616\n5. Press the magnifying glass icon to execute the search. 6. The map will center on the entered location and display a coordinate popup marker with complete details. This method is useful for:\n- Navigating to known coordinates\n- Verifying geotagged reports\n- Receiving location references from command/colleagues\n\n### 21.4 Step-by-Step Guide to Search Location by Grid Reference (GDM 2000)\n1. Open the navigation screen.\n2. Ensure the map source is set and the map is fully loaded.\n3. On the left side of the coordinate input panel, tap the close (×) button beside the\nLatitude/Longitude input field.\n4. This will switch the input mode to Grid Reference (GDM 2000). The placeholder\ntext will update accordingly.\n5. In this mode, enter 6-digit values for both Easting and Northing (not 3-digit\ntruncated values).\n\n- Example: Easting = 323755, Northing = 404486\n  - Using full 6-digit values ensures accurate targeting within 1–5 meters.\n6. Press the magnifying glass icon to execute the search.\n7. The map will center on the entered GDM 2000 location and display a coordinate\npopup marker with full details.\n\nThis method is useful for:\n- Navigating to GDM 2000 grid coordinates\n- Local tactical operations that use national grid formats\n- Coordinating movement with field teams and receiving grid references from\ncommand posts\n\n⚠  Tip: If you're unsure which input mode you're using, check the placeholder text—it will indicate whether you're entering Latitude/Longitude or Grid Reference.\n### 21.5 Supported Formats\nAlthough the input uses Decimal Degrees (DD) or GDM 2000 for simplicity, the output popup will also show and it also based on the earlier configurations:\n- DMS (Degrees, Minutes, Seconds)\n- DMM (Degrees Decimal Minutes)\n- UTM Grid with Zone\n- GRID REF\n- GDM2000 projection coordinates\nUsers can navigate to a coordinate by tapping the popup marker or the \"Navigate\" button, which will launch the HERE WeGo app to provide detailed directions and turn-by-turn navigation.\n\n### 21.6 Notes & Troubleshooting\ni. Ensure both latitude and longitude fields are filled when using WGS 84 input mode. ii. When using GDM 2000 (grid reference) mode, enter 6-digit values for both Easting and Northing (e.g., 323755, 404486). iii. Avoid entering short 3-digit grid readings; this will result in inaccurate or failed searches. iv. Do not use symbols or letters (e.g., 'N', 'E'); input only numbers and decimals. v. If no marker appears, double-check that map layers and toggles are enabled. vi. You may need to zoom out slightly to view the marker if it appears off- screen.\n### 21.7 Summary\nThe search-by-location tool is a quick and efficient way to pinpoint any known coordinate on the map. This is critical for tactical operations, recon planning, or field check-ins. Ensure accuracy by always double-checking your decimal inputs.\n#### 21.7.1 Example:  Navigation Instruction How to Use Map Coordinate Search & Here\nWeGo App Here's a clear and complete instruction guide based on the screenshots and your provided steps. This guide walks users through how to search for a location using either Latitude/Longitude or GDM2000 Grid Reference and then navigate using the Here WeGo app. Step-by-Step Instructions\n  - Step 1: Open the Navigation Drawer\nTap the menu button (top right corner) to open the drawer panel labeled Malaysian Armed Forces.\n\n- Step 2: Default- Search by Latitude & Longitude\n\nBy default, the system opens with Latitude/Longitude search mode enabled. Two input fields will appear labeled Latitude and Longitude.\n  - Step 3: Switch to GDM2000 Grid Reference (Optional)\n\ni. Tap the  close icon beside the input fields. ii. A toggle switch will appear at the top, labeled: iii. Search via: Latitude, Longitude iv. or Search via: Grid Reference Switch ON to search by GDM2000 grid reference instead of latitude/longitude.\n\n//The remainder of this page is intentionally left blank//\n\n![Figure from original manual — page 61](/media/technical-guide/p61_034.jpg)\n\n- Step 4: Enter Coordinates\n\ni. In GDM2000 mode, input the grid values into both fields. ii. Tip: Use decimal values for higher accuracy. Example: 324240.898,\n### 405073.501 iii.\nIf GDM2000 mode, and the result show the location is in Western (W) or Southern (S), ensure to enter the value “-” instead of “00”. This mostly happen for BRSO map.\n\n  - Step 5: Search for Location\ni. After entering coordinates, tap the search icon to locate the point on the map. ii. A marker will appear with full coordinate details (DD, DMS, UTM, GRID REF, GDM2000).\n\n![Figure from original manual — page 62](/media/technical-guide/p62_035.jpg)\n\n- Step 6: Start Navigation\n\ni. Tap the “Navigate” button shown in the coordinate popup. ii. If the app is currently in kiosk mode, a message will appear: \"To unpin this app, touch and hold the Recents and Back buttons at the same time.\"\n\n//The remainder of this page is intentionally left blank//\n\n![Figure from original manual — page 63](/media/technical-guide/p63_036.jpg)\n\n- Step 7: Launch Here WeGo\n\ni. After unpinning, the system will automatically launch the Here WeGo app. ii. Navigation will be pre-loaded with the selected location, and you may begin routing.\n\n## 22.0 Troubleshooting & Issues\n### 22.1 License Key Issues\n- Ensure version is 1.1.2.\n- Double check key input.\n- Match serial and version.\n\n### 22.2 Manual Map Doesn't Load\n- If Manual Map, please verify $map.zip  and $map_info.json exist\n- Make sure the zip folder contains all those encrypted files, and the json info file.\n- Make sure it pasted to correct location and correctly named.\n- Reboot the app.\n- Confirm map source toggle is correct.\n\n### 22.3 App Won’t Open or Vanishes\n- Go to Settings > Apps > MilliNav > Force Stop.Relaunch app.\n- Confirm permissions and default launcher.\n### 22.4 App Behaving Erratically or Acting Unresponsive\n- Go to Settings > Apps > MilliNav > Storage.\n- Tap Clear Cache to remove temporary files.\n- If the issue persists, tap Clear Data to reset the app to its default state.\n- After clearing data:\n  - Reopen the app.\n  - You must re-enter your license key, or the app will attempt to revalidate\nthe previously used key (if device info is unchanged).\n  - Ensure the device has an active internet connection to complete license\nrevalidation. ⚠  Note: Clearing data will remove saved settings, including the license key.\n\n### 22.5 Common File Path Locations as example.\n#### 22.5.1 Downloaded Encrypted Files\n/storage/3231-3564/Android/data/com.milinav/files/topo/encrypted_topo /storage/3231-3564/Android/data/com.milinav/files/osm/encrypted_osm\n#### 22.5.2 Manually Placed Encrypted Files\n/sdcard/DCIM/encrypted/MRSO.zip /sdcard/DCIM/encrypted/BRSO.zip /sdcard/DCIM/encrypted/OSM_MRSO.zip /sdcard/DCIM/encrypted/OSM_BRSO.zip\n#### 22.5.3 Unzipped Copied Files\n/sdcard/Android/data/com.milinav/files/manual_temp /sdcard/Android/data/com.milinav/files/temp\n#### 22.5.4 Decrypted File (MMPK)\n/data/data/com.milinav/cache/temp/.corpDcrTp_7826012631794457322.mmpk\n#### 22.5.5 File Flow Overview\nManual Zip File Location /sdcard/DCIM/encrypted/MRSO.zip Unzipped File Directory (after download/unzipping) /sdcard/Android/data/com.milinav/files/temp Decrypted MMPK File Path /data/data/com.milinav/cache/temp/.corpDcrTp_7826012631794457322.mmpk Log Location File Path /sdcard/Android/data/com.milinav/files/logs SQLite DB Log File Path /data/data/<your_app_package_name>/databases/<database_name>\n"
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "1.0 Overview",
+      "anchor": "1.0-overview"
+    },
+    {
+      "level": 3,
+      "title": "1.1 Purpose",
+      "anchor": "1.1-purpose"
+    },
+    {
+      "level": 3,
+      "title": "1.2 Scope",
+      "anchor": "1.2-scope"
+    },
+    {
+      "level": 3,
+      "title": "1.3 Intended Audience",
+      "anchor": "1.3-intended-audience"
+    },
+    {
+      "level": 2,
+      "title": "2.0 Device Specification Requirements",
+      "anchor": "2.0-device-specification-requirements"
+    },
+    {
+      "level": 3,
+      "title": "2.1 Minimum Requirements:",
+      "anchor": "2.1-minimum-requirements"
+    },
+    {
+      "level": 3,
+      "title": "2.2 Recommended Specifications (for best performance):",
+      "anchor": "2.2-recommended-specifications-for-best-performance"
+    },
+    {
+      "level": 2,
+      "title": "3.0 Launch Screen & Interface",
+      "anchor": "3.0-launch-screen--interface"
+    },
+    {
+      "level": 2,
+      "title": "4.0 App Permissions and OS Behavior",
+      "anchor": "4.0-app-permissions-and-os-behavior"
+    },
+    {
+      "level": 3,
+      "title": "4.1 Android Permissions Overview",
+      "anchor": "4.1-android-permissions-overview"
+    },
+    {
+      "level": 3,
+      "title": "4.2 How to Grant Permissions Manually",
+      "anchor": "4.2-how-to-grant-permissions-manually"
+    },
+    {
+      "level": 2,
+      "title": "5.0 Location Setup (First-Time Mandatory Step)",
+      "anchor": "5.0-location-setup-first-time-mandatory-step"
+    },
+    {
+      "level": 2,
+      "title": "6.0 Map Source Selection",
+      "anchor": "6.0-map-source-selection"
+    },
+    {
+      "level": 2,
+      "title": "7.0 Submitting Initial Configuration",
+      "anchor": "7.0-submitting-initial-configuration"
+    },
+    {
+      "level": 2,
+      "title": "8.0 License Activation (For Version > 1.1.2)",
+      "anchor": "8.0-license-activation-for-version--1.1.2"
+    },
+    {
+      "level": 3,
+      "title": "8.1 Android ID Change Notice",
+      "anchor": "8.1-android-id-change-notice"
+    },
+    {
+      "level": 2,
+      "title": "9.0 Compass Utility Page (Separate from Home)",
+      "anchor": "9.0-compass-utility-page-separate-from-home"
+    },
+    {
+      "level": 2,
+      "title": "10.0 Data Logging Feature",
+      "anchor": "10.0-data-logging-feature"
+    },
+    {
+      "level": 2,
+      "title": "11.0 Example Data Logs",
+      "anchor": "11.0-example-data-logs"
+    },
+    {
+      "level": 3,
+      "title": "11.1 Location Provider Comparison Table",
+      "anchor": "11.1-location-provider-comparison-table"
+    },
+    {
+      "level": 2,
+      "title": "12.0 Gyroscope Display (Vehicle Tilt Monitoring)",
+      "anchor": "12.0-gyroscope-display-vehicle-tilt-monitoring"
+    },
+    {
+      "level": 3,
+      "title": "12.1 Accessing the Gyro Display",
+      "anchor": "12.1-accessing-the-gyro-display"
+    },
+    {
+      "level": 3,
+      "title": "12.2 Initial Calibration",
+      "anchor": "12.2-initial-calibration"
+    },
+    {
+      "level": 3,
+      "title": "12.3 Live Tilt Monitoring",
+      "anchor": "12.3-live-tilt-monitoring"
+    },
+    {
+      "level": 3,
+      "title": "12.4 Best Practices",
+      "anchor": "12.4-best-practices"
+    },
+    {
+      "level": 2,
+      "title": "13.0 Side Menu Features Explained",
+      "anchor": "13.0-side-menu-features-explained"
+    },
+    {
+      "level": 3,
+      "title": "13.1 Satellite Map",
+      "anchor": "13.1-satellite-map"
+    },
+    {
+      "level": 3,
+      "title": "13.2 Open Street Map (OSM)",
+      "anchor": "13.2-open-street-map-osm"
+    },
+    {
+      "level": 3,
+      "title": "13.3 Topographic Map",
+      "anchor": "13.3-topographic-map"
+    },
+    {
+      "level": 3,
+      "title": "13.4 Navigation via Here WeGo App",
+      "anchor": "13.4-navigation-via-here-wego-app"
+    },
+    {
+      "level": 3,
+      "title": "13.5 Geodetic Distance (KM)",
+      "anchor": "13.5-geodetic-distance-km"
+    },
+    {
+      "level": 3,
+      "title": "13.6 Zoom Level",
+      "anchor": "13.6-zoom-level"
+    },
+    {
+      "level": 2,
+      "title": "14.0 File Encryption Web Application",
+      "anchor": "14.0-file-encryption-web-application"
+    },
+    {
+      "level": 3,
+      "title": "14.1 Navigation & UI Structure",
+      "anchor": "14.1-navigation--ui-structure"
+    },
+    {
+      "level": 3,
+      "title": "14.2 File Upload Workflow",
+      "anchor": "14.2-file-upload-workflow"
+    },
+    {
+      "level": 3,
+      "title": "14.3 Encryption Status Monitoring",
+      "anchor": "14.3-encryption-status-monitoring"
+    },
+    {
+      "level": 3,
+      "title": "14.4 File Output Confirmation",
+      "anchor": "14.4-file-output-confirmation"
+    },
+    {
+      "level": 2,
+      "title": "Packaging tip (7-Zip)",
+      "anchor": "packaging-tip-7-zip"
+    },
+    {
+      "level": 2,
+      "title": "15.0 Manual Map Deployment (For SD Card Users)",
+      "anchor": "15.0-manual-map-deployment-for-sd-card-users"
+    },
+    {
+      "level": 3,
+      "title": "15.1 Required Files",
+      "anchor": "15.1-required-files"
+    },
+    {
+      "level": 3,
+      "title": "15.2 Zip Deployment",
+      "anchor": "15.2-zip-deployment"
+    },
+    {
+      "level": 3,
+      "title": "15.3 Summary",
+      "anchor": "15.3-summary"
+    },
+    {
+      "level": 2,
+      "title": "16.0 Encrypted Map Packaging & Transfer",
+      "anchor": "16.0-encrypted-map-packaging--transfer"
+    },
+    {
+      "level": 3,
+      "title": "16.2 Root Cause Analysis",
+      "anchor": "16.2-root-cause-analysis"
+    },
+    {
+      "level": 3,
+      "title": "16.3 Recommended Compression Method (7-Zip on Windows)",
+      "anchor": "16.3-recommended-compression-method-7-zip-on-windows"
+    },
+    {
+      "level": 3,
+      "title": "16.4 Using ZArchiver on Android (Alternative to 7-Zip)",
+      "anchor": "16.4-using-zarchiver-on-android-alternative-to-7-zip"
+    },
+    {
+      "level": 3,
+      "title": "16.5 SD Card Format Requirements",
+      "anchor": "16.5-sd-card-format-requirements"
+    },
+    {
+      "level": 3,
+      "title": "16.6 Verification and Testing",
+      "anchor": "16.6-verification-and-testing"
+    },
+    {
+      "level": 3,
+      "title": "16.7 Troubleshooting Guide",
+      "anchor": "16.7-troubleshooting-guide"
+    },
+    {
+      "level": 3,
+      "title": "16.8 Best Practices",
+      "anchor": "16.8-best-practices"
+    },
+    {
+      "level": 2,
+      "title": "17.0 Manual Map Decryption & Loading (SD Card Mode)",
+      "anchor": "17.0-manual-map-decryption--loading-sd-card-mode"
+    },
+    {
+      "level": 3,
+      "title": "17.1 Preparation Steps",
+      "anchor": "17.1-preparation-steps"
+    },
+    {
+      "level": 3,
+      "title": "17.2 Launching Manual Decryption",
+      "anchor": "17.2-launching-manual-decryption"
+    },
+    {
+      "level": 3,
+      "title": "17.3 Decryption & Unzipping Process",
+      "anchor": "17.3-decryption--unzipping-process"
+    },
+    {
+      "level": 2,
+      "title": "18.0 Manual Map Decryption & Loading (SD Card Mode) — Continuation",
+      "anchor": "18.0-manual-map-decryption--loading-sd-card-mode--continuation"
+    },
+    {
+      "level": 3,
+      "title": "18.1 Overview of Manual Decryption Use Case",
+      "anchor": "18.1-overview-of-manual-decryption-use-case"
+    },
+    {
+      "level": 3,
+      "title": "18.2 Pre-Requisites & File Preparation",
+      "anchor": "18.2-pre-requisites--file-preparation"
+    },
+    {
+      "level": 3,
+      "title": "18.3 Enabling Local Storage Map Mode",
+      "anchor": "18.3-enabling-local-storage-map-mode"
+    },
+    {
+      "level": 3,
+      "title": "18.4 Launching Navigation & Decryption UI",
+      "anchor": "18.4-launching-navigation--decryption-ui"
+    },
+    {
+      "level": 3,
+      "title": "18.5 Decryption & PIN Entry",
+      "anchor": "18.5-decryption--pin-entry"
+    },
+    {
+      "level": 3,
+      "title": "18.6 Map Loading Confirmation",
+      "anchor": "18.6-map-loading-confirmation"
+    },
+    {
+      "level": 3,
+      "title": "18.7 Tips and Troubleshooting",
+      "anchor": "18.7-tips-and-troubleshooting"
+    },
+    {
+      "level": 2,
+      "title": "19.0 Coordinate Formats & Grid Display Options",
+      "anchor": "19.0-coordinate-formats--grid-display-options"
+    },
+    {
+      "level": 3,
+      "title": "19.1 Enabling Coordinate Display Formats",
+      "anchor": "19.1-enabling-coordinate-display-formats"
+    },
+    {
+      "level": 3,
+      "title": "19.2 Explanation of Coordinate Formats",
+      "anchor": "19.2-explanation-of-coordinate-formats"
+    },
+    {
+      "level": 3,
+      "title": "19.3 Explanation of Grid Systems",
+      "anchor": "19.3-explanation-of-grid-systems"
+    },
+    {
+      "level": 3,
+      "title": "19.4 Output Display Example",
+      "anchor": "19.4-output-display-example"
+    },
+    {
+      "level": 2,
+      "title": "20.0 Location Permissions & Display Toggle Behavior",
+      "anchor": "20.0-location-permissions--display-toggle-behavior"
+    },
+    {
+      "level": 3,
+      "title": "20.1 Location Permission Configuration",
+      "anchor": "20.1-location-permission-configuration"
+    },
+    {
+      "level": 3,
+      "title": "20.2 Enabling Android Location Services",
+      "anchor": "20.2-enabling-android-location-services"
+    },
+    {
+      "level": 3,
+      "title": "20.3 Coordinate Display Toggle Settings",
+      "anchor": "20.3-coordinate-display-toggle-settings"
+    },
+    {
+      "level": 3,
+      "title": "20.4 Behavior of Toggle Switches",
+      "anchor": "20.4-behavior-of-toggle-switches"
+    },
+    {
+      "level": 3,
+      "title": "20.5 Disabling Coordinate Display",
+      "anchor": "20.5-disabling-coordinate-display"
+    },
+    {
+      "level": 3,
+      "title": "20.6 Summary",
+      "anchor": "20.6-summary"
+    },
+    {
+      "level": 2,
+      "title": "21.0 Tactical Navigation - Coordinate & Grid Reference Search",
+      "anchor": "21.0-tactical-navigation---coordinate--grid-reference-search"
+    },
+    {
+      "level": 3,
+      "title": "21.1 Coordinate Input Guidelines",
+      "anchor": "21.1-coordinate-input-guidelines"
+    },
+    {
+      "level": 3,
+      "title": "21.2 Search Inputs Available",
+      "anchor": "21.2-search-inputs-available"
+    },
+    {
+      "level": 3,
+      "title": "21.3 Step-by-Step Guide to Search Location by Coordinates",
+      "anchor": "21.3-step-by-step-guide-to-search-location-by-coordinates"
+    },
+    {
+      "level": 3,
+      "title": "21.4 Step-by-Step Guide to Search Location by Grid Reference (GDM 2000)",
+      "anchor": "21.4-step-by-step-guide-to-search-location-by-grid-reference-gdm-2000"
+    },
+    {
+      "level": 3,
+      "title": "21.5 Supported Formats",
+      "anchor": "21.5-supported-formats"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Download PDF",
+      "url": "https://drive.google.com/uc?export=download&id=1wCWI3n0tf5ZbpMVndfPgbzwA_QMAQIue"
+    },
+    {
+      "label": "Download DOCX",
+      "url": "https://drive.google.com/uc?export=download&id=1hwqJmLSnh6M63TrLbj32SgF-EAZy3zXz"
+    }
+  ]
+}

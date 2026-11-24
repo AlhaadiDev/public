@@ -1,0 +1,73 @@
+{
+  "slug": "adb-device-admin",
+  "title": "ADB Device Admin / Kiosk",
+  "summary": "Set and remove MiliNav device owner via ADB.",
+  "group": "Device Ops",
+  "mode": "full",
+  "pages": [
+    {
+      "id": "full",
+      "title": "ADB Device Admin / Kiosk",
+      "blocks": [
+        {
+          "id": "full",
+          "title": "ADB Device Admin / Kiosk",
+          "body": "# ADB Commands for Device Admin (Kiosk)\n\n## Quick visual\n\n![Device owner / kiosk flow](/media/diagrams/device-owner-flow.svg)\n\nDevice owner can only be set on a clean (unprovisioned) device. Plan for factory reset if you need to remove ownership.\n\nManaging devices with `com.milinav/.kiosk.MyDeviceAdminReceiver`.\n\n## Prerequisites\n- Developer Options and USB Debugging enabled.\n- Unlock Developer Options by tapping Build Number 7 times.\n- Device connected via USB.\n\n## Commands\n\n### Check connected devices\n```\nadb devices\n```\n\n### Reboot\n```\nadb reboot\nadb reboot recovery\nadb reboot bootloader\n```\n\n### Factory reset\n```\nadb shell am broadcast -a android.intent.action.MASTER_CLEAR\n```\nCaution: erases all user data.\n\n### Set device owner (after factory reset)\n```\nadb shell dpm set-device-owner com.milinav/.kiosk.MyDeviceAdminReceiver\n```\nOnly works on a freshly reset device.\n\n### Remove device admin\n```\nadb shell dpm remove-active-admin com.milinav/.kiosk.MyDeviceAdminReceiver\n```\nForce for user 0:\n```\nadb shell dpm remove-active-admin --user 0 com.milinav/.kiosk.MyDeviceAdminReceiver\n```\n\n## Notes\n- Setting device owner requires a factory-reset device with no accounts.\n- Removing admin may require a factory reset if policies are strict."
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Quick visual",
+      "anchor": "quick-visual"
+    },
+    {
+      "level": 2,
+      "title": "Prerequisites",
+      "anchor": "prerequisites"
+    },
+    {
+      "level": 2,
+      "title": "Commands",
+      "anchor": "commands"
+    },
+    {
+      "level": 3,
+      "title": "Check connected devices",
+      "anchor": "check-connected-devices"
+    },
+    {
+      "level": 3,
+      "title": "Reboot",
+      "anchor": "reboot"
+    },
+    {
+      "level": 3,
+      "title": "Factory reset",
+      "anchor": "factory-reset"
+    },
+    {
+      "level": 3,
+      "title": "Set device owner (after factory reset)",
+      "anchor": "set-device-owner-after-factory-reset"
+    },
+    {
+      "level": 3,
+      "title": "Remove device admin",
+      "anchor": "remove-device-admin"
+    },
+    {
+      "level": 2,
+      "title": "Notes",
+      "anchor": "notes"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Download DOCX",
+      "url": "https://drive.google.com/uc?export=download&id=1nhcPe0K8Q_sgt435IvkWmNys9U_sLfD2"
+    }
+  ]
+}

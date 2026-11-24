@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="280" viewBox="0 0 960 280" role="img" aria-label="Device owner kiosk flow">
+  <rect width="960" height="280" rx="12" fill="#f7faf7"/>
+  <text x="28" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Device Admin / kiosk ownership</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Clean device only — factory reset required to remove device owner</text>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="13">
+    <rect x="28" y="90" width="200" height="100" rx="12" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="48" y="124" font-weight="700" fill="#152019">Clean device</text>
+    <text x="48" y="146" fill="#3d4f44">No Google account</text>
+    <text x="48" y="164" fill="#3d4f44">Unprovisioned</text>
+
+    <path d="M240 140 H278" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="280" y="90" width="200" height="100" rx="12" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="300" y="124" font-weight="700" fill="#152019">Install APK</text>
+    <text x="300" y="146" fill="#3d4f44">adb install</text>
+    <text x="300" y="164" fill="#3d4f44">MyDeviceAdmin…</text>
+
+    <path d="M492 140 H530" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="532" y="90" width="200" height="100" rx="12" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="552" y="124" font-weight="700" fill="#152019">Set owner</text>
+    <text x="552" y="146" fill="#3d4f44">dpm set-device-owner</text>
+    <text x="552" y="164" fill="#3d4f44">component name</text>
+
+    <path d="M744 140 H782" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="784" y="90" width="148" height="100" rx="12" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="804" y="124" font-weight="700" fill="#145530">Kiosk</text>
+    <text x="804" y="146" fill="#145530">Lock task</text>
+    <text x="804" y="164" fill="#145530">Policies on</text>
+  </g>
+  <rect x="28" y="210" width="904" height="46" rx="10" fill="#fff8e8" stroke="#d6c48a"/>
+  <text x="48" y="238" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a4a18">Note: If the device already has an account or was set up, factory-reset first — then repeat.</text>
+</svg>

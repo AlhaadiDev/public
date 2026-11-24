@@ -1,0 +1,47 @@
+{
+  "slug": "kiosk-device-owner",
+  "title": "Kiosk Device Owner",
+  "summary": "Kiosk / device-owner notes from the repo.",
+  "group": "Device Ops",
+  "mode": "full",
+  "pages": [
+    {
+      "id": "full",
+      "title": "Kiosk Device Owner",
+      "blocks": [
+        {
+          "id": "full",
+          "title": "Kiosk Device Owner",
+          "body": "# Kiosk device owner – Samsung tablet setup\n\n## Quick visual\n\n![Device owner / kiosk flow](/media/diagrams/device-owner-flow.svg)\n\nDevice owner can only be set on a clean (unprovisioned) device. Plan for factory reset if you need to remove ownership.\n\nUse this when MiliNav kiosk should stay locked and still open HERE WeGo, the file picker, and the camera. That lock is Android lock task. It works after this app is the **device owner**.\n\nTested target: Samsung Galaxy Tab A9+.\n\nThe admin component is `com.milinav.kiosk.MyDeviceAdminReceiver`.\n\n---\n\n## 1. What Settings can and cannot do\n\nThere is no Settings switch that makes MiliNav the device owner. Android only accepts device owner from a computer command, or from enterprise enrollment during first setup.\n\nThese Settings items look related. They are not device owner:\n\n| Settings item | What it does |\n| --- | --- |\n| Device admin apps | Lets MiliNav be a device administrator. Kiosk still screen-pins. |\n| Pin windows | Samsung screen pinning. The tablet shows “touch and hold the Back button to unpin”. HERE WeGo stays blocked. |\n\nAfter the computer command succeeds, open MiliNav and turn kiosk on. Home and Recents stay hidden, the unpin line does not appear, and HERE WeGo can open inside the same lock.\n\n---\n\n## 2. Set device owner on a Tab A9+\n\nDevice owner can be set only while the tablet has no user account. A Google account or a Samsung account already on the tablet makes Android reject the command. Add those accounts later, after the command succeeds.\n\n1. Factory-reset the tablet.\n2. During setup, skip the Google account and the Samsung account.\n3. Install the MiliNav build you will lock.\n4. Turn on Developer options: **Settings → About tablet → Software information**, then tap **Build number** seven times.\n5. Turn on **USB debugging** under Developer options.\n6. Connect the tablet to a computer that has `adb`.\n7. Run the command for that build.\n\nMiliNav demo build (`com.milinav.myspatial`):\n\n```bash\nadb shell dpm set-device-owner com.milinav.myspatial/com.milinav.kiosk.MyDeviceAdminReceiver\n```\n\nJLJ or MilDef build (`com.milinav`):\n\n```bash\nadb shell dpm set-device-owner com.milinav/com.milinav.kiosk.MyDeviceAdminReceiver\n```\n\nMiliTrack build (`com.militrack`):\n\n```bash\nadb shell dpm set-device-owner com.militrack/com.milinav.kiosk.MyDeviceAdminReceiver\n```\n\n8. Open MiliNav and turn kiosk on.\n\n---\n\n## 3. Check that it worked\n\nOn the computer:\n\n```bash\nadb shell dpm list-owners\n```\n\nThe output names this app as device owner. Then, with kiosk on:\n\n- The “hold the Back button to unpin” line is gone.\n- HERE WeGo opens from MiliNav and returns to MiliNav.\n- The file picker and camera can open from MiliNav without leaving the lock.\n\n---\n\n## 4. If the command fails\n\n| Message | What to do |\n| --- | --- |\n| Accounts exist, or “not allowed to set the device owner” | Factory-reset again and skip every account in setup. |\n| A device owner is already set | This tablet already has an owner. Factory-reset it, then repeat section 2. |\n| The component is not found | Install the matching build first. The package in the command must be the installed app. |\n| `adb` does not see the tablet | Accept the USB debugging prompt on the tablet, or use another cable or port. |\n\nDevice admin from Settings does not replace this command. Turn that admin prompt off if it is in the way, then run the command above on a tablet with no accounts."
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Quick visual",
+      "anchor": "quick-visual"
+    },
+    {
+      "level": 2,
+      "title": "1. What Settings can and cannot do",
+      "anchor": "1.-what-settings-can-and-cannot-do"
+    },
+    {
+      "level": 2,
+      "title": "2. Set device owner on a Tab A9+",
+      "anchor": "2.-set-device-owner-on-a-tab-a9"
+    },
+    {
+      "level": 2,
+      "title": "3. Check that it worked",
+      "anchor": "3.-check-that-it-worked"
+    },
+    {
+      "level": 2,
+      "title": "4. If the command fails",
+      "anchor": "4.-if-the-command-fails"
+    }
+  ]
+}

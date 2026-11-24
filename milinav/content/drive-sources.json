@@ -1,0 +1,38 @@
+{
+  "slug": "drive-sources",
+  "title": "Drive Sources",
+  "summary": "Map of Drive originals — which files to keep vs remove.",
+  "group": "Application Manuals",
+  "mode": "manual",
+  "pages": [
+    {
+      "id": "full",
+      "title": "Drive Sources",
+      "blocks": [
+        {
+          "id": "body",
+          "title": "Drive Sources",
+          "body": "# Drive documentation sources\n\nMap between Google Drive originals and digital knowledge-base pages.\n\n## Keep these (latest)\n\n| Keep in Drive | Digital page | Why |\n| --- | --- | --- |\n| User Guide Milinav Application.pdf | [User Guide](#/user-guide) | Latest English end-user manual |\n| Technical User Guide Milinav Application.pdf | [Technical Guide](#/technical-guide) | Latest technical manual + encryption |\n| Procedure for Converting TIFF to MMPK Using ArcGIS Pro.pdf | [TIFF to MMPK](#/tiff-to-mmpk) | Raster → MMPK packaging |\n| Panduan Ringkas Aplikasi Milinav.docx | [Panduan Ringkas](#/panduan-ringkas) | Bahasa Melayu quick guide |\n| 7zip_window_configuration.png | Embedded in Technical Guide / Storage Paths | ZIP packaging screenshot |\n| ADB / USB DOCX set | Device Ops pages | Unique device procedures |\n\n## How this portal is organized\n\n1. **Application Manuals** — User, Technical, Panduan, TIFF→MMPK\n2. **Device Ops** — ADB, kiosk ownership, USB modes (with workflow diagrams)\n3. **TacMap Reference** — feature list, path clearance, bearing, billing, storage (with explainers)\n\n[Open the shared Drive folder](https://drive.google.com/drive/folders/1fVt7Zf1XkKXcgnX1Ts-Bj9pSUhujavHP)\n"
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Keep these (latest)",
+      "anchor": "keep-these-latest"
+    },
+    {
+      "level": 2,
+      "title": "How this portal is organized",
+      "anchor": "how-this-portal-is-organized"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Open Drive folder",
+      "url": "https://drive.google.com/drive/folders/1fVt7Zf1XkKXcgnX1Ts-Bj9pSUhujavHP"
+    }
+  ]
+}

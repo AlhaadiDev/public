@@ -1,0 +1,68 @@
+{
+  "slug": "adb-setup",
+  "title": "ADB Setup",
+  "summary": "Install and configure Android Debug Bridge.",
+  "group": "Device Ops",
+  "mode": "full",
+  "pages": [
+    {
+      "id": "full",
+      "title": "ADB Setup",
+      "blocks": [
+        {
+          "id": "full",
+          "title": "ADB Setup",
+          "body": "# Guide to Download, Install, and Set Up ADB\n\n## Quick visual\n\n![ADB setup flow](/media/diagrams/adb-workflow.svg)\n\nFollow the steps below on Windows or macOS, then verify with `adb devices` before kiosk or USB restrictions.\n\nThis document provides a step-by-step guide on how to download, install, and set up Android Debug Bridge (ADB) on both Windows and Mac. ADB allows you to communicate with your Android device using your computer.\n\n## 1. Download and Install ADB\n\n### Windows\n1. Visit the official Android developer website and download the ADB platform-tools for Windows: https://developer.android.com/studio/releases/platform-tools\n2. Extract the downloaded zip file to a folder on your computer.\n3. Open the folder where you extracted the platform-tools. You should see files like `adb.exe` and `fastboot.exe`.\n\n### Mac\n1. Visit the official Android developer website and download the ADB platform-tools for Mac: https://developer.android.com/studio/releases/platform-tools\n2. Extract the zip file to a folder on your Mac.\n3. Open the folder where you extracted the platform-tools. You should see files like `adb` and `fastboot`.\n\n## 2. Set ADB Path (Environment Variable)\n\n### Windows\n1. Open the folder where you extracted the ADB tools, and copy the path to the `platform-tools` folder.\n2. Open the Start menu, search for Environment Variables, and select Edit the system environment variables.\n3. In the System Properties window, click Environment Variables.\n4. Under System variables, select Path and click Edit.\n5. Click New and paste the path to the platform-tools folder. Then click OK.\n6. Confirm ADB is working: open Command Prompt and type `adb devices`.\n\n### Mac\n1. Open Terminal.\n2. Navigate to the extracted folder, for example: `cd ~/Downloads/platform-tools`\n3. Edit your profile (`~/.bash_profile` or `~/.zshrc`) and add:\n   `export PATH=$PATH:~/Downloads/platform-tools`\n4. Save, then run `source ~/.bash_profile` or `source ~/.zshrc`.\n5. Confirm with `adb devices`.\n\n## 3. Additional Notes\n- Enable USB Debugging: Settings > Developer options > USB Debugging.\n- Connect the device via USB and install required drivers on Windows."
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Quick visual",
+      "anchor": "quick-visual"
+    },
+    {
+      "level": 2,
+      "title": "1. Download and Install ADB",
+      "anchor": "1.-download-and-install-adb"
+    },
+    {
+      "level": 3,
+      "title": "Windows",
+      "anchor": "windows"
+    },
+    {
+      "level": 3,
+      "title": "Mac",
+      "anchor": "mac"
+    },
+    {
+      "level": 2,
+      "title": "2. Set ADB Path (Environment Variable)",
+      "anchor": "2.-set-adb-path-environment-variable"
+    },
+    {
+      "level": 3,
+      "title": "Windows",
+      "anchor": "windows"
+    },
+    {
+      "level": 3,
+      "title": "Mac",
+      "anchor": "mac"
+    },
+    {
+      "level": 2,
+      "title": "3. Additional Notes",
+      "anchor": "3.-additional-notes"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Download DOCX",
+      "url": "https://drive.google.com/uc?export=download&id=17XIptABzJWdUsTPeszEQF5y79yOraZNk"
+    }
+  ]
+}

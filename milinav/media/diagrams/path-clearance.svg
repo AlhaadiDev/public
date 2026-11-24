@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340" role="img" aria-label="Path clearance terrain arc">
+  <rect width="960" height="340" rx="12" fill="#f7faf7"/>
+  <text x="28" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Path clearance — terrain arc</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Arc clears the highest sampled ground by clearance height C · terrain-only · not fire control</text>
+  <!-- ground fill -->
+  <path d="M60 250 C 180 240, 260 210, 360 180 C 460 155, 520 200, 620 220 C 720 235, 800 245, 900 248 L900 300 L60 300 Z" fill="#e8efe4" stroke="none"/>
+  <path d="M60 250 C 180 240, 260 210, 360 180 C 460 155, 520 200, 620 220 C 720 235, 800 245, 900 248" fill="none" stroke="#8a6a12" stroke-width="3"/>
+  <!-- clearance arc -->
+  <path d="M80 230 C 200 210, 280 175, 380 145 C 480 120, 540 170, 640 190 C 740 208, 820 218, 880 222" fill="none" stroke="#1b6b3c" stroke-width="3" stroke-dasharray="8 6"/>
+  <!-- points -->
+  <circle cx="100" cy="245" r="7" fill="#1b6b3c"/>
+  <circle cx="820" cy="240" r="7" fill="#7a6420"/>
+  <text x="112" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#145530">Origin</text>
+  <text x="780" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a6420">Destination</text>
+  <!-- C label -->
+  <line x1="360" y1="180" x2="360" y2="145" stroke="#1b6b3c" stroke-width="2"/>
+  <text x="372" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#1b6b3c">C</text>
+  <text x="28" y="322" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Solid = terrain profile · Dashed = clearance path · C = requested clearance height</text>
+</svg>

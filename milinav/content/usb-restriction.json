@@ -1,0 +1,63 @@
+{
+  "slug": "usb-restriction",
+  "title": "USB Restriction Methods",
+  "summary": "Manual, MDM, root, and hardware options for charge-only USB.",
+  "group": "Device Ops",
+  "mode": "full",
+  "pages": [
+    {
+      "id": "full",
+      "title": "USB Restriction Methods",
+      "blocks": [
+        {
+          "id": "full",
+          "title": "USB Restriction Methods",
+          "body": "# Restricting Android USB Port to Charging Only\n\n## Quick visual\n\n![USB port modes](/media/diagrams/usb-modes.svg)\n\nChoose the restriction method that matches your fleet: ADB command, MDM policy, rooted settings, or hardware.\n\nOverview of methods to prevent USB data transfer while allowing charging.\n\n## 1. Developer Options (Manual)\n1. Settings > About phone > tap Build number seven times.\n2. Settings > Developer options > Default USB configuration > Charging only.\nNote: users can override this manually.\n\n## 2. Enterprise MDM\nUse MDM platforms such as Google Workspace, Microsoft Intune, AirWatch, or MobileIron.\n1. Choose an MDM solution.\n2. Create a USB restriction policy.\n3. Deploy the policy to managed devices.\n\n## 3. Custom ROM / Rooted Device\nAdvanced only. Use Tasker with root, or modify ROM source to remove USB data transfer. Risk of warranty void / bricking.\n\n## 4. Charge-Only Cables\nHardware cables without data lines physically block transfer while allowing charge.\n\n## Conclusion\n- Personal use: Developer Options\n- Organizations: MDM\n- Deep control: Custom ROM/root\n- Guaranteed physical block: charge-only cable\n\n## Resources\n- Android Developer Options: https://developer.android.com/studio/debug/dev-options\n- Google Workspace MDM: https://support.google.com/a/answer/1734200\n- Microsoft Intune: https://learn.microsoft.com/en-us/mem/intune/"
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Quick visual",
+      "anchor": "quick-visual"
+    },
+    {
+      "level": 2,
+      "title": "1. Developer Options (Manual)",
+      "anchor": "1.-developer-options-manual"
+    },
+    {
+      "level": 2,
+      "title": "2. Enterprise MDM",
+      "anchor": "2.-enterprise-mdm"
+    },
+    {
+      "level": 2,
+      "title": "3. Custom ROM / Rooted Device",
+      "anchor": "3.-custom-rom--rooted-device"
+    },
+    {
+      "level": 2,
+      "title": "4. Charge-Only Cables",
+      "anchor": "4.-charge-only-cables"
+    },
+    {
+      "level": 2,
+      "title": "Conclusion",
+      "anchor": "conclusion"
+    },
+    {
+      "level": 2,
+      "title": "Resources",
+      "anchor": "resources"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Download DOCX",
+      "url": "https://drive.google.com/uc?export=download&id=1ummj1sS-r1oOyBMZxAg9ZUfCLFkUQa9g"
+    }
+  ]
+}
