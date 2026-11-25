@@ -1,8 +1,8 @@
 {
   "slug": "battle-graphics-share",
   "title": "Battle Graphics Share",
-  "summary": "Shared battle graphics import/export notes.",
-  "group": "TacMap",
+  "summary": "Export and import passphrase-locked battle graphics.",
+  "group": "Field Guide",
   "mode": "full",
   "pages": [
     {

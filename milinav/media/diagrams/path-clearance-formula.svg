@@ -1,24 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-label="Path clearance formula cases">
-  <rect width="960" height="360" rx="12" fill="#f7faf7"/>
-  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Clearance arc — peak + C</text>
-  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Parabola in distance–height space · z_peak = g_peak + C</text>
-  <!-- terrain -->
-  <path d="M60 280 C 160 270, 240 220, 340 180 C 420 150, 480 200, 580 210 C 700 225, 800 240, 900 250" fill="none" stroke="#8a6a12" stroke-width="3"/>
-  <path d="M60 280 C 160 270, 240 220, 340 180 C 420 150, 480 200, 580 210 C 700 225, 800 240, 900 250 L900 320 L60 320 Z" fill="#e8efe4" opacity="0.7"/>
-  <!-- peak marker -->
-  <line x1="340" y1="180" x2="340" y2="130" stroke="#1b6b3c" stroke-width="2"/>
-  <text x="350" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#1b6b3c">C</text>
-  <circle cx="340" cy="180" r="5" fill="#8a6a12"/>
-  <text x="300" y="300" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">g_peak</text>
-  <!-- arc -->
-  <path d="M80 260 Q 340 110 880 235" fill="none" stroke="#1b6b3c" stroke-width="3" stroke-dasharray="8 5"/>
-  <text x="400" y="100" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#1b6b3c">clearance arc</text>
-  <circle cx="90" cy="265" r="7" fill="#1b6b3c"/>
-  <circle cx="870" cy="240" r="7" fill="#7a6420"/>
-  <text x="70" y="290" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1b6b3c">Origin</text>
-  <text x="820" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#7a6420">Dest</text>
-  <rect x="560" y="70" width="360" height="90" rx="10" fill="#fff" stroke="#d7e0d9"/>
-  <text x="575" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#152019">Case A: peak mid-path</text>
-  <text x="575" y="120" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">Arc through origin, z_peak, dest</text>
-  <text x="575" y="142" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">Case B: peak at end → lift arc</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="460" viewBox="0 0 1040 460" role="img" aria-label="Path clearance calculation cases">
+  <rect width="1040" height="460" rx="16" fill="#f4f7f4"/>
+  <text x="32" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#152019">Path clearance · calculation</text>
+  <text x="32" y="64" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a6b60">Sample DEM along A→B · find peak ground · raise by clearance C · fit parabola arc</text>
+
+  <!-- terrain profile -->
+  <path d="M60 320 C 160 310, 240 250, 340 200 C 420 165, 500 230, 600 245 C 720 265, 820 280, 980 290" fill="none" stroke="#8a6a12" stroke-width="3.5"/>
+  <path d="M60 320 C 160 310, 240 250, 340 200 C 420 165, 500 230, 600 245 C 720 265, 820 280, 980 290 L980 380 L60 380 Z" fill="#e8efe4" opacity="0.75"/>
+  <line x1="340" y1="200" x2="340" y2="140" stroke="#1b6b3c" stroke-width="2.5"/>
+  <text x="350" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="800" fill="#1b6b3c">C</text>
+  <circle cx="340" cy="200" r="6" fill="#8a6a12"/>
+  <text x="300" y="400" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a6b60">g_peak</text>
+  <path d="M80 300 Q 340 120 960 275" fill="none" stroke="#1b6b3c" stroke-width="3.5" stroke-dasharray="9 6"/>
+  <text x="430" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#1b6b3c">clearance arc (z)</text>
+  <circle cx="90" cy="305" r="8" fill="#1b6b3c"/>
+  <circle cx="950" cy="280" r="8" fill="#7a6420"/>
+  <text x="70" y="340" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#1b6b3c">A</text>
+  <text x="930" y="310" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a6420">B</text>
+
+  <rect x="40" y="40" width="0" height="0"/>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="13">
+    <rect x="40" y="70" width="320" height="100" rx="12" fill="#fff" stroke="#d7e0d9"/>
+    <text x="56" y="98" font-weight="700" fill="#152019">Step 1 · Sample</text>
+    <text x="56" y="122" fill="#3d4f44">Along geodesic A→B sample DEM</text>
+    <text x="56" y="144" fill="#3d4f44">elevations → ground profile g(s)</text>
+
+    <rect x="380" y="70" width="300" height="100" rx="12" fill="#fff" stroke="#d7e0d9"/>
+    <text x="396" y="98" font-weight="700" fill="#152019">Step 2 · Peak + C</text>
+    <text x="396" y="122" fill="#3d4f44">g_peak = max(g(s))</text>
+    <text x="396" y="144" fill="#145530">z_peak = g_peak + C</text>
+
+    <rect x="700" y="70" width="300" height="100" rx="12" fill="#fff8e8" stroke="#d6c48a"/>
+    <text x="716" y="98" font-weight="700" fill="#4a3d18">Step 3 · Arc</text>
+    <text x="716" y="122" fill="#5a4a18">Fit parabola through A, z_peak, B</text>
+    <text x="716" y="144" fill="#5a4a18">Animate projectile along arc</text>
+  </g>
 </svg>

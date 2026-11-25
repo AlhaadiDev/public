@@ -15,9 +15,9 @@
   {
     "slug": "user-guide",
     "title": "User Guide",
-    "summary": "Latest end-user manual (PDF). Setup, maps, licensing, navigation.",
+    "summary": "End-user setup and operation for the MiliNav tablet application.",
     "group": "Application Manuals",
-    "pageCount": 19,
+    "pageCount": 1,
     "downloads": [
       {
         "label": "Download PDF",
@@ -32,9 +32,9 @@
   {
     "slug": "technical-guide",
     "title": "Technical Guide",
-    "summary": "Latest technical manual (PDF). Includes encryption and deployment.",
+    "summary": "Technical configuration, encryption, deployment, and troubleshooting.",
     "group": "Application Manuals",
-    "pageCount": 22,
+    "pageCount": 1,
     "downloads": [
       {
         "label": "Download PDF",
@@ -51,7 +51,7 @@
     "title": "Panduan Ringkas",
     "summary": "Bahasa Melayu quick guide with screenshots.",
     "group": "Application Manuals",
-    "pageCount": 8,
+    "pageCount": 1,
     "downloads": [
       {
         "label": "Download DOCX",
@@ -64,7 +64,7 @@
     "title": "TIFF to MMPK (ArcGIS Pro)",
     "summary": "Convert BGSP/TIFF rasters to Mobile Map Package for MiliNav.",
     "group": "Application Manuals",
-    "pageCount": 7,
+    "pageCount": 1,
     "downloads": [
       {
         "label": "Download PDF",
@@ -73,11 +73,88 @@
     ]
   },
   {
+    "slug": "tacmap",
+    "title": "TacMap",
+    "summary": "Field guide — how to use every TacMap Tools feature.",
+    "group": "Field Guide",
+    "pageCount": 10
+  },
+  {
+    "slug": "control-measures",
+    "title": "Control Measures",
+    "summary": "Control-measure colours and short codes for the map.",
+    "group": "Field Guide",
+    "pageCount": 1
+  },
+  {
+    "slug": "battle-graphics-share",
+    "title": "Battle Graphics Share",
+    "summary": "Export and import passphrase-locked battle graphics.",
+    "group": "Field Guide",
+    "pageCount": 1
+  },
+  {
+    "slug": "spatial-mesh-lora",
+    "title": "Spatial Mesh & LoRa",
+    "summary": "Spatial Mesh plugin setup, channels, and private DM.",
+    "group": "Field Guide",
+    "pageCount": 8
+  },
+  {
+    "slug": "technical",
+    "title": "Technical",
+    "summary": "How TacMap calculations and systems work — formulas and logic.",
+    "group": "Technical",
+    "pageCount": 4
+  },
+  {
+    "slug": "navigation-calculations",
+    "title": "Navigation calculations",
+    "summary": "Bearing, resection, destination math, and live course logic.",
+    "group": "Technical",
+    "pageCount": 10
+  },
+  {
+    "slug": "path-clearance",
+    "title": "Path Clearance",
+    "summary": "Terrain sampling, clearance formula, projectile animation.",
+    "group": "Technical",
+    "pageCount": 1
+  },
+  {
+    "slug": "compass-bearing-navigation",
+    "title": "Compass Bearing Navigation",
+    "summary": "Deep reference: destination bearing, back bearing, course behaviour.",
+    "group": "Technical",
+    "pageCount": 1
+  },
+  {
+    "slug": "navigation-and-arcgis-billing",
+    "title": "Navigation & ArcGIS Billing",
+    "summary": "Which navigation paths can consume ArcGIS routing credits.",
+    "group": "Technical",
+    "pageCount": 1
+  },
+  {
+    "slug": "storage-paths-and-decryption",
+    "title": "Storage Paths & Decryption",
+    "summary": "Encrypted map paths and decryption flow.",
+    "group": "Technical",
+    "pageCount": 1
+  },
+  {
+    "slug": "gyro-testing-guide",
+    "title": "Gyro Testing Guide",
+    "summary": "Gyroscope / inclinometer testing guidance.",
+    "group": "Technical",
+    "pageCount": 1
+  },
+  {
     "slug": "adb-setup",
     "title": "ADB Setup",
     "summary": "Install and configure Android Debug Bridge.",
     "group": "Device Ops",
-    "pageCount": 7,
+    "pageCount": 1,
     "downloads": [
       {
         "label": "Download DOCX",
@@ -90,7 +167,7 @@
     "title": "ADB Device Admin / Kiosk",
     "summary": "Set and remove MiliNav device owner via ADB.",
     "group": "Device Ops",
-    "pageCount": 8,
+    "pageCount": 1,
     "downloads": [
       {
         "label": "Download DOCX",
@@ -103,7 +180,7 @@
     "title": "USB Charging Only (ADB)",
     "summary": "Force USB charging-only mode with ADB.",
     "group": "Device Ops",
-    "pageCount": 5,
+    "pageCount": 1,
     "downloads": [
       {
         "label": "Download DOCX",
@@ -114,9 +191,9 @@
   {
     "slug": "usb-restriction",
     "title": "USB Restriction Methods",
-    "summary": "Manual, MDM, root, and hardware charge-only options.",
+    "summary": "Manual, MDM, root, and hardware options for charge-only USB.",
     "group": "Device Ops",
-    "pageCount": 6,
+    "pageCount": 1,
     "downloads": [
       {
         "label": "Download DOCX",
@@ -129,78 +206,6 @@
     "title": "Kiosk Device Owner",
     "summary": "Kiosk / device-owner notes from the repo.",
     "group": "Device Ops",
-    "pageCount": 4
-  },
-  {
-    "slug": "spatial-mesh-lora",
-    "title": "Spatial Mesh & LoRa",
-    "summary": "Plugin setup, mesh data path, public channel vs private DM.",
-    "group": "Device Ops",
-    "pageCount": 8,
-    "downloads": []
-  },
-  {
-    "slug": "tacmap",
-    "title": "TacMap",
-    "summary": "Complete TacMap guide — every Tools feature explained for the field.",
-    "group": "TacMap",
-    "pageCount": 17,
-    "downloads": []
-  },
-  {
-    "slug": "tactical-map-feature-listing",
-    "title": "TacMap Feature Listing",
-    "summary": "Compact Tools and Navigation checklist for TacMap.",
-    "group": "TacMap",
-    "pageCount": 15
-  },
-  {
-    "slug": "path-clearance",
-    "title": "Path Clearance",
-    "summary": "Terrain sampling, clearance formula, projectile animation.",
-    "group": "TacMap",
-    "pageCount": 16
-  },
-  {
-    "slug": "compass-bearing-navigation",
-    "title": "Compass Bearing Navigation",
-    "summary": "Destination bearing, back bearing, and course behaviour.",
-    "group": "TacMap",
-    "pageCount": 32
-  },
-  {
-    "slug": "navigation-and-arcgis-billing",
-    "title": "Navigation & ArcGIS Billing",
-    "summary": "Which navigation paths can consume ArcGIS routing credits.",
-    "group": "TacMap",
-    "pageCount": 15
-  },
-  {
-    "slug": "storage-paths-and-decryption",
-    "title": "Storage Paths & Decryption",
-    "summary": "Encrypted map paths and decryption flow.",
-    "group": "TacMap",
-    "pageCount": 13
-  },
-  {
-    "slug": "control-measures",
-    "title": "Control Measures",
-    "summary": "Control-measure colors and short codes.",
-    "group": "TacMap",
-    "pageCount": 42
-  },
-  {
-    "slug": "battle-graphics-share",
-    "title": "Battle Graphics Share",
-    "summary": "Shared battle graphics import/export notes.",
-    "group": "TacMap",
-    "pageCount": 21
-  },
-  {
-    "slug": "gyro-testing-guide",
-    "title": "Gyro Testing Guide",
-    "summary": "Gyroscope / inclinometer testing guidance.",
-    "group": "TacMap",
-    "pageCount": 23
+    "pageCount": 1
   }
 ]

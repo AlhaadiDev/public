@@ -1,0 +1,41 @@
+{
+  "slug": "technical",
+  "title": "Technical",
+  "summary": "How TacMap calculations and systems work — formulas and logic.",
+  "group": "Technical",
+  "pageCount": 4,
+  "downloads": [],
+  "toc": [
+    {
+      "level": 2,
+      "title": "What belongs here",
+      "anchor": "what-belongs-here"
+    },
+    {
+      "level": 2,
+      "title": "Quick visual — navigation logic",
+      "anchor": "quick-visual-navigation-logic"
+    },
+    {
+      "level": 2,
+      "title": "Quick visual — path clearance",
+      "anchor": "quick-visual-path-clearance"
+    },
+    {
+      "level": 2,
+      "title": "How to read these docs",
+      "anchor": "how-to-read-these-docs"
+    }
+  ],
+  "pages": [
+    {
+      "title": "Technical",
+      "blocks": [
+        {
+          "type": "markdown",
+          "body": "# Technical\n\nThis section explains **how TacMap calculations and systems work** — formulas, logic flow, elevation sampling, routing cost paths, storage/decrypt, and sensors. For soldier “tap this” steps, use the **Field Guide**.\n\n## What belongs here\n\n| Topic | Page |\n| --- | --- |\n| Bearing, resection, live course | [Navigation calculations](#/navigation-calculations) |\n| Path clearance sampling & arc | [Path Clearance](#/path-clearance) |\n| Which routes can bill ArcGIS | [Navigation & ArcGIS Billing](#/navigation-and-arcgis-billing) |\n| Encrypted map paths | [Storage Paths & Decryption](#/storage-paths-and-decryption) |\n| Gyro / inclinometer | [Gyro Testing Guide](#/gyro-testing-guide) |\n\n## Quick visual — navigation logic\n\n![Navigation calculation logic](/media/diagrams/navigation-logic.svg)\n\n**Invariant:** destination is fixed. While you walk, TacMap asks “what bearing from *here* reaches that pin?” It does **not** lock the first azimuth forever (unless you chose a fixed A→B start).\n\n## Quick visual — path clearance\n\n![Path clearance calculation](/media/diagrams/path-clearance-formula.svg)\n\nSample DEM along A→B → find `g_peak` → `z_peak = g_peak + C` → fit clearance arc → optional projectile animation. Terrain visualisation only — not fire control.\n\n## How to read these docs\n\n1. Start with the diagram.\n2. Read the **Logic** steps (what the code decides).\n3. Use the formula block when you need the exact computation.\n4. Jump to Field Guide when you only need operator steps.\n"
+        }
+      ]
+    }
+  ]
+}

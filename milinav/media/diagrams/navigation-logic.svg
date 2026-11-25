@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="480" viewBox="0 0 1040 480" role="img" aria-label="TacMap navigation calculation logic">
+  <rect width="1040" height="480" rx="16" fill="#f4f7f4"/>
+  <text x="32" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#152019">Navigation logic · what TacMap computes</text>
+  <text x="32" y="64" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a6b60">Destination is fixed. Bearings refresh from live GPS unless start is deliberately fixed.</text>
+
+  <!-- boxes -->
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="40" y="100" width="200" height="88" rx="12" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="56" y="132" font-size="14" font-weight="700" fill="#152019">1. Inputs</text>
+    <text x="56" y="156" font-size="12" fill="#3d4f44">GPS · landmarks</text>
+    <text x="56" y="176" font-size="12" fill="#3d4f44">destination tap</text>
+
+    <path d="M250 144 H290" stroke="#1b6b3c" stroke-width="3"/>
+    <polygon points="290,144 278,138 278,150" fill="#1b6b3c"/>
+
+    <rect x="300" y="100" width="220" height="88" rx="12" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+    <text x="316" y="132" font-size="14" font-weight="700" fill="#152019">2. Fix position</text>
+    <text x="316" y="156" font-size="12" fill="#3d4f44">GPS fix, or</text>
+    <text x="316" y="176" font-size="12" fill="#3d4f44">2–3 pt resection</text>
+
+    <path d="M530 144 H570" stroke="#1b6b3c" stroke-width="3"/>
+    <polygon points="570,144 558,138 558,150" fill="#1b6b3c"/>
+
+    <rect x="580" y="100" width="200" height="88" rx="12" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="596" y="132" font-size="14" font-weight="700" fill="#152019">3. Course</text>
+    <text x="596" y="156" font-size="12" fill="#3d4f44">θ = bearing(start→dest)</text>
+    <text x="596" y="176" font-size="12" fill="#3d4f44">d = geodesic distance</text>
+
+    <path d="M790 144 H830" stroke="#1b6b3c" stroke-width="3"/>
+    <polygon points="830,144 818,138 818,150" fill="#1b6b3c"/>
+
+    <rect x="840" y="100" width="160" height="88" rx="12" fill="#e8f4ec" stroke="#145530" stroke-width="2"/>
+    <text x="856" y="132" font-size="14" font-weight="700" fill="#145530">4. Guide</text>
+    <text x="856" y="156" font-size="12" fill="#3d4f44">Needle = θ_live</text>
+    <text x="856" y="176" font-size="12" fill="#3d4f44">− heading</text>
+  </g>
+
+  <!-- formulas panel -->
+  <rect x="40" y="220" width="460" height="220" rx="14" fill="#fff" stroke="#d7e0d9"/>
+  <text x="60" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#152019">Core formulas</text>
+  <text x="60" y="282" font-family="IBM Plex Mono, Consolas, monospace" font-size="13" fill="#145530">θ = atan2(sinΔλ·cosφ₂, cosφ₁·sinφ₂ − sinφ₁·cosφ₂·cosΔλ)</text>
+  <text x="60" y="310" font-family="IBM Plex Mono, Consolas, monospace" font-size="13" fill="#145530">θ_back = (θ + 180°) mod 360°</text>
+  <text x="60" y="338" font-family="IBM Plex Mono, Consolas, monospace" font-size="13" fill="#145530">diff = normalize±180(θ_live − heading)</text>
+  <text x="60" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#3d4f44">On course when |diff| &lt; 8°</text>
+  <text x="60" y="394" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a6b60">Resection intersects θ_back rays from landmarks.</text>
+  <text x="60" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a6b60">3-point fix = average of three pairwise intersections.</text>
+
+  <rect x="520" y="220" width="480" height="220" rx="14" fill="#fff8e8" stroke="#d6c48a"/>
+  <text x="540" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#4a3d18">Live vs fixed start</text>
+  <text x="540" y="286" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#4a3d18">Live GPS → fixed destination (default walk-to)</text>
+  <text x="540" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a4a18">• Destination pin never moves</text>
+  <text x="540" y="336" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a4a18">• θ_live recalculated every GPS update</text>
+  <text x="540" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a4a18">• Leaving the red line does not “snap” you back</text>
+  <text x="540" y="396" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#4a3d18">Fixed A→B start: course line stays on dropped start</text>
+  <text x="540" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5a4a18">(offline / planned leg demos)</text>
+</svg>

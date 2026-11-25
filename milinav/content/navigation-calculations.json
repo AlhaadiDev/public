@@ -1,0 +1,71 @@
+{
+  "slug": "navigation-calculations",
+  "title": "Navigation calculations",
+  "summary": "Bearing, resection, destination math, and live course logic.",
+  "group": "Technical",
+  "pageCount": 10,
+  "downloads": [],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Quick visual",
+      "anchor": "quick-visual"
+    },
+    {
+      "level": 2,
+      "title": "End-to-end logic",
+      "anchor": "end-to-end-logic"
+    },
+    {
+      "level": 2,
+      "title": "Forward bearing",
+      "anchor": "forward-bearing"
+    },
+    {
+      "level": 2,
+      "title": "Back bearing",
+      "anchor": "back-bearing"
+    },
+    {
+      "level": 2,
+      "title": "Two-point resection",
+      "anchor": "two-point-resection"
+    },
+    {
+      "level": 2,
+      "title": "Three-point resection",
+      "anchor": "three-point-resection"
+    },
+    {
+      "level": 2,
+      "title": "Destination from bearing + distance",
+      "anchor": "destination-from-bearing-distance"
+    },
+    {
+      "level": 2,
+      "title": "Live course vs fixed start",
+      "anchor": "live-course-vs-fixed-start"
+    },
+    {
+      "level": 2,
+      "title": "Worked operator story",
+      "anchor": "worked-operator-story"
+    },
+    {
+      "level": 2,
+      "title": "Related technical pages",
+      "anchor": "related-technical-pages"
+    }
+  ],
+  "pages": [
+    {
+      "title": "Navigation calculations",
+      "blocks": [
+        {
+          "type": "markdown",
+          "body": "# Navigation calculations\n\nTechnical reference for TacMap navigation math: forward/back bearing, resection, destination point, and live vs fixed course. Field steps: [TacMap](#/tacmap).\n\n## Quick visual\n\n![Navigation logic](/media/diagrams/navigation-logic.svg)\n\n## End-to-end logic\n\n1. **Inputs** — live GPS and/or landmark taps; destination tap.\n2. **Fix position** — use GPS, or resect from 2–3 landmarks.\n3. **Course** — compute bearing θ and geodesic distance from start → destination.\n4. **Guide** — floating compass compares θ_live to device heading; turn hints from `diff`.\n\nCode spine: `CompassBearingHelper` · `CompassBearingMapController` · `FloatingBearingCompassController` · NAV HUD in `TacticalMapV2Activity`.\n\n## Forward bearing\n\n![Forward bearing](/media/diagrams/bearing-forward.svg)\n\n**Meaning:** angle from point A to point B, clockwise from North (0–360°).\n\n**Logic**\n1. Convert latitudes/longitudes to radians.\n2. `Δλ = λ_B − λ_A`.\n3. Build local components:\n   - `y = sin(Δλ) · cos(φ_B)`\n   - `x = cos(φ_A)·sin(φ_B) − sin(φ_A)·cos(φ_B)·cos(Δλ)`\n4. `θ = atan2(y, x)` then normalize to 0–360°.\n\n```\nθ = atan2(y, x)\n```\n\n## Back bearing\n\n![Back bearing](/media/diagrams/bearing-back.svg)\n\n```\nθ_back = (θ + 180°) mod 360°\n```\n\nUsed only to **find where you are** (resection). Walking to a destination uses **forward** bearing from your current fix to the pin.\n\n## Two-point resection\n\n![Two-point resection](/media/diagrams/resection-2pt.svg)\n\n1. Measure forward θ from you to L1 and L2 (from current GPS estimate / tap flow).\n2. Convert each to θ_back.\n3. Draw rays **from the landmarks** along θ_back.\n4. Intersection ≈ your position.\n\n**Risk:** nearly parallel rays → weak fix. Prefer three landmarks.\n\n## Three-point resection\n\n![Three-point resection](/media/diagrams/resection-3pt.svg)\n\n1. Form pairs L1–L2, L2–L3, L1–L3.\n2. Intersect each pair in a local tangent plane (meters), then convert back to lat/lon.\n3. **Final fix = average** of the three intersections.\n\n## Destination from bearing + distance\n\n![Destination point](/media/diagrams/destination-point.svg)\n\nGiven start, θ, and distance:\n\n```\nφ₂ = arcsin(sinφ₁·cos d + cosφ₁·sin d·cosθ)\nλ₂ = λ₁ + atan2(sinθ·sin d·cosφ₁, cos d − sinφ₁·sinφ₂)\n```\n\nwhere `d = distance_km / 6371` (radians). Used to draw back-bearing rays and planned legs.\n\n## Live course vs fixed start\n\n![Course modes](/media/diagrams/course-modes.svg)\n\n| Mode | Start | Destination | Needle |\n| --- | --- | --- | --- |\n| Live GPS → fixed dest | Chases phone GPS | Fixed pin | θ_live each update |\n| Fixed A→B | Dropped/coords start | Fixed pin | Measured from fixed start |\n\nTurn guidance:\n\n```\ndiff = normalize±180(θ_live − heading)\nonCourse if |diff| < 8°\n```\n\n## Worked operator story\n\n1. GPS poor → open **Compass Bearing**.\n2. Tap tower L1, hill L2, building L3.\n3. App draws yellow θ_back rays and averages the intersections → **you**.\n4. Tap objective → red course line from resected fix.\n5. Walk; needle updates from **new GPS → same objective**.\n\n## Related technical pages\n\n- [Path Clearance](#/path-clearance) — DEM sampling and clearance arc\n- [Navigation & ArcGIS Billing](#/navigation-and-arcgis-billing) — road router cost paths\n- Deep dive (same math, longer): [Compass Bearing Navigation](#/compass-bearing-navigation)\n"
+        }
+      ]
+    }
+  ]
+}

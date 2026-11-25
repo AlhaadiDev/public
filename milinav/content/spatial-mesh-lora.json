@@ -1,8 +1,8 @@
 {
   "slug": "spatial-mesh-lora",
   "title": "Spatial Mesh & LoRa",
-  "summary": "Plugin setup, LoRa mesh data path, and channel vs private messaging.",
-  "group": "Device Ops",
+  "summary": "Spatial Mesh plugin setup, channels, and private DM.",
+  "group": "Field Guide",
   "pageCount": 8,
   "downloads": [],
   "toc": [
