@@ -113,16 +113,18 @@ ${s.trim()}
         <div class="nav-list" id="navList"></div>
       </aside>
       <main class="main">
-        <div class="topbar">
-          <button class="menu-toggle" id="menuToggle" type="button">Menu</button>
-          <div class="crumb" id="crumb">Documentation</div>
+        <div class="main-inner">
+          <div class="topbar">
+            <button class="menu-toggle" id="menuToggle" type="button">Menu</button>
+            <div class="crumb" id="crumb">Documentation</div>
+          </div>
+          <div class="content-search-bar">
+            <label class="search-label" for="contentSearch">Search content</label>
+            <input class="search" id="contentSearch" type="search" placeholder="Search in this open page…" autocomplete="off" spellcheck="false" />
+            <div class="search-meta" id="contentSearchMeta"></div>
+          </div>
+          <div id="view"></div>
         </div>
-        <div class="content-search-bar">
-          <label class="search-label" for="contentSearch">Search content</label>
-          <input class="search" id="contentSearch" type="search" placeholder="Search in this open page…" autocomplete="off" spellcheck="false" />
-          <div class="search-meta" id="contentSearchMeta"></div>
-        </div>
-        <div id="view"></div>
       </main>
     </div>
   `;const t=document.getElementById("docSearch"),e=document.getElementById("contentSearch");t.value=p.docQuery,e.value=p.contentQuery,t.addEventListener("input",Ft),e.addEventListener("input",jt),t.addEventListener("keydown",n=>{n.key==="Escape"&&(p.docQuery="",t.value="",P())}),e.addEventListener("keydown",n=>{if(n.key==="Escape"){p.contentQuery="",e.value="",j(),R(0);return}if(n.key==="Enter"){n.preventDefault();const r=he();if(!r.length){const s=G({scroll:!0});R(s.count);return}Oe((p.inDocHitIndex||0)+1),R(r.length)}}),document.getElementById("menuToggle").addEventListener("click",()=>{p.sidebarOpen=!p.sidebarOpen,ee()}),document.getElementById("backdrop").addEventListener("click",()=>{p.sidebarOpen=!1,ee()}),p.shellReady=!0}function Ft(t){p.docQuery=t.target.value,P()}function jt(t){if(p.contentQuery=t.target.value,p.route.view!=="doc"){j(),R(0);return}const e=G({scroll:!0});R(e.count)}function P(){const t=document.getElementById("navList");t&&(t.innerHTML=Mt(),Wt(t));const e=document.getElementById("docSearchMeta");if(e)if(!Z().length)e.textContent="Titles & summaries in the list below";else{const r=He().length;e.textContent=`${r} document${r===1?"":"s"} in the list`}R(he().length)}function ee(){const t=document.getElementById("sidebar"),e=document.getElementById("backdrop");t&&t.classList.toggle("open",p.sidebarOpen),e&&(e.hidden=!p.sidebarOpen)}function Gt(){p.docQuery="",p.contentQuery="",p.inDocHitIndex=-1;const t=document.getElementById("docSearch"),e=document.getElementById("contentSearch");t&&(t.value=""),e&&(e.value=""),j(),P()}function Wt(t){t.querySelectorAll("[data-nav='home']").forEach(e=>{e.addEventListener("click",()=>{Gt(),Y({view:"home"})})}),t.querySelectorAll("[data-doc]").forEach(e=>{e.addEventListener("click",()=>Y({view:"doc",slug:e.getAttribute("data-doc")}))})}function ye(t){t.querySelectorAll("[data-doc]").forEach(e=>{e.addEventListener("click",()=>Y({view:"doc",slug:e.getAttribute("data-doc")}))}),t.querySelectorAll("[data-scroll]").forEach(e=>{e.addEventListener("click",()=>{const n=e.getAttribute("data-scroll"),r=document.getElementById(n);r&&r.scrollIntoView({behavior:"smooth",block:"start"})})})}async function pe(t={}){Qe(),ee(),P();const e=document.getElementById("view"),n=document.getElementById("crumb");if(!(!e||!n)){e.classList.add("is-loading");try{if(p.route.view==="home"||p.route.view==="search")p.route.view==="search"&&(p.route={view:"home"},history.replaceState(null,"","#/")),n.textContent="Documentation",e.innerHTML=Nt(),ye(e);else{const r=await qe(p.route.slug);n.textContent=r.title,e.innerHTML=Zt(r),ye(e)}}catch(r){n.textContent="Documentation",e.innerHTML=`<div class="empty">${b(r.message)}</div>`}finally{e.classList.remove("is-loading");const r=p.route.view==="doc"&&F().length;if(!t.preserveScroll&&!r&&window.scrollTo({top:0,behavior:"instant"in window?"instant":"auto"}),r){const s=G({scroll:!0});R(s.count)}else R(0)}}}window.addEventListener("hashchange",()=>{p.route=De(),pe()});async function Ut(){try{await Lt(),Qe(),await pe(),zt().then(()=>{if(P(),F().length&&p.route.view==="doc"){const t=G({scroll:!0});R(t.count)}})}catch(t){Be.innerHTML=`<div class="main"><div class="empty">${b(t.message)}</div></div>`}}Ut();
