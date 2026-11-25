@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="260" viewBox="0 0 960 260" role="img" aria-label="Spatial Mesh setup flow">
+  <rect width="960" height="260" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Setup flow</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Install matched APKs → enable → link radio → configure → Save to radio</text>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#152019">
+    <rect x="28" y="90" width="150" height="90" rx="10" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="44" y="122" font-weight="700">1. Install</text>
+    <text x="44" y="144" fill="#3d4f44">MiliNav + plugin</text>
+    <text x="44" y="162" fill="#3d4f44">same update</text>
+    <path d="M188 135 H218" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="220" y="90" width="150" height="90" rx="10" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="236" y="122" font-weight="700">2. Open mesh</text>
+    <text x="236" y="144" fill="#3d4f44">Top icon / Tools</text>
+    <text x="236" y="162" fill="#3d4f44">Enable ON</text>
+    <path d="M380 135 H410" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="412" y="90" width="150" height="90" rx="10" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="428" y="122" font-weight="700">3. Link</text>
+    <text x="428" y="144" fill="#3d4f44">BT + notify OK</text>
+    <text x="428" y="162" fill="#1b6b3c">Radio linked</text>
+    <path d="M572 135 H602" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="604" y="90" width="150" height="90" rx="10" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+    <text x="620" y="122" font-weight="700">4. Setup tab</text>
+    <text x="620" y="144" fill="#3d4f44">Name · channels</text>
+    <text x="620" y="162" fill="#3d4f44">Range / hops</text>
+    <path d="M764 135 H794" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="796" y="90" width="140" height="90" rx="10" fill="#fff8e8" stroke="#d6c48a"/>
+    <text x="812" y="122" font-weight="700">5. Save</text>
+    <text x="812" y="144" fill="#5a4a18">Save to radio</text>
+    <text x="812" y="162" fill="#5a4a18">wait reconnect</text>
+  </g>
+  <text x="28" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Status: Saving → Restarting → Checking → Saved. Use Release / Connect to hand BT to Meshtastic for region, PIN, MQTT, firmware.</text>
+</svg>

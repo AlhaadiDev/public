@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-label="Public channel vs private direct message">
+  <rect width="960" height="360" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Channel broadcast vs private (direct) message</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Same LoRa channel slot — empty toId = everyone; toId = one peer</text>
+  <!-- left public -->
+  <rect x="28" y="80" width="440" height="240" rx="12" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+  <text x="48" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#1b6b3c">Channel / “Everyone”</text>
+  <text x="48" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">sendText(msg, channelIndex, hop, toId="")</text>
+  <circle cx="120" cy="200" r="18" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+  <text x="108" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#1b6b3c">You</text>
+  <circle cx="250" cy="170" r="14" fill="#fff" stroke="#7a6420"/>
+  <circle cx="250" cy="230" r="14" fill="#fff" stroke="#7a6420"/>
+  <circle cx="360" cy="200" r="14" fill="#fff" stroke="#7a6420"/>
+  <line x1="138" y1="200" x2="236" y2="170" stroke="#1b6b3c" stroke-width="2"/>
+  <line x1="138" y1="200" x2="236" y2="230" stroke="#1b6b3c" stroke-width="2"/>
+  <line x1="138" y1="200" x2="346" y2="200" stroke="#1b6b3c" stroke-width="2"/>
+  <text x="48" y="280" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Encrypted with channel PSK (if set)</text>
+  <text x="48" y="300" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1b6b3c">Receipt stays Sent (no delivery ACK)</text>
+  <!-- right private -->
+  <rect x="492" y="80" width="440" height="240" rx="12" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+  <text x="512" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#7a6420">Private / Direct</text>
+  <text x="512" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">sendText(msg, channelIndex, hop, toId="!…")</text>
+  <circle cx="580" cy="200" r="18" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+  <text x="568" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#1b6b3c">You</text>
+  <circle cx="800" cy="200" r="18" fill="#fff8e8" stroke="#7a6420" stroke-width="2"/>
+  <text x="778" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#7a6420">Peer</text>
+  <line x1="598" y1="200" x2="782" y2="200" stroke="#7a6420" stroke-width="3"/>
+  <circle cx="700" cy="160" r="10" fill="#fff" stroke="#bcc9bf" opacity="0.7"/>
+  <text x="668" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#5a6b60">others ignore</text>
+  <text x="512" y="280" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Still uses a channel index + encryption</text>
+  <text x="512" y="300" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#7a6420">Queued → Delivered / Retrying</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="280" viewBox="0 0 960 280" role="img" aria-label="Message delivery states">
+  <rect width="960" height="280" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Message status in Chat</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">A failed message does not mean the radio disconnected</text>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="12">
+    <rect x="28" y="90" width="160" height="100" rx="10" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="48" y="125" font-weight="700" fill="#1b6b3c">Sent</text>
+    <text x="48" y="148" fill="#3d4f44">Handed to radio</text>
+    <text x="48" y="168" fill="#5a6b60">Channel stays here</text>
+    <rect x="208" y="90" width="160" height="100" rx="10" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="228" y="125" font-weight="700" fill="#152019">Queued</text>
+    <text x="228" y="148" fill="#3d4f44">In radio TX queue</text>
+    <text x="228" y="168" fill="#5a6b60">Waiting airtime</text>
+    <rect x="388" y="90" width="160" height="100" rx="10" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+    <text x="408" y="125" font-weight="700" fill="#7a6420">Delivered</text>
+    <text x="408" y="148" fill="#3d4f44">Routing = NONE</text>
+    <text x="408" y="168" fill="#5a6b60">Direct only</text>
+    <rect x="568" y="90" width="160" height="100" rx="10" fill="#fff8e8" stroke="#d6c48a"/>
+    <text x="588" y="125" font-weight="700" fill="#5a4a18">Retrying</text>
+    <text x="588" y="148" fill="#5a4a18">One private retry</text>
+    <text x="588" y="168" fill="#5a4a18">Direct only</text>
+    <rect x="748" y="90" width="180" height="100" rx="10" fill="#fff" stroke="#bcc9bf"/>
+    <text x="768" y="125" font-weight="700" fill="#152019">Not accepted</text>
+    <text x="768" y="148" fill="#3d4f44">Radio reason shown</text>
+    <text x="768" y="168" fill="#5a6b60">Fix &amp; resend</text>
+  </g>
+  <text x="28" y="240" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Top icon: amber = plugin present / mesh off · green = linked · red = mesh on but link dropped</text>
+</svg>

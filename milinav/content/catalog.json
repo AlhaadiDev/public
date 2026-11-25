@@ -132,6 +132,14 @@
     "pageCount": 4
   },
   {
+    "slug": "spatial-mesh-lora",
+    "title": "Spatial Mesh & LoRa",
+    "summary": "Plugin setup, mesh data path, public channel vs private DM.",
+    "group": "Device Ops",
+    "pageCount": 8,
+    "downloads": []
+  },
+  {
     "slug": "tactical-map-feature-listing",
     "title": "TacMap Feature Listing",
     "summary": "User-facing TacMap Tools and Navigation features.",

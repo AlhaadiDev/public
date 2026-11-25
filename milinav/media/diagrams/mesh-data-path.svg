@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340" role="img" aria-label="How mesh data travels">
+  <rect width="960" height="340" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">How data travels on the mesh</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">App → plugin → radio → LoRa hops → peer radios → their plugins → their apps</text>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="12">
+    <rect x="30" y="90" width="120" height="70" rx="10" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="48" y="120" font-weight="700" fill="#152019">TacNav UI</text>
+    <text x="48" y="142" fill="#3d4f44">Chat / share</text>
+    <path d="M150 125 H180" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="180" y="90" width="120" height="70" rx="10" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="198" y="120" font-weight="700" fill="#152019">Plugin</text>
+    <text x="198" y="142" fill="#3d4f44">AIDL + BT</text>
+    <path d="M300 125 H330" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="330" y="90" width="120" height="70" rx="10" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+    <text x="348" y="120" font-weight="700" fill="#152019">Your radio</text>
+    <text x="348" y="142" fill="#3d4f44">Encrypt + TX</text>
+    <path d="M450 125 H490" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="490" y="80" width="200" height="90" rx="10" fill="#fff8e8" stroke="#d6c48a"/>
+    <text x="508" y="110" font-weight="700" fill="#5a4a18">LoRa mesh air</text>
+    <text x="508" y="132" fill="#5a4a18">Hop limit 1–7</text>
+    <text x="508" y="152" fill="#5a4a18">Peers may rebroadcast</text>
+    <path d="M690 125 H720" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="720" y="90" width="100" height="70" rx="10" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+    <text x="735" y="120" font-weight="700" fill="#152019">Peer radio</text>
+    <text x="735" y="142" fill="#3d4f44">Decrypt</text>
+    <path d="M820 125 H850" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="850" y="90" width="90" height="70" rx="10" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="862" y="120" font-weight="700" fill="#152019">Peer app</text>
+    <text x="862" y="142" fill="#3d4f44">Chat/map</text>
+  </g>
+  <rect x="30" y="200" width="900" height="110" rx="12" fill="#fff" stroke="#d7e0d9"/>
+  <text x="48" y="230" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#152019">What rides on the radio</text>
+  <text x="48" y="255" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">• Chat text (≤250 chars / 231 UTF-8 bytes) · channel or direct</text>
+  <text x="48" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">• Radio GPS fixes (if channel LOC on) · waypoints / drawings from radial Share</text>
+  <text x="48" y="295" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">• Phone GPS is not timer-broadcast — Share location sends once as a chat line</text>
+</svg>
