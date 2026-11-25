@@ -1,0 +1,236 @@
+{
+  "slug": "tacmap",
+  "title": "TacMap",
+  "summary": "Complete TacMap guide — every Tools feature explained for the field.",
+  "group": "TacMap",
+  "pageCount": 17,
+  "downloads": [],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Quick visual",
+      "anchor": "quick-visual"
+    },
+    {
+      "level": 2,
+      "title": "How to open tools",
+      "anchor": "how-to-open-tools"
+    },
+    {
+      "level": 2,
+      "title": "Tracks — record where you moved",
+      "anchor": "tracks-record-where-you-moved"
+    },
+    {
+      "level": 3,
+      "title": "Create Track",
+      "anchor": "create-track"
+    },
+    {
+      "level": 3,
+      "title": "Breadcrumbs",
+      "anchor": "breadcrumbs"
+    },
+    {
+      "level": 2,
+      "title": "Plots — drawings and symbols",
+      "anchor": "plots-drawings-and-symbols"
+    },
+    {
+      "level": 3,
+      "title": "Draw Graphics",
+      "anchor": "draw-graphics"
+    },
+    {
+      "level": 3,
+      "title": "Control Measures",
+      "anchor": "control-measures"
+    },
+    {
+      "level": 2,
+      "title": "Reports — SPOTREP, photos, troops",
+      "anchor": "reports-spotrep-photos-troops"
+    },
+    {
+      "level": 3,
+      "title": "SPOTREP",
+      "anchor": "spotrep"
+    },
+    {
+      "level": 3,
+      "title": "Photo Mode",
+      "anchor": "photo-mode"
+    },
+    {
+      "level": 3,
+      "title": "Troop Tracking",
+      "anchor": "troop-tracking"
+    },
+    {
+      "level": 2,
+      "title": "Navigate — compass, resection, roads, grid",
+      "anchor": "navigate-compass-resection-roads-grid"
+    },
+    {
+      "level": 3,
+      "title": "Compass Mode (Navigate-To / FastLock)",
+      "anchor": "compass-mode-navigate-to-fastlock"
+    },
+    {
+      "level": 3,
+      "title": "Compass Bearing (Resection)",
+      "anchor": "compass-bearing-resection"
+    },
+    {
+      "level": 3,
+      "title": "Get Directions",
+      "anchor": "get-directions"
+    },
+    {
+      "level": 3,
+      "title": "Go To Grid",
+      "anchor": "go-to-grid"
+    },
+    {
+      "level": 3,
+      "title": "Range & Bearing (also under Measure)",
+      "anchor": "range-bearing-also-under-measure"
+    },
+    {
+      "level": 2,
+      "title": "Measure & Terrain",
+      "anchor": "measure-terrain"
+    },
+    {
+      "level": 3,
+      "title": "Distance & Direction",
+      "anchor": "distance-direction"
+    },
+    {
+      "level": 3,
+      "title": "Can I see it? (Line of sight)",
+      "anchor": "can-i-see-it-line-of-sight"
+    },
+    {
+      "level": 3,
+      "title": "Path clearance (Path over the ground)",
+      "anchor": "path-clearance-path-over-the-ground"
+    },
+    {
+      "level": 3,
+      "title": "Elevation file",
+      "anchor": "elevation-file"
+    },
+    {
+      "level": 2,
+      "title": "Map look — basemap and overlays",
+      "anchor": "map-look-basemap-and-overlays"
+    },
+    {
+      "level": 3,
+      "title": "Basemap Style",
+      "anchor": "basemap-style"
+    },
+    {
+      "level": 3,
+      "title": "Overlays (your layers)",
+      "anchor": "overlays-your-layers"
+    },
+    {
+      "level": 2,
+      "title": "JUPEM files — official encrypted maps",
+      "anchor": "jupem-files-official-encrypted-maps"
+    },
+    {
+      "level": 3,
+      "title": "Download Or Decrypt",
+      "anchor": "download-or-decrypt"
+    },
+    {
+      "level": 3,
+      "title": "Activate Map",
+      "anchor": "activate-map"
+    },
+    {
+      "level": 3,
+      "title": "Legacy Nav Map",
+      "anchor": "legacy-nav-map"
+    },
+    {
+      "level": 2,
+      "title": "Share",
+      "anchor": "share"
+    },
+    {
+      "level": 3,
+      "title": "Share Battle Graphics",
+      "anchor": "share-battle-graphics"
+    },
+    {
+      "level": 3,
+      "title": "Share Overlay Screenshot",
+      "anchor": "share-overlay-screenshot"
+    },
+    {
+      "level": 3,
+      "title": "Share My Grid / Coordinate",
+      "anchor": "share-my-grid-coordinate"
+    },
+    {
+      "level": 2,
+      "title": "Set values — formats and HUD",
+      "anchor": "set-values-formats-and-hud"
+    },
+    {
+      "level": 3,
+      "title": "Coordinate Format",
+      "anchor": "coordinate-format"
+    },
+    {
+      "level": 3,
+      "title": "Map Screen HUD",
+      "anchor": "map-screen-hud"
+    },
+    {
+      "level": 2,
+      "title": "This device",
+      "anchor": "this-device"
+    },
+    {
+      "level": 2,
+      "title": "More (overflow)",
+      "anchor": "more-overflow"
+    },
+    {
+      "level": 2,
+      "title": "Map chrome you will use every day",
+      "anchor": "map-chrome-you-will-use-every-day"
+    },
+    {
+      "level": 2,
+      "title": "Spatial Mesh on TacMap",
+      "anchor": "spatial-mesh-on-tacmap"
+    },
+    {
+      "level": 2,
+      "title": "Limitations and coming soon",
+      "anchor": "limitations-and-coming-soon"
+    },
+    {
+      "level": 2,
+      "title": "TacMap section — related pages",
+      "anchor": "tacmap-section-related-pages"
+    }
+  ],
+  "pages": [
+    {
+      "title": "TacMap",
+      "blocks": [
+        {
+          "type": "markdown",
+          "body": "# TacMap — complete feature guide\n\n**TacMap** is the tactical operations map in MiliNav (`TacticalMapV2`). It is the main map screen for tracks, drawings, navigation, terrain measure, overlays, JUPEM offline maps, and sharing.\n\nOpen TacMap from the MiliNav home screen. Almost every capability lives under the on-map **Tools** button. The Tools list is searchable — type words such as *compass*, *path*, *overlay*, or *settings*.\n\n## Quick visual\n\n![TacMap feature map](/media/diagrams/tacmap-tools.svg)\n\nThis guide explains **every soldier-facing TacMap feature**. Deep math and packaging details stay in the linked pages under this TacMap section.\n\n> **Overlays** vs **JUPEM:** Overlays are *your* layers (tiles, GeoPDF, imported graphics, grid lines). JUPEM files are *official* encrypted TOPO/OSM packages you download or decrypt, then activate as the basemap. They are separate menus on purpose.\n\n---\n\n## How to open tools\n\n1. Open **TacMap**.\n2. Tap **Tools** (top / rail). Subtitle: *Tracks, plots, navigation, overlays, share, and settings.*\n3. Use the search box to filter by name, description, or keywords.\n4. Items with a chevron open a **submenu**. Back returns to Tools.\n5. The same overlay list also opens from the **layers** shortcut and the **navigation drawer**.\n\nThere is also a **Navigation features** drawer with the navigate / map-look / JUPEM / ops shortcuts. Tools remains the full palette.\n\n---\n\n## Tracks — record where you moved\n\n### Create Track\n\nStarts a movement record you can keep in the **Map Library**.\n\n| Mode | What it does |\n| --- | --- |\n| **Start GPS track log** | Follows your phone GPS and draws the path as you move |\n| **Draw route** | You sketch the track polyline on the map by hand |\n| **Map library** | Opens saved tracks / drawings / photos / offline maps |\n| **Stop GPS track** | Ends an active GPS log |\n\n**Typical use:** start a GPS log before a patrol, stop when finished, open Map Library later to review or share.\n\n### Breadcrumbs\n\nToggle **ON/OFF**. When on, TacMap drops a point on the map each time you move — a dotted trail of where you have been, without managing a full track session.\n\n---\n\n## Plots — drawings and symbols\n\n### Draw Graphics\n\nSketchEditor drawing on the map:\n\n- **Point**, **line**, **area** (polygon), **freehand**, **rectangle**\n- Undo / cancel while drawing\n- Finished graphics autosave into your local graphics set\n\nUse this for quick field sketches, boundaries, and routes that are not NATO control measures.\n\n### Control Measures\n\nPlaces **MIL-STD-2525C Appendix B** tactical graphics (control measures) as coded chips — not full unit TO&E icons.\n\n- Colour tells the job (friendly / hostile / neutral / unknown conventions in the picker)\n- Search by **name**, **short code**, or **SIDC**\n- Place with crosshair or by tapping the map\n\nFull colour and code meanings: [Control Measures](#/control-measures).\n\n---\n\n## Reports — SPOTREP, photos, troops\n\n### SPOTREP\n\nPlace a **spot report** on the map:\n\n1. Tap the ground where the observation applies.\n2. Add remarks / narrative.\n3. Attach **photos**.\n4. Keep a **progress log** as the situation updates.\n\nThe report stays as a map object you can revisit from your saved content.\n\n### Photo Mode\n\nPins a **GPS-stamped photo** at your **current location** (needs location permission). Faster than a full SPOTREP when you only need a geotagged picture.\n\n### Troop Tracking\n\n**Coming soon** in the Tools list. Intended for live friendly positions. Do not rely on it for blue-force tracking yet.\n\n---\n\n## Navigate — compass, resection, roads, grid\n\n![Compass bearing navigation](/media/diagrams/compass-bearing.svg)\n\n### Compass Mode (Navigate-To / FastLock)\n\nWalk toward a point with the **FastLock** floating compass.\n\nTypical choices inside the submenu:\n\n- Navigate to a **saved waypoint**\n- Navigate to the **map crosshair**\n- Enter / leave **compass follow** mode\n- **Stop NAV** when finished\n\nBehaviour: the **destination stays fixed**. As you move, bearing and distance are recomputed from **live GPS → same destination**. The needle does not lock the first azimuth forever.\n\n![Live GPS vs fixed course](/media/diagrams/course-modes.svg)\n\n### Compass Bearing (Resection)\n\nUse when GPS is weak or you need a map fix from landmarks:\n\n1. Tap **2 or 3 known landmarks** on the map.\n2. TacMap measures forward bearings, draws **back bearings**, and runs **resection**.\n3. Tap a **destination**.\n4. Follow the floating compass to that destination.\n\n![Two-point resection](/media/diagrams/resection-2pt.svg)\n\n![Three-point resection](/media/diagrams/resection-3pt.svg)\n\nFull formulas and course behaviour: [Compass Bearing Navigation](#/compass-bearing-navigation).\n\n### Get Directions\n\nRoad route **A → B**.\n\n| Situation | What happens |\n| --- | --- |\n| Online, OSRM works | Free public road router; drawn on map |\n| Online, OSRM fails | May fall back to **ArcGIS World Route** (possible credits) |\n| Offline / both fail | Straight-line guidance only |\n\nStart and destination can come from GPS, map drop, crosshair, coordinates, or a waypoint.\n\nBilling detail: [Navigation & ArcGIS Billing](#/navigation-and-arcgis-billing).\n\n![Router billing paths](/media/diagrams/nav-router-billing.svg)\n\n### Go To Grid\n\nJumps the map camera to a place you type:\n\n- Latitude / longitude\n- **UTM**, **MGRS**, and JUPEM-style grid search strings\n\nDoes **not** start navigation by itself — it only opens that ground on the map. Combine with Compass Mode or Get Directions if you need to walk there.\n\n### Range & Bearing (also under Measure)\n\nTap **point A**, then **point B** for geodesic **distance** and **bearing**. Optional rings: **100 m**, **500 m**, **1 km**. Available from Measure & Terrain and from the navigation drawer.\n\n---\n\n## Measure & Terrain\n\nOpen **Tools → Measure & Terrain**.\n\n### Distance & Direction\n\nSame range/bearing tool as above (tap A, tap B; optional range rings).\n\n### Can I see it? (Line of sight)\n\nTerrain **line-of-sight** from observer → target:\n\n1. Prefer an **offline GeoTIFF DEM** (Elevation file).\n2. If no DEM and the network + ArcGIS key are available, uses **ArcGIS World Elevation** online.\n3. Tap **observer**, then **target**.\n4. Read whether terrain blocks the line, first obstruction distance, and sample count.\n\n> Terrain awareness only — **not** a fire-control or targeting system.\n\n### Path clearance (Path over the ground)\n\n3D clearance check between two taps:\n\n![Path clearance concept](/media/diagrams/path-clearance.svg)\n\n1. Set elevation source (offline DEM preferred).\n2. Optionally set required clearance height (default **50 m**, range 0–5000).\n3. Tap **start**, then **end**.\n4. TacMap samples ground along the path, builds a clearance arc above the highest ground, and can **replay** a projectile animation.\n\n![Path clearance formula](/media/diagrams/path-clearance-formula.svg)\n\nFull sampling and animation notes: [Path Clearance](#/path-clearance).\n\n> Terrain-only visualisation — **not** fire control.\n\n### Elevation file\n\nChoose or remove the **offline GeoTIFF DEM** used by LOS and path clearance. Without a local DEM, those tools need online elevation (when available).\n\n---\n\n## Map look — basemap and overlays\n\n### Basemap Style\n\nThe picture **under** your layers (online styles):\n\n- Satellite\n- Streets\n- Topographic\n- OSM\n\nChanging basemap style does not remove your overlays or JUPEM package state.\n\n### Overlays (your layers)\n\nOne list for personal / imported layers. Opens from Tools, the layers shortcut, or the nav drawer.\n\n#### On the map\n\n| Feature | Detail |\n| --- | --- |\n| **Offline Overlays** | Show/hide downloaded tiles, GeoPDF, MBTiles |\n| **Grid Lines** | Draw **UTM** or **MGRS** lines on the map |\n| **Imported Graphics** | Show, hide, rename, or delete shared battle-graphics layers |\n| **Map Library** | Browse drawings, tracks, photos, and offline maps you kept |\n\n#### Import\n\n| Feature | Detail |\n| --- | --- |\n| **Import Battle Graphics** | Open a passphrase-locked `.shua` package as its own non-editable layer |\n\n#### Your map packages\n\n| Feature | Detail |\n| --- | --- |\n| **Download Map Area** | Save the current view for offline use (UI present; treat large areas carefully) |\n| **Import GeoPDF Or GeoTIFF** | Add a map sheet you supply over the basemap |\n| **Import MBTiles Or TPK** | Add an offline tile pack you supply |\n\n![Map package / offline flow](/media/diagrams/map-package-flow.svg)\n\n---\n\n## JUPEM files — official encrypted maps\n\nSeparate from Overlays. These are encrypted TOPO/OSM packages (often on SD card), decrypted on device, then employed as the working basemap.\n\n### Download Or Decrypt\n\n- Download **TOPO** / **OSM** packages (PIN-gated where configured)\n- Decrypt a **ZIP on the SD card** (MRSO / BRSO / OSM style packages)\n- Reset decrypted cache when you need a clean decrypt\n\n### Activate Map\n\nEmploy a decrypted TOPO or OSM **MMPK** as the basemap, or stand it down when you want the online/style basemap again.\n\n### Legacy Nav Map\n\nOpens the classic **Navigation** map (`MainNavigator`) for older workflows. Prefer TacMap for new work.\n\nStorage and decrypt paths: [Storage Paths & Decryption](#/storage-paths-and-decryption).\n\nDesktop packaging of rasters into MMPK: [TIFF to MMPK](#/tiff-to-mmpk).\n\n---\n\n## Share\n\n### Share Battle Graphics\n\nPassphrase-locked **`.shua`** packages for drawings, points, tracks, photos, and reports.\n\n| Action | Detail |\n| --- | --- |\n| **Export** | Pick what to include → set passphrase → share the file |\n| **Import** | Open a `.shua` with the passphrase → appears as its own layer |\n| **Layers** | Show / hide / rename / delete imported share layers |\n\nDetails: [Battle Graphics Share](#/battle-graphics-share).\n\n### Share Overlay Screenshot\n\nShares a picture of the **map as it looks now** (current overlays and graphics included in the image).\n\n### Share My Grid / Coordinate\n\nFrom **Tools → More**: shares the inspected coordinate text (the grids you configured under Coordinate Format).\n\n---\n\n## Set values — formats and HUD\n\n### Coordinate Format\n\nChooses which grids appear when you inspect a point (WGS84 / UTM / MGRS / related formats). Affects inspect panels and “share my grid”.\n\n### Map Screen HUD\n\nControls on-map readouts:\n\n- Crosshair coordinate formats\n- Own-position formats\n- Radial-menu **copy** values to clipboard\n\nTune this so the map shows only the numbers your team uses.\n\n---\n\n## This device\n\n| Feature | Detail |\n| --- | --- |\n| **Location Tracking** | Background location ON/OFF for tracks and sharing |\n| **Kiosk Mode** | Lock the device so it stays in TacNav |\n| **Hide Or Show Map UI** | Hide chrome/buttons for a clearer map |\n| **Save Changes** | Persist drawings and layers on this device |\n| **More** | Opens the overflow ops list (below) |\n\nDevice-owner / kiosk ADB steps live under **Device Ops** in this portal.\n\n---\n\n## More (overflow)\n\nOpened from **Tools → More** — *Ops actions not on the main Tools list.*\n\n| Feature | Detail |\n| --- | --- |\n| **COMM** | Local platoon-net **demo** with ACP 125 brevity codes. Does **not** transmit on a radio by itself |\n| **Share My Grid / Coordinate** | Share inspected coordinate text |\n| **Personnel / COP / Tasks** | Ops / situational awareness menus (COP profiles, personnel, mission tasks, TAK status where configured) |\n| **Device Health** | Map data version, location sharing, GNSS summary |\n| **Capability Status** | Shows which TacMap capabilities are available vs gated on this build |\n\n---\n\n## Map chrome you will use every day\n\nThese controls sit on the map surface (not only inside Tools):\n\n- **Location follow / center** — keep the map on you\n- **Compass / north-up** — orient the map\n- **Night mode** — dim UI for low light\n- **Crosshair inspect** — tap or hold to read grids; copy from radial menu\n- **Lib** chip — shortcut into Map Library\n- **Layers** shortcut — same Overlays list as Tools\n\n---\n\n## Spatial Mesh on TacMap\n\nWhen the **Spatial Mesh** plugin is installed, TacMap can show mesh radio markers, trails, and shared graphics. Mesh setup, channels, and private DM behaviour are documented separately:\n\n→ [Spatial Mesh & LoRa](#/spatial-mesh-lora)\n\nWithout the plugin, TacMap still works; mesh shortcuts stay hidden.\n\n---\n\n## Limitations and coming soon\n\n| Item | Status |\n| --- | --- |\n| **Troop Tracking** | Coming soon in Tools |\n| **HERE WeGo** external turn-by-turn | Hidden / commented in code |\n| **Path clearance / LOS** | Terrain visualisation only — not fire control |\n| **COMM** | Local demo — not a radio replacement |\n| **Download Map Area** | UI present; large offline packs need care |\n| **ArcGIS road fallback** | Possible routing credits if OSRM fails online |\n\n---\n\n## TacMap section — related pages\n\n| Page | What it covers |\n| --- | --- |\n| [TacMap Feature Listing](#/tactical-map-feature-listing) | Compact Tools / drawer checklist |\n| [Path Clearance](#/path-clearance) | Clearance formula, sampling, animation |\n| [Compass Bearing Navigation](#/compass-bearing-navigation) | Bearing, resection, live vs fixed course |\n| [Navigation & ArcGIS Billing](#/navigation-and-arcgis-billing) | Which routes can use paid ArcGIS routing |\n| [Storage Paths & Decryption](#/storage-paths-and-decryption) | Encrypted maps and decrypt locations |\n| [Control Measures](#/control-measures) | Colours and short codes |\n| [Battle Graphics Share](#/battle-graphics-share) | `.shua` export / import |\n| [Gyro Testing Guide](#/gyro-testing-guide) | Gyro / inclinometer testing |\n| [Spatial Mesh & LoRa](#/spatial-mesh-lora) | Mesh plugin on / near the map |\n| [TIFF to MMPK](#/tiff-to-mmpk) | Desktop raster → MMPK packaging |\n"
+        }
+      ]
+    }
+  ]
+}

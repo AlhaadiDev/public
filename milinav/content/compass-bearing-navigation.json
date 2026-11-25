@@ -2,7 +2,7 @@
   "slug": "compass-bearing-navigation",
   "title": "Compass Bearing Navigation",
   "summary": "Destination bearing, back bearing, and course behaviour.",
-  "group": "TacMap Reference",
+  "group": "TacMap",
   "mode": "full",
   "pages": [
     {

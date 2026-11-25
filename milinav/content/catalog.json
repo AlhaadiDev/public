@@ -140,59 +140,67 @@
     "downloads": []
   },
   {
+    "slug": "tacmap",
+    "title": "TacMap",
+    "summary": "Complete TacMap guide — every Tools feature explained for the field.",
+    "group": "TacMap",
+    "pageCount": 17,
+    "downloads": []
+  },
+  {
     "slug": "tactical-map-feature-listing",
     "title": "TacMap Feature Listing",
-    "summary": "User-facing TacMap Tools and Navigation features.",
-    "group": "TacMap Reference",
+    "summary": "Compact Tools and Navigation checklist for TacMap.",
+    "group": "TacMap",
     "pageCount": 15
   },
   {
     "slug": "path-clearance",
     "title": "Path Clearance",
     "summary": "Terrain sampling, clearance formula, projectile animation.",
-    "group": "TacMap Reference",
+    "group": "TacMap",
     "pageCount": 16
   },
   {
     "slug": "compass-bearing-navigation",
     "title": "Compass Bearing Navigation",
     "summary": "Destination bearing, back bearing, and course behaviour.",
-    "group": "TacMap Reference",
+    "group": "TacMap",
     "pageCount": 32
   },
   {
     "slug": "navigation-and-arcgis-billing",
     "title": "Navigation & ArcGIS Billing",
     "summary": "Which navigation paths can consume ArcGIS routing credits.",
-    "group": "TacMap Reference",
+    "group": "TacMap",
     "pageCount": 15
   },
   {
     "slug": "storage-paths-and-decryption",
     "title": "Storage Paths & Decryption",
     "summary": "Encrypted map paths and decryption flow.",
-    "group": "TacMap Reference",
+    "group": "TacMap",
     "pageCount": 13
   },
   {
     "slug": "control-measures",
     "title": "Control Measures",
     "summary": "Control-measure colors and short codes.",
-    "group": "TacMap Reference",
+    "group": "TacMap",
     "pageCount": 42
   },
   {
     "slug": "battle-graphics-share",
     "title": "Battle Graphics Share",
     "summary": "Shared battle graphics import/export notes.",
-    "group": "TacMap Reference",
+    "group": "TacMap",
     "pageCount": 21
   },
   {
     "slug": "gyro-testing-guide",
     "title": "Gyro Testing Guide",
     "summary": "Gyroscope / inclinometer testing guidance.",
-    "group": "TacMap Reference",
+    "group": "TacMap",
     "pageCount": 23
   }
 ]

@@ -2,7 +2,7 @@
   "slug": "navigation-and-arcgis-billing",
   "title": "Navigation & ArcGIS Billing",
   "summary": "Which navigation paths can consume ArcGIS routing credits.",
-  "group": "TacMap Reference",
+  "group": "TacMap",
   "mode": "full",
   "pages": [
     {

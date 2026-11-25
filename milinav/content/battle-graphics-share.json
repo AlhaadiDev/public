@@ -1,1 +1,127 @@
-{"slug": "battle-graphics-share", "title": "Battle Graphics Share", "summary": "Shared battle graphics import/export notes.", "group": "TacMap Reference", "mode": "full", "pages": [{"id": "full", "title": "Battle Graphics Share", "blocks": [{"id": "full", "title": "Battle Graphics Share", "body": "# Battle Graphics Share — User Guide & Technical Notes\n\nHow to **encrypt**, **send**, and **open** locked battle-graphics packages on TacMap (`TacticalMapV2Activity`).\n\nIn the app: **Tools → Share battle graphics** to send a package. To put a package on the map, use **Tools → Overlays → Import battle graphics**. The imported layer is managed under **Tools → Overlays → Imported graphics**.  \nCode: `feature/tacticalmapv2/plotshare/`\n\n---\n\n## Part A — User guide\n\n### What this is for\n\nA user plots on the map (drawings, points / control measures, tracks, photos, reports), chooses what to include, names the file, sets a passphrase, creates a locked package, and sends it to the team.\n\nThe receiver opens that package on their device. The plots appear as **their own layer**. They do **not** mix into the receiver’s editable drawings or tracks.\n\n### Screens\n\n| Screen | Purpose |\n|--------|---------|\n| **Export** | File name, what to include, passphrase → create and send |\n| **Import** | Pick a locked file → passphrase (first time) → show on map |\n| **Layers** | Show, hide, rename, or delete each imported package |\n\n### Export (encrypt and send)\n\n1. Open **Tools → Share battle graphics → Export**.\n2. Enter a **file name** (example: `Patrol_Alpha`). The app saves it as `Patrol_Alpha.shua`.\n3. Choose **what to include**:\n   - Drawings (lines, areas, range rings)\n   - Points (draw points **and control measures**)\n   - Tracks\n   - Photos\n   - Reports (SPOTREP)\n4. Enter a **passphrase**. The team needs the same passphrase the first time they open the file on a device.\n5. Tap **Create and send**.\n6. Wait if a loading overlay appears while the package is created, then use the share sheet to send the file.\n\n**Rules for export**\n\n- Passphrase is required.\n- At least one include option must be selected.\n- At least one matching item must exist on the map.\n- Package size must be **80 MB or less**. If it is larger, leave out some photos or split into more than one package.\n\n### Import (decrypt and open)\n\n1. Open **Tools → Overlays → Import battle graphics**. The same file picker is also under **Tools → Share battle graphics → Import**.\n2. Pick the file (any name is fine; the app checks the **contents**, not only `.shua`).\n3. The app reads and checks the file (format and version) before asking for a passphrase.\n4. If this device has never opened that package:\n   - Enter the **passphrase**.\n   - The app decrypts only when the passphrase matches.\n5. If the passphrase is correct, the package opens as its own layer.\n6. If this device already opened that package once, it is remembered: no passphrase prompt again for that file.\n\n**Rules for import**\n\n| Check | Result if it fails |\n|-------|--------------------|\n| File cannot be read / empty / too large | *Could not open that file.* Stop. |\n| `format` does not match | *Format does not match…* Stop. No passphrase. No plots. |\n| `version` does not match or is missing | *Version does not match…* Stop. No passphrase. No plots. |\n| Wrong passphrase | *Wrong passphrase. The file was not opened.* Plots stay hidden. |\n| Correct passphrase (first time) | Decrypt, show layer, remember on this device. |\n\n### Layers (after import)\n\nOpen **Tools → Overlays → Imported graphics**. The same list is under **Tools → Share battle graphics → Layers**.\n\nEach imported file is one layer.\n\n| Action | Effect |\n|--------|--------|\n| **Show / Hide** | Turns that package on or off on the map |\n| **Rename** | Renames the layer on this device |\n| **Delete** | Removes that imported layer only. Your own editable plots stay. |\n\n### On the map\n\n- Imported items are **read-only** on their own overlay.\n- Tapping an item shows its details.\n- Tracks stay visible as tracks.\n- Control measures and lines use the same symbol / style keys that were exported (`styleKey` / `kind`).\n\n### Passphrase tips for the team\n\n- Share the passphrase out of band (voice, separate channel). Do not put it in the file name.\n- Same passphrase must be used by everyone who opens that package for the first time on a device.\n- After a correct open on a device, that device does not ask again for that package.\n\n---\n\n## Part B — Technical notes\n\n### Pipeline overview\n\n```\nExport\n  collect selected graphics + tracks (+ optional photo bytes)\n       → document JSON\n       → AES-GCM encrypt with passphrase-derived key\n       → envelope JSON (format, version, passphraseSha256, iv, payload)\n       → write .shua → Android share sheet\n\nImport\n  read bytes\n       → peek envelope (format + version)\n       → if remembered on device → show layer\n       → else ask passphrase\n       → SHA-256 compare to passphraseSha256\n       → on match: AES-GCM decrypt → store open copy + media → draw layer\n       → on mismatch: stop (no decrypt, no layer write)\n```\n\n### Main classes\n\n| Class | Role |\n|-------|------|\n| `PlotShareRepository` | Create file, inspect, unlock, remember layers, local storage |\n| `PlotShareCodec` | Collect items, seal / peek / open envelope |\n| `PlotShareCrypto` | SHA-256 passphrase check + AES-GCM encrypt / decrypt |\n| `PlotShareLayerRenderer` | Draw each imported package on its own `GraphicsOverlay` |\n| `TacticalMapV2Activity` | Tools UI, loading messages, share / import pickers |\n\n### Envelope format (on disk)\n\nSealed package is UTF-8 JSON:\n\n| Field | Meaning |\n|-------|---------|\n| `format` | Must equal `PlotShareCodec.FORMAT` (`client-local-meta-bundle-tmp-v1`) |\n| `version` | Must equal `PlotShareCodec.VERSION` (`1`) |\n| `id` | Package UUID |\n| `name` | Display name from export |\n| `createdAtEpochMs` | Create time |\n| `passphraseSha256` | Hex SHA-256 of the passphrase (gate only) |\n| `iv` | Base64 AES-GCM IV (12 bytes) |\n| `payload` | Base64 AES-GCM ciphertext of the document JSON |\n\n**Important:** The file suffix (`.shua`) is for naming only. Import accepts `*/*` and validates `format` + `version` inside the file. A renamed copy still opens if the contents are valid.\n\n### Encryption rules\n\n1. **Passphrase hash (gate)**  \n   - Stored: `SHA-256(passphrase)` as hex in `passphraseSha256`.  \n   - Used only to check what the user typed.  \n   - Constant-time compare via `MessageDigest.isEqual`.\n\n2. **Encryption key (payload)**  \n   - Derived separately: `SHA-256(\"<KEY_DOMAIN>\\n\" + passphrase)` → AES-256 key.  \n   - Domain string: `milinav.myspatial.ad.ai.as.aes.v1` (`PlotShareCrypto.KEY_DOMAIN`).  \n   - So knowing the stored hash alone does not give the AES key.\n\n3. **Cipher**  \n   - `AES/GCM/NoPadding`, 128-bit tag, random 12-byte IV per package.\n\n4. **Wrong passphrase**  \n   - Hash mismatch → stop before decrypt.  \n   - Nothing from the package is written to open storage or drawn.\n\n### Size and content limits\n\n| Limit | Value | Behavior |\n|-------|-------|----------|\n| Max package size | 80 MB | Export deletes the file and fails; import treats oversized input as unreadable |\n| File extension on create | `.shua` | Appended by `safeFileName` |\n| Name sanitizing | `[A-Za-z0-9._-]`, max 60 chars before extension | Unsafe characters become `_` |\n| Photos per item | Up to 4 images, each ≤ ~1.5 MB when encoded into the package | Larger / missing files are skipped |\n\n### What is included by category\n\n| Include checkbox | Source kinds |\n|------------------|--------------|\n| Drawings | `draw_line`, `draw_area`, `range_ring` |\n| Points | `draw_point`, `control_measure` |\n| Tracks | Saved GPS / drawn tracks (2+ points) |\n| Photos | `photo` (+ image bytes when readable) |\n| Reports | `spotrep` (+ image bytes when readable) |\n\nOffline map packages (`geopdf`, `mbtiles`, `offline_area`) are **not** part of this share package.\n\n### Device memory after unlock\n\nUnder app files (`context.filesDir/plot_share/`):\n\n| Path | Content |\n|------|---------|\n| `open/<id>.json` | Decrypted document (plain JSON for that device) |\n| `media/<id>/…` | Extracted photo bytes |\n| `layers.json` | Layer index: id, name, visible |\n\nThat is how “remember passphrase for this file on this device” works: after a correct unlock, the open copy exists locally, so the next import of the same package id skips the passphrase prompt.\n\nImported graphics are **not** written into the editable SQLite graphic / track tables.\n\n### Format / version gate (must not continue)\n\nOn peek:\n\n1. Parse JSON. Failure → unreadable.\n2. If `format` ≠ expected → **UnsupportedFormat** → show expected vs found → **stop**.\n3. If `version` missing or ≠ expected → **UnsupportedVersion** → show expected vs found → **stop**.\n4. Only then allow passphrase / remember / decrypt.\n\n### Loading UI\n\nExport and import may show the map loading overlay while encrypt / decrypt / file read runs. Clear the overlay when the step finishes (success or failure).\n\n### Map drawing\n\nImported packages use a dedicated overlay per package id. Graphic `kind` attributes are prefixed (for example `plot_share_control_measure`) so they stay distinct from editable annotations.\n\nSymbols should follow exported `kind` + `styleKey` (control-measure / NATO icons, line styles, track colors) via the map symbology helpers—not a single placeholder style.\n\n---\n\n## Quick reference — operator checklist\n\n**Sender**\n\n1. Plot on map  \n2. Tools → Share battle graphics → Export  \n3. Name + include + passphrase  \n4. Create and send  \n5. Tell the team the passphrase separately  \n\n**Receiver**\n\n1. Tools → Overlays → Import battle graphics  \n2. Pick file  \n3. Enter passphrase (first time on that device)  \n4. Tools → Overlays → Imported graphics to show / hide / rename / delete  \n5. Tap items for details  \n\n**Do not continue when**\n\n- Format is wrong  \n- Version is wrong  \n- Passphrase is wrong  \n- File is unreadable or over 80 MB  \n\n---\n\n## Related docs\n\n- `TACTICAL_MAP_FEATURE_LISTING.md` — Tools menu placement  \n- `CONTROL_MEASURES.md` — Control-measure codes and colors  \n- `STORAGE_PATHS_AND_DECRYPTION.md` — Encrypted **map packages** (MMPK / ZIP), which is a different flow from battle-graphics share  \n"}]}], "toc": [{"level": 2, "title": "Part A — User guide", "anchor": "part-a--user-guide"}, {"level": 3, "title": "What this is for", "anchor": "what-this-is-for"}, {"level": 3, "title": "Screens", "anchor": "screens"}, {"level": 3, "title": "Export (encrypt and send)", "anchor": "export-encrypt-and-send"}, {"level": 3, "title": "Import (decrypt and open)", "anchor": "import-decrypt-and-open"}, {"level": 3, "title": "Layers (after import)", "anchor": "layers-after-import"}, {"level": 3, "title": "On the map", "anchor": "on-the-map"}, {"level": 3, "title": "Passphrase tips for the team", "anchor": "passphrase-tips-for-the-team"}, {"level": 2, "title": "Part B — Technical notes", "anchor": "part-b--technical-notes"}, {"level": 3, "title": "Pipeline overview", "anchor": "pipeline-overview"}, {"level": 3, "title": "Main classes", "anchor": "main-classes"}, {"level": 3, "title": "Envelope format (on disk)", "anchor": "envelope-format-on-disk"}, {"level": 3, "title": "Encryption rules", "anchor": "encryption-rules"}, {"level": 3, "title": "Size and content limits", "anchor": "size-and-content-limits"}, {"level": 3, "title": "What is included by category", "anchor": "what-is-included-by-category"}, {"level": 3, "title": "Device memory after unlock", "anchor": "device-memory-after-unlock"}, {"level": 3, "title": "Format / version gate (must not continue)", "anchor": "format--version-gate-must-not-continue"}, {"level": 3, "title": "Loading UI", "anchor": "loading-ui"}, {"level": 3, "title": "Map drawing", "anchor": "map-drawing"}, {"level": 2, "title": "Quick reference — operator checklist", "anchor": "quick-reference--operator-checklist"}, {"level": 2, "title": "Related docs", "anchor": "related-docs"}]}
+{
+  "slug": "battle-graphics-share",
+  "title": "Battle Graphics Share",
+  "summary": "Shared battle graphics import/export notes.",
+  "group": "TacMap",
+  "mode": "full",
+  "pages": [
+    {
+      "id": "full",
+      "title": "Battle Graphics Share",
+      "blocks": [
+        {
+          "id": "full",
+          "title": "Battle Graphics Share",
+          "body": "# Battle Graphics Share — User Guide & Technical Notes\n\nHow to **encrypt**, **send**, and **open** locked battle-graphics packages on TacMap (`TacticalMapV2Activity`).\n\nIn the app: **Tools → Share battle graphics** to send a package. To put a package on the map, use **Tools → Overlays → Import battle graphics**. The imported layer is managed under **Tools → Overlays → Imported graphics**.  \nCode: `feature/tacticalmapv2/plotshare/`\n\n---\n\n## Part A — User guide\n\n### What this is for\n\nA user plots on the map (drawings, points / control measures, tracks, photos, reports), chooses what to include, names the file, sets a passphrase, creates a locked package, and sends it to the team.\n\nThe receiver opens that package on their device. The plots appear as **their own layer**. They do **not** mix into the receiver’s editable drawings or tracks.\n\n### Screens\n\n| Screen | Purpose |\n|--------|---------|\n| **Export** | File name, what to include, passphrase → create and send |\n| **Import** | Pick a locked file → passphrase (first time) → show on map |\n| **Layers** | Show, hide, rename, or delete each imported package |\n\n### Export (encrypt and send)\n\n1. Open **Tools → Share battle graphics → Export**.\n2. Enter a **file name** (example: `Patrol_Alpha`). The app saves it as `Patrol_Alpha.shua`.\n3. Choose **what to include**:\n   - Drawings (lines, areas, range rings)\n   - Points (draw points **and control measures**)\n   - Tracks\n   - Photos\n   - Reports (SPOTREP)\n4. Enter a **passphrase**. The team needs the same passphrase the first time they open the file on a device.\n5. Tap **Create and send**.\n6. Wait if a loading overlay appears while the package is created, then use the share sheet to send the file.\n\n**Rules for export**\n\n- Passphrase is required.\n- At least one include option must be selected.\n- At least one matching item must exist on the map.\n- Package size must be **80 MB or less**. If it is larger, leave out some photos or split into more than one package.\n\n### Import (decrypt and open)\n\n1. Open **Tools → Overlays → Import battle graphics**. The same file picker is also under **Tools → Share battle graphics → Import**.\n2. Pick the file (any name is fine; the app checks the **contents**, not only `.shua`).\n3. The app reads and checks the file (format and version) before asking for a passphrase.\n4. If this device has never opened that package:\n   - Enter the **passphrase**.\n   - The app decrypts only when the passphrase matches.\n5. If the passphrase is correct, the package opens as its own layer.\n6. If this device already opened that package once, it is remembered: no passphrase prompt again for that file.\n\n**Rules for import**\n\n| Check | Result if it fails |\n|-------|--------------------|\n| File cannot be read / empty / too large | *Could not open that file.* Stop. |\n| `format` does not match | *Format does not match…* Stop. No passphrase. No plots. |\n| `version` does not match or is missing | *Version does not match…* Stop. No passphrase. No plots. |\n| Wrong passphrase | *Wrong passphrase. The file was not opened.* Plots stay hidden. |\n| Correct passphrase (first time) | Decrypt, show layer, remember on this device. |\n\n### Layers (after import)\n\nOpen **Tools → Overlays → Imported graphics**. The same list is under **Tools → Share battle graphics → Layers**.\n\nEach imported file is one layer.\n\n| Action | Effect |\n|--------|--------|\n| **Show / Hide** | Turns that package on or off on the map |\n| **Rename** | Renames the layer on this device |\n| **Delete** | Removes that imported layer only. Your own editable plots stay. |\n\n### On the map\n\n- Imported items are **read-only** on their own overlay.\n- Tapping an item shows its details.\n- Tracks stay visible as tracks.\n- Control measures and lines use the same symbol / style keys that were exported (`styleKey` / `kind`).\n\n### Passphrase tips for the team\n\n- Share the passphrase out of band (voice, separate channel). Do not put it in the file name.\n- Same passphrase must be used by everyone who opens that package for the first time on a device.\n- After a correct open on a device, that device does not ask again for that package.\n\n---\n\n## Part B — Technical notes\n\n### Pipeline overview\n\n```\nExport\n  collect selected graphics + tracks (+ optional photo bytes)\n       → document JSON\n       → AES-GCM encrypt with passphrase-derived key\n       → envelope JSON (format, version, passphraseSha256, iv, payload)\n       → write .shua → Android share sheet\n\nImport\n  read bytes\n       → peek envelope (format + version)\n       → if remembered on device → show layer\n       → else ask passphrase\n       → SHA-256 compare to passphraseSha256\n       → on match: AES-GCM decrypt → store open copy + media → draw layer\n       → on mismatch: stop (no decrypt, no layer write)\n```\n\n### Main classes\n\n| Class | Role |\n|-------|------|\n| `PlotShareRepository` | Create file, inspect, unlock, remember layers, local storage |\n| `PlotShareCodec` | Collect items, seal / peek / open envelope |\n| `PlotShareCrypto` | SHA-256 passphrase check + AES-GCM encrypt / decrypt |\n| `PlotShareLayerRenderer` | Draw each imported package on its own `GraphicsOverlay` |\n| `TacticalMapV2Activity` | Tools UI, loading messages, share / import pickers |\n\n### Envelope format (on disk)\n\nSealed package is UTF-8 JSON:\n\n| Field | Meaning |\n|-------|---------|\n| `format` | Must equal `PlotShareCodec.FORMAT` (`client-local-meta-bundle-tmp-v1`) |\n| `version` | Must equal `PlotShareCodec.VERSION` (`1`) |\n| `id` | Package UUID |\n| `name` | Display name from export |\n| `createdAtEpochMs` | Create time |\n| `passphraseSha256` | Hex SHA-256 of the passphrase (gate only) |\n| `iv` | Base64 AES-GCM IV (12 bytes) |\n| `payload` | Base64 AES-GCM ciphertext of the document JSON |\n\n**Important:** The file suffix (`.shua`) is for naming only. Import accepts `*/*` and validates `format` + `version` inside the file. A renamed copy still opens if the contents are valid.\n\n### Encryption rules\n\n1. **Passphrase hash (gate)**  \n   - Stored: `SHA-256(passphrase)` as hex in `passphraseSha256`.  \n   - Used only to check what the user typed.  \n   - Constant-time compare via `MessageDigest.isEqual`.\n\n2. **Encryption key (payload)**  \n   - Derived separately: `SHA-256(\"<KEY_DOMAIN>\\n\" + passphrase)` → AES-256 key.  \n   - Domain string: `milinav.myspatial.ad.ai.as.aes.v1` (`PlotShareCrypto.KEY_DOMAIN`).  \n   - So knowing the stored hash alone does not give the AES key.\n\n3. **Cipher**  \n   - `AES/GCM/NoPadding`, 128-bit tag, random 12-byte IV per package.\n\n4. **Wrong passphrase**  \n   - Hash mismatch → stop before decrypt.  \n   - Nothing from the package is written to open storage or drawn.\n\n### Size and content limits\n\n| Limit | Value | Behavior |\n|-------|-------|----------|\n| Max package size | 80 MB | Export deletes the file and fails; import treats oversized input as unreadable |\n| File extension on create | `.shua` | Appended by `safeFileName` |\n| Name sanitizing | `[A-Za-z0-9._-]`, max 60 chars before extension | Unsafe characters become `_` |\n| Photos per item | Up to 4 images, each ≤ ~1.5 MB when encoded into the package | Larger / missing files are skipped |\n\n### What is included by category\n\n| Include checkbox | Source kinds |\n|------------------|--------------|\n| Drawings | `draw_line`, `draw_area`, `range_ring` |\n| Points | `draw_point`, `control_measure` |\n| Tracks | Saved GPS / drawn tracks (2+ points) |\n| Photos | `photo` (+ image bytes when readable) |\n| Reports | `spotrep` (+ image bytes when readable) |\n\nOffline map packages (`geopdf`, `mbtiles`, `offline_area`) are **not** part of this share package.\n\n### Device memory after unlock\n\nUnder app files (`context.filesDir/plot_share/`):\n\n| Path | Content |\n|------|---------|\n| `open/<id>.json` | Decrypted document (plain JSON for that device) |\n| `media/<id>/…` | Extracted photo bytes |\n| `layers.json` | Layer index: id, name, visible |\n\nThat is how “remember passphrase for this file on this device” works: after a correct unlock, the open copy exists locally, so the next import of the same package id skips the passphrase prompt.\n\nImported graphics are **not** written into the editable SQLite graphic / track tables.\n\n### Format / version gate (must not continue)\n\nOn peek:\n\n1. Parse JSON. Failure → unreadable.\n2. If `format` ≠ expected → **UnsupportedFormat** → show expected vs found → **stop**.\n3. If `version` missing or ≠ expected → **UnsupportedVersion** → show expected vs found → **stop**.\n4. Only then allow passphrase / remember / decrypt.\n\n### Loading UI\n\nExport and import may show the map loading overlay while encrypt / decrypt / file read runs. Clear the overlay when the step finishes (success or failure).\n\n### Map drawing\n\nImported packages use a dedicated overlay per package id. Graphic `kind` attributes are prefixed (for example `plot_share_control_measure`) so they stay distinct from editable annotations.\n\nSymbols should follow exported `kind` + `styleKey` (control-measure / NATO icons, line styles, track colors) via the map symbology helpers—not a single placeholder style.\n\n---\n\n## Quick reference — operator checklist\n\n**Sender**\n\n1. Plot on map  \n2. Tools → Share battle graphics → Export  \n3. Name + include + passphrase  \n4. Create and send  \n5. Tell the team the passphrase separately  \n\n**Receiver**\n\n1. Tools → Overlays → Import battle graphics  \n2. Pick file  \n3. Enter passphrase (first time on that device)  \n4. Tools → Overlays → Imported graphics to show / hide / rename / delete  \n5. Tap items for details  \n\n**Do not continue when**\n\n- Format is wrong  \n- Version is wrong  \n- Passphrase is wrong  \n- File is unreadable or over 80 MB  \n\n---\n\n## Related docs\n\n- `TACTICAL_MAP_FEATURE_LISTING.md` — Tools menu placement  \n- `CONTROL_MEASURES.md` — Control-measure codes and colors  \n- `STORAGE_PATHS_AND_DECRYPTION.md` — Encrypted **map packages** (MMPK / ZIP), which is a different flow from battle-graphics share  \n"
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "level": 2,
+      "title": "Part A — User guide",
+      "anchor": "part-a--user-guide"
+    },
+    {
+      "level": 3,
+      "title": "What this is for",
+      "anchor": "what-this-is-for"
+    },
+    {
+      "level": 3,
+      "title": "Screens",
+      "anchor": "screens"
+    },
+    {
+      "level": 3,
+      "title": "Export (encrypt and send)",
+      "anchor": "export-encrypt-and-send"
+    },
+    {
+      "level": 3,
+      "title": "Import (decrypt and open)",
+      "anchor": "import-decrypt-and-open"
+    },
+    {
+      "level": 3,
+      "title": "Layers (after import)",
+      "anchor": "layers-after-import"
+    },
+    {
+      "level": 3,
+      "title": "On the map",
+      "anchor": "on-the-map"
+    },
+    {
+      "level": 3,
+      "title": "Passphrase tips for the team",
+      "anchor": "passphrase-tips-for-the-team"
+    },
+    {
+      "level": 2,
+      "title": "Part B — Technical notes",
+      "anchor": "part-b--technical-notes"
+    },
+    {
+      "level": 3,
+      "title": "Pipeline overview",
+      "anchor": "pipeline-overview"
+    },
+    {
+      "level": 3,
+      "title": "Main classes",
+      "anchor": "main-classes"
+    },
+    {
+      "level": 3,
+      "title": "Envelope format (on disk)",
+      "anchor": "envelope-format-on-disk"
+    },
+    {
+      "level": 3,
+      "title": "Encryption rules",
+      "anchor": "encryption-rules"
+    },
+    {
+      "level": 3,
+      "title": "Size and content limits",
+      "anchor": "size-and-content-limits"
+    },
+    {
+      "level": 3,
+      "title": "What is included by category",
+      "anchor": "what-is-included-by-category"
+    },
+    {
+      "level": 3,
+      "title": "Device memory after unlock",
+      "anchor": "device-memory-after-unlock"
+    },
+    {
+      "level": 3,
+      "title": "Format / version gate (must not continue)",
+      "anchor": "format--version-gate-must-not-continue"
+    },
+    {
+      "level": 3,
+      "title": "Loading UI",
+      "anchor": "loading-ui"
+    },
+    {
+      "level": 3,
+      "title": "Map drawing",
+      "anchor": "map-drawing"
+    },
+    {
+      "level": 2,
+      "title": "Quick reference — operator checklist",
+      "anchor": "quick-reference--operator-checklist"
+    },
+    {
+      "level": 2,
+      "title": "Related docs",
+      "anchor": "related-docs"
+    }
+  ]
+}

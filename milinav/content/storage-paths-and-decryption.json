@@ -2,7 +2,7 @@
   "slug": "storage-paths-and-decryption",
   "title": "Storage Paths & Decryption",
   "summary": "Encrypted map paths and decryption flow.",
-  "group": "TacMap Reference",
+  "group": "TacMap",
   "mode": "full",
   "pages": [
     {

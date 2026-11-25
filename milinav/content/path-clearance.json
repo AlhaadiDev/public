@@ -2,7 +2,7 @@
   "slug": "path-clearance",
   "title": "Path Clearance",
   "summary": "Terrain sampling, clearance formula, projectile animation.",
-  "group": "TacMap Reference",
+  "group": "TacMap",
   "mode": "full",
   "pages": [
     {
