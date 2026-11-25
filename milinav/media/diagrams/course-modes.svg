@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="320" viewBox="0 0 960 320" role="img" aria-label="Live GPS vs fixed course modes">
+  <rect width="960" height="320" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Course modes — same destination, different start</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Floating compass always aims live GPS → fixed pin</text>
+  <rect x="40" y="90" width="420" height="190" rx="12" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+  <text x="60" y="122" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#1b6b3c">A. Live GPS start</text>
+  <text x="60" y="148" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">Navigate-To / floating compass</text>
+  <circle cx="120" cy="200" r="9" fill="#e8f4ec" stroke="#1b6b3c"/>
+  <circle cx="320" cy="170" r="9" fill="#7a6420"/>
+  <line x1="120" y1="200" x2="320" y2="170" stroke="#1b6b3c" stroke-width="3"/>
+  <text x="60" y="248" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Veer off course → θ recalculated</text>
+  <text x="60" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1b6b3c">Destination pin never moves</text>
+  <rect x="500" y="90" width="420" height="190" rx="12" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+  <text x="520" y="122" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#7a6420">B. Fixed A→B course</text>
+  <text x="520" y="148" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#3d4f44">Dropped / resected start</text>
+  <circle cx="560" cy="210" r="9" fill="#bcc9bf" stroke="#5a6b60"/>
+  <circle cx="780" cy="150" r="9" fill="#7a6420"/>
+  <line x1="560" y1="210" x2="780" y2="150" stroke="#7a6420" stroke-width="3" stroke-dasharray="6 4"/>
+  <circle cx="640" cy="190" r="7" fill="#e8f4ec" stroke="#1b6b3c"/>
+  <text x="520" y="248" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Map line stays from fixed start</text>
+  <text x="520" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1b6b3c">Needle still uses live GPS → dest</text>
+</svg>

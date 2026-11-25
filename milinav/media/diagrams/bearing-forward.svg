@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-label="Forward bearing from A to B">
+  <rect width="960" height="360" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Forward bearing (θ)</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Angle from your position A to landmark B, clockwise from North (0°–360°)</text>
+  <circle cx="280" cy="210" r="110" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+  <line x1="280" y1="210" x2="280" y2="100" stroke="#bcc9bf" stroke-width="1.5"/>
+  <line x1="280" y1="210" x2="390" y2="210" stroke="#bcc9bf" stroke-width="1.5"/>
+  <text x="272" y="94" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#5a6b60">N 0°</text>
+  <text x="398" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#5a6b60">E 90°</text>
+  <!-- arc for theta -->
+  <path d="M280 120 A90 90 0 0 1 360 150" fill="none" stroke="#7a6420" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="330" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#7a6420">θ</text>
+  <!-- bearing ray NE -->
+  <line x1="280" y1="210" x2="370" y2="130" stroke="#1b6b3c" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="370,130 354,136 362,146" fill="#1b6b3c"/>
+  <circle cx="280" cy="210" r="8" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+  <circle cx="370" cy="130" r="8" fill="#7a6420"/>
+  <text x="200" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#1b6b3c">A · You (GPS)</text>
+  <text x="378" y="122" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a6420">B · Landmark</text>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#152019">
+    <rect x="500" y="90" width="430" height="210" rx="12" fill="#fff" stroke="#d7e0d9"/>
+    <text x="520" y="122" font-weight="700">Formula (great-circle)</text>
+    <text x="520" y="152" fill="#3d4f44">θ = atan2(y, x)</text>
+    <text x="520" y="178" fill="#3d4f44">y = sin(Δλ) · cos(φ₂)</text>
+    <text x="520" y="204" fill="#3d4f44">x = cos(φ₁)·sin(φ₂) − sin(φ₁)·cos(φ₂)·cos(Δλ)</text>
+    <text x="520" y="236" fill="#1b6b3c">φ = latitude · λ = longitude</text>
+    <text x="520" y="262" fill="#1b6b3c">Δλ = λ₂ − λ₁  (A→B)</text>
+  </g>
+</svg>

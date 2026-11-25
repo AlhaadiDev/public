@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-label="Three-point resection average">
+  <rect width="960" height="360" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Three-point resection</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Three pairwise intersections → average = robust position fix</text>
+  <circle cx="200" cy="110" r="11" fill="#7a6420"/><text x="180" y="92" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a6420">L1</text>
+  <circle cx="760" cy="120" r="11" fill="#7a6420"/><text x="740" y="102" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a6420">L2</text>
+  <circle cx="480" cy="300" r="11" fill="#7a6420"/><text x="500" y="318" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a6420">L3</text>
+  <!-- rays -->
+  <line x1="200" y1="110" x2="420" y2="200" stroke="#1b6b3c" stroke-width="2" stroke-dasharray="7 4" opacity="0.7"/>
+  <line x1="760" y1="120" x2="520" y2="190" stroke="#1b6b3c" stroke-width="2" stroke-dasharray="7 4" opacity="0.7"/>
+  <line x1="480" y1="300" x2="450" y2="210" stroke="#1b6b3c" stroke-width="2" stroke-dasharray="7 4" opacity="0.7"/>
+  <line x1="200" y1="110" x2="460" y2="250" stroke="#8ab89a" stroke-width="1.5" opacity="0.5"/>
+  <line x1="760" y1="120" x2="500" y2="250" stroke="#8ab89a" stroke-width="1.5" opacity="0.5"/>
+  <!-- three intersections -->
+  <circle cx="430" cy="195" r="6" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+  <circle cx="510" cy="198" r="6" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+  <circle cx="470" cy="245" r="6" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+  <text x="540" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#5a6b60">L1–L2</text>
+  <text x="520" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#5a6b60">L2–L3</text>
+  <text x="400" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#5a6b60">L1–L3</text>
+  <!-- average -->
+  <circle cx="470" cy="212" r="12" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="3"/>
+  <text x="28" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#1b6b3c">Final fix = average of the three intersections</text>
+</svg>

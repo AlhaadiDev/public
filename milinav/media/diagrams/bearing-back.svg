@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="320" viewBox="0 0 960 320" role="img" aria-label="Back bearing opposite of forward">
+  <rect width="960" height="320" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Back bearing = forward + 180°</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Direction from the landmark back toward you — used to draw resection rays</text>
+  <!-- left: forward -->
+  <rect x="40" y="90" width="420" height="190" rx="12" fill="#fff" stroke="#1b6b3c" stroke-width="2"/>
+  <text x="60" y="122" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#1b6b3c">Forward bearing</text>
+  <text x="60" y="148" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#3d4f44">You → Landmark</text>
+  <circle cx="140" cy="210" r="10" fill="#e8f4ec" stroke="#1b6b3c"/>
+  <circle cx="320" cy="150" r="10" fill="#7a6420"/>
+  <line x1="140" y1="210" x2="320" y2="150" stroke="#1b6b3c" stroke-width="3"/>
+  <text x="200" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#1b6b3c">θ = 45°</text>
+  <text x="120" y="248" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">You</text>
+  <text x="300" y="138" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Landmark</text>
+  <!-- right: back -->
+  <rect x="500" y="90" width="420" height="190" rx="12" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+  <text x="520" y="122" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#7a6420">Back bearing</text>
+  <text x="520" y="148" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#3d4f44">Landmark → You</text>
+  <circle cx="600" cy="150" r="10" fill="#7a6420"/>
+  <circle cx="780" cy="210" r="10" fill="#e8f4ec" stroke="#1b6b3c"/>
+  <line x1="600" y1="150" x2="780" y2="210" stroke="#7a6420" stroke-width="3" stroke-dasharray="8 5"/>
+  <text x="650" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#7a6420">θ_back = 225°</text>
+  <text x="700" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#152019">θ_back = (θ + 180°) mod 360°</text>
+</svg>

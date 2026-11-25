@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-label="Navigation router and billing">
+  <rect width="960" height="300" rx="12" fill="#f7faf7"/>
+  <text x="28" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#152019">Road directions — router order &amp; cost</text>
+  <text x="28" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b60">Compass / Go To use local math only — no routing credits</text>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="13">
+    <rect x="40" y="90" width="200" height="100" rx="12" fill="#e8f4ec" stroke="#1b6b3c" stroke-width="2"/>
+    <text x="60" y="128" font-weight="700" fill="#1b6b3c">1. OSRM</text>
+    <text x="60" y="152" fill="#3d4f44">Primary online</text>
+    <text x="60" y="174" fill="#1b6b3c">No Esri charge</text>
+    <path d="M250 140 H290" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="295" y="90" width="200" height="100" rx="12" fill="#fff" stroke="#7a6420" stroke-width="2"/>
+    <text x="315" y="128" font-weight="700" fill="#7a6420">2. ArcGIS Route</text>
+    <text x="315" y="152" fill="#3d4f44">Fallback online</text>
+    <text x="315" y="174" fill="#7a6420">May use credits</text>
+    <path d="M505 140 H545" stroke="#1b6b3c" stroke-width="2"/>
+    <rect x="550" y="90" width="200" height="100" rx="12" fill="#fff" stroke="#d7e0d9"/>
+    <text x="570" y="128" font-weight="700" fill="#152019">3. Offline</text>
+    <text x="570" y="152" fill="#3d4f44">Straight-line / local</text>
+    <text x="570" y="174" fill="#1b6b3c">No cloud charge</text>
+    <rect x="780" y="90" width="140" height="100" rx="12" fill="#fff8e8" stroke="#d6c48a"/>
+    <text x="798" y="128" font-weight="700" fill="#5a4a18">SDK license</text>
+    <text x="798" y="152" fill="#5a4a18">Runtime only</text>
+    <text x="798" y="174" fill="#5a4a18">Not per-nav</text>
+  </g>
+  <text x="40" y="240" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#3d4f44">Go To + compass bearing: sensors + geodesic math on-device — never call a road router.</text>
+</svg>
